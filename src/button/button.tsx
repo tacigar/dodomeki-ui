@@ -16,7 +16,7 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   size = 'md',
   href,
   onClick,
@@ -41,5 +41,3 @@ const Button: FC<ButtonProps> = ({
     <button onClick={handleClick}>{children}</button>
   );
 };
-
-export default Button;
