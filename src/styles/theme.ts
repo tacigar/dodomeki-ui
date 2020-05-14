@@ -1,4 +1,4 @@
-interface Theme {
+export interface Theme {
   palette: {
     primary: string[];
     secondary: string[];
@@ -11,3 +11,17 @@ interface Theme {
     };
   };
 }
+
+export const defaultTheme: Theme = {
+  palette: {
+    primary: [],
+    secondary: [],
+    tertiary: [],
+    white: '#fff',
+    black: '#000',
+    grey: {
+      light: [],
+      dark: [],
+    },
+  },
+};
