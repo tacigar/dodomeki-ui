@@ -5,5 +5,7 @@ import { Button } from './button';
 
 storiesOf('Button', module)
   .add('Button', () => (
-    <Button />
+    <Button size="lg">
+      Hello
+    </Button>
   ));

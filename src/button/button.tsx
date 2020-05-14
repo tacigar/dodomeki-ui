@@ -1,4 +1,8 @@
 import React, { ReactNode, MouseEvent, MouseEventHandler, FC } from 'react';
+import styled from 'styled-components';
+
+import { useTheme } from '../styles/use-theme';
+import { Theme } from '../styles/theme';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -31,6 +35,8 @@ export const Button: FC<ButtonProps> = ({
     }
   };
 
+  const theme = useTheme();
+
   if (href) {
     return (
       <a onClick={handleClick}>{children}</a>
@@ -38,6 +44,28 @@ export const Button: FC<ButtonProps> = ({
   }
 
   return (
-    <button onClick={handleClick}>{children}</button>
+    <MyButton
+      theme={theme}
+      size={size}
+      onClick={handleClick}
+    >
+      {children}
+    </MyButton>
   );
 };
+
+export const MyButton = styled.button<{
+  theme: Theme;
+  size: SizeType;
+}>`
+  font-size: ${({ theme, size }) => {
+    switch (size) {
+      case 'sm':
+        return theme.text.fontSize.xsmall;
+      case 'md':
+        return theme.text.fontSize.small;
+      case 'lg':
+        return theme.text.fontSize.medium;
+    }
+  }}
+`;
