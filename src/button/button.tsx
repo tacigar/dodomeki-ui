@@ -73,7 +73,7 @@ export const MyButton = styled.button<{
             return theme.palette.secondary[5];
         }
       case 'outlined':
-        return 'none';
+        return 'transparent';
     }
   }};
   font-size: ${({ theme, size }) => {
@@ -94,6 +94,20 @@ export const MyButton = styled.button<{
         return `6px 9px`;
       case 'lg':
         return `8px 11px`;
+    }
+  }};
+  border-radius: 3px;
+  border: ${({ theme, variant, color }) => {
+    switch (variant) {
+      case 'filled':
+        switch (color) {
+          case 'primary':
+            return `1px solid ${theme.palette.primary[8]}`;
+          case 'secondary':
+            return `1px solid ${theme.palette.secondary[8]}`;
+        }
+      case 'outlined':
+        return `1px solid ${theme.palette.grey.light[9]}`;
     }
   }};
 `;
