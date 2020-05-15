@@ -2,7 +2,6 @@ export interface Theme {
   palette: {
     primary: string[];
     secondary: string[];
-    danger: string[];
     white: string;
     black: string;
     grey: {
@@ -28,9 +27,30 @@ export interface Theme {
 
 export const defaultTheme: Theme = {
   palette: {
-    primary: [],
-    secondary: [],
-    danger: [],
+    primary: [ // Teal color
+      '#e0f2f1',
+      '#b2dfdb',
+      '#80cbc4',
+      '#4db6ac',
+      '#26a69a',
+      '#009688',
+      '#00897b',
+      '#00796b',
+      '#00695c',
+      '#004d40',
+    ],
+    secondary: [ // Deep Orange
+      '#fbe9e7',
+      '#ffccbc',
+      '#ffab91',
+      '#ff8a65',
+      '#ff7043',
+      '#ff5722',
+      '#f4511e',
+      '#e64a19',
+      '#d84315',
+      '#bf360c',
+    ],
     white: '#fff',
     black: '#000',
     grey: {
