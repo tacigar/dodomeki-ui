@@ -8,7 +8,7 @@ type SizeType = 'sm' | 'md' | 'lg';
 
 type VariantType = 'filled' | 'outlined';
 
-type ColorType = 'primary' | 'secondary' | 'default';
+type ColorType = 'primary' | 'secondary';
 
 interface ButtonProps {
   size?: SizeType;
@@ -26,7 +26,7 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   children,
   variant = 'outlined',
-  color = 'default',
+  color = 'primary',
   className = '',
 }) => {
   const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
@@ -47,6 +47,8 @@ export const Button: FC<ButtonProps> = ({
     <MyButton
       theme={theme}
       size={size}
+      variant={variant}
+      color={color}
       onClick={handleClick}
     >
       {children}
@@ -57,7 +59,23 @@ export const Button: FC<ButtonProps> = ({
 export const MyButton = styled.button<{
   theme: Theme;
   size: SizeType;
+  variant: VariantType;
+  color: ColorType;
 }>`
+  color: ${({ theme, variant }) => variant === 'filled' ? theme.palette.white : undefined};
+  background-color: ${({ theme, variant, color }) => {
+    switch (variant) {
+      case 'filled':
+        switch (color) {
+          case 'primary':
+            return theme.palette.primary[5];
+          case 'secondary':
+            return theme.palette.secondary[5];
+        }
+      case 'outlined':
+        return 'none';
+    }
+  }};
   font-size: ${({ theme, size }) => {
     switch (size) {
       case 'sm':
