@@ -2,7 +2,7 @@ export interface Theme {
   palette: {
     primary: string[];
     secondary: string[];
-    tertiary: string[];
+    danger: string[];
     white: string;
     black: string;
     grey: {
@@ -30,7 +30,7 @@ export const defaultTheme: Theme = {
   palette: {
     primary: [],
     secondary: [],
-    tertiary: [],
+    danger: [],
     white: '#fff',
     black: '#000',
     grey: {
