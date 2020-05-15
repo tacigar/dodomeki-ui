@@ -62,6 +62,7 @@ export const MyButton = styled.button<{
   variant: VariantType;
   color: ColorType;
 }>`
+  opacity: 1;
   color: ${({ theme, variant }) => variant === 'filled' ? theme.palette.white : undefined};
   background-color: ${({ theme, variant, color }) => {
     switch (variant) {
@@ -107,8 +108,29 @@ export const MyButton = styled.button<{
             return `1px solid ${theme.palette.secondary[8]}`;
         }
       case 'outlined':
-        return `1px solid ${theme.palette.grey.light[9]}`;
+        return `1px solid ${theme.palette.grey.light[8]}`;
     }
   }};
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    background-color: ${({ theme, variant, color }) => {
+      switch (variant) {
+        case 'filled':
+          switch (color) {
+            case 'primary':
+              return theme.palette.primary[7];
+            case 'secondary':
+              return theme.palette.secondary[7];
+          }
+        case 'outlined':
+          return undefined;
+      }
+    }};
+  }
+  &:focus {
+    outline: none;
+  }
 `;
