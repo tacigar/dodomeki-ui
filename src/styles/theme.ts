@@ -54,7 +54,17 @@ export const defaultTheme: Theme = {
     white: '#fff',
     black: '#000',
     grey: {
-      light: [],
+      light: [
+        '#fafafa',
+        '#f5f5f5',
+        '#eeeeee',
+        '#e5e5e5',
+        '#e0e0e0',
+        '#d9d9d9',
+        '#c5c5c5',
+        '#b6b6b6',
+        '#b0b0b0',
+      ],
       dark: [],
     },
   },
