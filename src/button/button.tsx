@@ -110,4 +110,5 @@ export const MyButton = styled.button<{
         return `1px solid ${theme.palette.grey.light[9]}`;
     }
   }};
+  cursor: pointer;
 `;
