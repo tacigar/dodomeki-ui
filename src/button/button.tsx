@@ -63,9 +63,19 @@ export const MyButton = styled.button<{
       case 'sm':
         return theme.text.fontSize.xsmall;
       case 'md':
-        return theme.text.fontSize.small;
+        return theme.text.fontSize.base;
       case 'lg':
         return theme.text.fontSize.medium;
     }
-  }}
+  }};
+  padding: ${({ size }) => {
+    switch (size) {
+      case 'sm':
+        return `4px 7px`;
+      case 'md':
+        return `6px 9px`;
+      case 'lg':
+        return `8px 11px`;
+    }
+  }};
 `;

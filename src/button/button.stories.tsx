@@ -5,7 +5,15 @@ import { Button } from './button';
 
 storiesOf('Button', module)
   .add('Button', () => (
-    <Button size="lg">
-      Hello
-    </Button>
+    <div>
+      <Button size="sm">
+        Button
+      </Button>
+      <Button size="md">
+        Button
+      </Button>
+      <Button size="lg">
+        Button
+      </Button>
+    </div>
   ));
