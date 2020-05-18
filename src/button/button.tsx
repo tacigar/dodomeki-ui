@@ -39,7 +39,7 @@ export const Button: FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a onClick={handleClick}>{children}</a>
+      <a href={href} onClick={handleClick}>{children}</a>
     );
   }
 
