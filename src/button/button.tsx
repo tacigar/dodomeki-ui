@@ -4,19 +4,24 @@ import styled from 'styled-components';
 import { useTheme } from '../styles/use-theme';
 import { Theme } from '../styles/theme';
 
-type SizeType = 'sm' | 'md' | 'lg';
+export type ButtonSizeType = 'sm' | 'md' | 'lg';
 
-type VariantType = 'filled' | 'outlined';
+export type ButtonVariantType = 'filled' | 'outlined' | 'empty';
 
-type ColorType = 'primary' | 'secondary';
+export type ButtonColorType = 'default' | 'primary' | 'secondary' | 'warning' | 'danger' | 'ghost';
 
 interface ButtonProps {
-  size?: SizeType;
+  size?: ButtonSizeType;
   href?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   children?: ReactNode;
-  variant?: VariantType;
-  color?: ColorType;
+  variant?: ButtonVariantType;
+  color?: ButtonColorType;
+  isLoading?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   className?: string;
 }
 
@@ -26,7 +31,12 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   children,
   variant = 'outlined',
-  color = 'primary',
+  color = 'default',
+  isLoading,
+  disabled,
+  fullWidth = false,
+  startIcon,
+  endIcon,
   className = '',
 }) => {
   const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
@@ -58,9 +68,9 @@ export const Button: FC<ButtonProps> = ({
 
 export const MyButton = styled.button<{
   theme: Theme;
-  size: SizeType;
-  variant: VariantType;
-  color: ColorType;
+  size: ButtonSizeType;
+  variant: ButtonVariantType;
+  color: ButtonColorType;
 }>`
   opacity: 1;
   color: ${({ theme, variant }) => variant === 'filled' ? theme.palette.white : undefined};
