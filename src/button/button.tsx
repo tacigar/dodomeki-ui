@@ -10,26 +10,6 @@ export type ButtonVariantType = 'filled' | 'outlined' | 'empty';
 
 export type ButtonColorType = 'default' | 'primary' | 'secondary' | 'warning' | 'danger' | 'ghost';
 
-const getSizeStyles = (size: ButtonSizeType, theme: Theme) => {
-  switch (size) {
-    case 'sm':
-      return css`
-        font-size: ${theme.text.fontSize.xsmall};
-        padding: 4px 7px;
-      `;
-    case 'md':
-      return css`
-        font-size: ${theme.text.fontSize.base};
-        padding: 6px 9px;
-      `;
-    case 'lg':
-      return css`
-        font-size: ${theme.text.fontSize.medium};
-        padding: 8px 11px;
-      `;
-  }
-};
-
 interface ButtonProps {
   size?: ButtonSizeType;
   href?: string;
@@ -44,6 +24,41 @@ interface ButtonProps {
   endIcon?: ReactNode;
   className?: string;
 }
+
+const getSizeStyles = (props: ButtonProps & { theme: Theme }) => {
+  switch (props.size) {
+    case 'sm':
+      return css`
+        font-size: ${props.theme.text.fontSize.xsmall};
+        padding: 4px 7px;
+      `;
+    case 'md':
+      return css`
+        font-size: ${props.theme.text.fontSize.base};
+        padding: 6px 9px;
+      `;
+    case 'lg':
+      return css`
+        font-size: ${props.theme.text.fontSize.medium};
+        padding: 8px 11px;
+      `;
+    default:
+      return '';
+  }
+};
+
+const getCommonStyles = (props: ButtonProps & { theme: Theme }) => {
+  const width = props.fullWidth ? '100%' : '';
+  const sizeStyles = getSizeStyles(props);
+
+  return css`
+    opacity: 1;
+    width: ${width};
+    border-radius: 3px;
+    cursor: pointer;
+    ${sizeStyles};
+  `;
+};
 
 export const Button: FC<ButtonProps> = ({
   size = 'md',
@@ -69,23 +84,52 @@ export const Button: FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} onClick={handleClick}>{children}</a>
+      <AnchorButton
+        size={size}
+        href={href}
+        onClick={handleClick}
+        variant={variant}
+        color={color}
+        isLoading={isLoading}
+        disabled={disabled}
+        fullWidth={fullWidth}
+        startIcon={startIcon}
+        endIcon={endIcon}
+        className={className}
+        theme={theme}
+      >
+        {children}
+      </AnchorButton>
     );
   }
 
   return (
-    <MyButton
-      theme={theme}
+    <BaseButton
       size={size}
+      href={href}
+      onClick={handleClick}
       variant={variant}
       color={color}
-      onClick={handleClick}
+      isLoading={isLoading}
+      disabled={disabled}
       fullWidth={fullWidth}
+      startIcon={startIcon}
+      endIcon={endIcon}
+      className={className}
+      theme={theme}
     >
       {children}
-    </MyButton>
+    </BaseButton>
   );
 };
+
+export const BaseButton = styled.button<ButtonProps & { theme: Theme }>`
+  ${(props) => getCommonStyles(props)};
+`
+
+export const AnchorButton = styled.a<ButtonProps & { theme: Theme }>`
+  ${(props) => getCommonStyles(props)};
+`
 
 export const MyButton = styled.button<{
   theme: Theme;
@@ -98,8 +142,6 @@ export const MyButton = styled.button<{
   width: ${(props) => props.fullWidth ? '100%' : ''};
   border-radius: 3px;
   cursor: pointer;
-  ${(props) => getSizeStyles(props.size, props.theme)};
-
   color: ${({ theme, variant }) => variant === 'filled' ? theme.palette.white : undefined};
   background-color: ${({ theme, variant, color }) => {
     switch (variant) {
