@@ -7,13 +7,16 @@ storiesOf('Button', module)
   .add('Button', () => (
     <div>
       <div>
-        <Button size="sm">
+        <Button size="sm" variant="empty" href="#">
           Button
         </Button>
-        <Button size="md">
+        <Button size="sm" variant="empty">
           Button
         </Button>
-        <Button size="lg">
+        <Button size="md" variant="empty">
+          Button
+        </Button>
+        <Button size="lg" variant="empty">
           Button
         </Button>
       </div>
@@ -29,13 +32,13 @@ storiesOf('Button', module)
         </Button>
       </div>
       <div>
-        <Button size="sm" variant="filled" color="secondary">
+        <Button size="sm" variant="filled" color="primary">
           Button
         </Button>
-        <Button size="md" variant="filled" color="secondary">
+        <Button size="md" variant="filled" color="primary">
           Button
         </Button>
-        <Button size="lg" variant="filled" color="secondary">
+        <Button size="lg" variant="filled" color="primary">
           Button
         </Button>
       </div>

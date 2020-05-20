@@ -30,21 +30,57 @@ const getSizeStyles = (props: ButtonProps & { theme: Theme }) => {
     case 'sm':
       return css`
         font-size: ${props.theme.text.fontSize.xsmall};
-        padding: 4px 7px;
+        padding: 6px 9px;
       `;
     case 'md':
       return css`
         font-size: ${props.theme.text.fontSize.base};
-        padding: 6px 9px;
+        padding: 8px 11px;
       `;
     case 'lg':
       return css`
         font-size: ${props.theme.text.fontSize.medium};
-        padding: 8px 11px;
+        padding: 11px 15px;
       `;
     default:
       return '';
   }
+};
+
+const getBorderStyles = (props: ButtonProps & { theme: Theme }) => {
+  if (props.variant === 'empty') {
+    return '';
+  }
+  let borderColor;
+  let hoverBorderColor;
+  switch (props.color) {
+    case 'primary':
+      borderColor = props.theme.palette.primary[5];
+      hoverBorderColor = props.theme.palette.primary[7];
+  }
+  return css`
+    border: 1px solid ${borderColor};
+    &:hover {
+      border: 1px solid ${hoverBorderColor};
+    }
+  `;
+}
+
+const getColorStyles = (props: ButtonProps & { theme: Theme }) => {
+  if (props.variant === 'empty') {
+    return css`
+      border: none;
+      color: ${props.theme.palette.black};
+      &:hover {
+        background-color: ${props.theme.palette.grey.light[2]};
+      }
+    `;
+  }
+
+  const borderStyles = getBorderStyles(props);
+  return css`
+    ${borderStyles}
+  `;
 };
 
 const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
@@ -52,7 +88,13 @@ const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
   width: ${(props) => props.fullWidth ? '100%' : ''};
   border-radius: 3px;
   cursor: pointer;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
   ${(props) => getSizeStyles(props)};
+  ${(props) => getColorStyles(props)};
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const Button: FC<ButtonProps> = ({
