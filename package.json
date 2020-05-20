@@ -41,6 +41,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
     "@types/dygraphs": "^1.1.10",
     "@types/styled-components": "^5.1.0",
     "dygraphs": "^2.1.0",
