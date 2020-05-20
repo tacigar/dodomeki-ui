@@ -47,18 +47,13 @@ const getSizeStyles = (props: ButtonProps & { theme: Theme }) => {
   }
 };
 
-const getCommonStyles = (props: ButtonProps & { theme: Theme }) => {
-  const width = props.fullWidth ? '100%' : '';
-  const sizeStyles = getSizeStyles(props);
-
-  return css`
-    opacity: 1;
-    width: ${width};
-    border-radius: 3px;
-    cursor: pointer;
-    ${sizeStyles};
-  `;
-};
+const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
+  opacity: 1;
+  width: ${(props) => props.fullWidth ? '100%' : ''};
+  border-radius: 3px;
+  cursor: pointer;
+  ${(props) => getSizeStyles(props)};
+`;
 
 export const Button: FC<ButtonProps> = ({
   size = 'md',
@@ -82,29 +77,9 @@ export const Button: FC<ButtonProps> = ({
 
   const theme = useTheme();
 
-  if (href) {
-    return (
-      <AnchorButton
-        size={size}
-        href={href}
-        onClick={handleClick}
-        variant={variant}
-        color={color}
-        isLoading={isLoading}
-        disabled={disabled}
-        fullWidth={fullWidth}
-        startIcon={startIcon}
-        endIcon={endIcon}
-        className={className}
-        theme={theme}
-      >
-        {children}
-      </AnchorButton>
-    );
-  }
-
   return (
-    <BaseButton
+    <ButtonBase
+      as={href ? 'a' : 'button'}
       size={size}
       href={href}
       onClick={handleClick}
@@ -119,62 +94,6 @@ export const Button: FC<ButtonProps> = ({
       theme={theme}
     >
       {children}
-    </BaseButton>
+    </ButtonBase>
   );
 };
-
-export const BaseButton = styled.button<ButtonProps & { theme: Theme }>`
-  ${(props) => getCommonStyles(props)};
-`
-
-export const AnchorButton = styled.a<ButtonProps & { theme: Theme }>`
-  ${(props) => getCommonStyles(props)};
-`
-
-export const MyButton = styled.button<{
-  theme: Theme;
-  size: ButtonSizeType;
-  variant: ButtonVariantType;
-  color: ButtonColorType;
-  fullWidth: boolean;
-}>`
-  opacity: 1;
-  width: ${(props) => props.fullWidth ? '100%' : ''};
-  border-radius: 3px;
-  cursor: pointer;
-  color: ${({ theme, variant }) => variant === 'filled' ? theme.palette.white : undefined};
-  background-color: ${({ theme, variant, color }) => {
-    switch (variant) {
-      case 'filled':
-        switch (color) {
-          case 'primary':
-            return theme.palette.primary[5];
-          case 'secondary':
-            return theme.palette.secondary[5];
-        }
-      case 'outlined':
-        return 'transparent';
-    }
-  }};
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    background-color: ${({ theme, variant, color }) => {
-      switch (variant) {
-        case 'filled':
-          switch (color) {
-            case 'primary':
-              return theme.palette.primary[7];
-            case 'secondary':
-              return theme.palette.secondary[7];
-          }
-        case 'outlined':
-          return undefined;
-      }
-    }};
-  }
-  &:focus {
-    outline: none;
-  }
-`;

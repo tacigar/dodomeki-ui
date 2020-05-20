@@ -6,7 +6,6 @@ import { Button } from './button';
 storiesOf('Button', module)
   .add('Button', () => (
     <div>
-
       <div>
         <Button size="sm">
           Button
@@ -31,6 +30,17 @@ storiesOf('Button', module)
       </div>
       <div>
         <Button size="sm" variant="filled" color="secondary">
+          Button
+        </Button>
+        <Button size="md" variant="filled" color="secondary">
+          Button
+        </Button>
+        <Button size="lg" variant="filled" color="secondary">
+          Button
+        </Button>
+      </div>
+      <div>
+        <Button size="sm" variant="filled" color="secondary" href="#">
           Button
         </Button>
         <Button size="md" variant="filled" color="secondary">
