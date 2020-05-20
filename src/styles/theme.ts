@@ -2,6 +2,8 @@ export interface Theme {
   palette: {
     primary: string[];
     secondary: string[];
+    danger: string[];
+    warning: string[];
     white: string;
     black: string;
     grey: {
@@ -27,7 +29,21 @@ export interface Theme {
 
 export const defaultTheme: Theme = {
   palette: {
-    primary: [ // Teal color
+    // Indigo
+    primary: [
+      '#e8eaf6',
+      '#c5cae9',
+      '#9fa8da',
+      '#7986cb',
+      '#5c6bc0',
+      '#3f51b5',
+      '#3949ab',
+      '#303f9f',
+      '#283593',
+      '#1a237e',
+    ],
+    // Teal
+    secondary: [
       '#e0f2f1',
       '#b2dfdb',
       '#80cbc4',
@@ -39,17 +55,31 @@ export const defaultTheme: Theme = {
       '#00695c',
       '#004d40',
     ],
-    secondary: [ // Deep Orange
-      '#fbe9e7',
-      '#ffccbc',
-      '#ffab91',
-      '#ff8a65',
-      '#ff7043',
-      '#ff5722',
-      '#f4511e',
-      '#e64a19',
-      '#d84315',
-      '#bf360c',
+    // Amber
+    warning: [
+      '#fff8e1',
+      '#ffecb3',
+      '#ffe082',
+      '#ffd54f',
+      '#ffca28',
+      '#ffc107',
+      '#ffb300',
+      '#ffa000',
+      '#ff8f00',
+      '#ff6f00',
+    ],
+    // Red
+    danger: [
+      '#ffebee',
+      '#ffcdd2',
+      '#ef9a9a',
+      '#e57373',
+      '#ef5350',
+      '#f44336',
+      '#e53935',
+      '#d32f2f',
+      '#c62828',
+      '#b71c1c',
     ],
     white: '#fff',
     black: '#000',
