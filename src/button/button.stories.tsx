@@ -43,14 +43,31 @@ storiesOf('Button', module)
         </Button>
       </div>
       <div>
-        <Button size="sm" variant="filled" color="secondary" href="#">
-          Button
+        <Button variant="filled" color="primary">
+          Primary
         </Button>
-        <Button size="md" variant="filled" color="secondary">
-          Button
+        <Button variant="filled" color="secondary">
+          Secondary
         </Button>
-        <Button size="lg" variant="filled" color="secondary">
-          Button
+        <Button variant="filled" color="warning">
+          Warning
+        </Button>
+        <Button variant="filled" color="danger">
+          Danger
+        </Button>
+      </div>
+      <div>
+        <Button variant="outlined" color="primary">
+          Primary
+        </Button>
+        <Button variant="outlined" color="secondary">
+          Secondary
+        </Button>
+        <Button variant="outlined" color="warning">
+          Warning
+        </Button>
+        <Button variant="outlined" color="danger">
+          Danger
         </Button>
       </div>
     </div>

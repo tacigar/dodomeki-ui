@@ -93,6 +93,16 @@ const getColorStyles = (props: ButtonProps & { theme: Theme }) => {
           backgroundColor = props.theme.palette.secondary[5];
           hoverBackgroundColor = props.theme.palette.secondary[7];
           break;
+        case 'warning':
+          borderColor = props.theme.palette.warning[7];
+          backgroundColor = props.theme.palette.warning[5];
+          hoverBackgroundColor = props.theme.palette.warning[7];
+          break;
+        case 'danger':
+          borderColor = props.theme.palette.danger[7];
+          backgroundColor = props.theme.palette.danger[5];
+          hoverBackgroundColor = props.theme.palette.danger[7];
+          break;
       }
       return css`
         border: 1px solid ${borderColor};
@@ -111,6 +121,12 @@ const getColorStyles = (props: ButtonProps & { theme: Theme }) => {
           break;
         case 'secondary':
           borderColor = props.theme.palette.secondary[5];
+          break;
+        case 'warning':
+          borderColor = props.theme.palette.warning[5];
+          break;
+        case 'danger':
+          borderColor = props.theme.palette.danger[5];
           break;
       }
       return css`
