@@ -1,12 +1,21 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 
 import { Button } from './button';
+import styled from 'styled-components';
+
+const ButtonWrapper = styled.div`
+  margin: 4px;
+`
 
 storiesOf('Button', module)
   .add('Button', () => (
     <div>
-      <div>
+      <div css={{
+        display: 'flex',
+        marginBottom: 12,
+      }}>
         <Button size="sm" variant="empty" href="#">
           Button
         </Button>
@@ -20,55 +29,76 @@ storiesOf('Button', module)
           Button
         </Button>
       </div>
-      <div>
-        <Button size="sm" variant="filled">
-          Button
-        </Button>
-        <Button size="md" variant="filled">
-          Button
-        </Button>
-        <Button size="lg" variant="filled">
-          Button
-        </Button>
+      <div css={{
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        <ButtonWrapper>
+          <Button size="sm" variant="filled" color="primary">
+            SmallButton
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button size="md" variant="filled" color="primary">
+            MediumButton
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button size="lg" variant="filled" color="primary">
+            LargeButton
+          </Button>
+        </ButtonWrapper>
       </div>
-      <div>
-        <Button size="sm" variant="filled" color="primary">
-          Button
-        </Button>
-        <Button size="md" variant="filled" color="primary">
-          Button
-        </Button>
-        <Button size="lg" variant="filled" color="primary">
-          Button
-        </Button>
+      <div css={{
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        <ButtonWrapper>
+          <Button variant="filled" color="primary">
+            Primary
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="filled" color="secondary">
+            Secondary
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="filled" color="warning">
+            Warning
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="filled" color="danger">
+            Danger
+          </Button>
+        </ButtonWrapper>
       </div>
-      <div>
-        <Button variant="filled" color="primary">
-          Primary
-        </Button>
-        <Button variant="filled" color="secondary">
-          Secondary
-        </Button>
-        <Button variant="filled" color="warning">
-          Warning
-        </Button>
-        <Button variant="filled" color="danger">
-          Danger
-        </Button>
-      </div>
-      <div>
-        <Button variant="outlined" color="primary">
-          Primary
-        </Button>
-        <Button variant="outlined" color="secondary">
-          Secondary
-        </Button>
-        <Button variant="outlined" color="warning">
-          Warning
-        </Button>
-        <Button variant="outlined" color="danger">
-          Danger
-        </Button>
+
+      <div css={{
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        <ButtonWrapper>
+          <Button variant="outlined" color="primary">
+            Primary
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="outlined" color="secondary">
+            Secondary
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="outlined" color="warning">
+            Warning
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button variant="outlined" color="danger">
+            Danger
+          </Button>
+        </ButtonWrapper>
       </div>
     </div>
   ));
