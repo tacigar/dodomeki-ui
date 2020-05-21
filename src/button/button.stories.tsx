@@ -99,6 +99,16 @@ storiesOf('Button', module)
             Danger
           </Button>
         </ButtonWrapper>
+
+      </div>
+      <div>
+        <ButtonWrapper>
+          <Button variant="outlined" color="danger" css={{
+            width: 50,
+          }}>
+            Too Long String
+          </Button>
+        </ButtonWrapper>
       </div>
     </div>
   ));

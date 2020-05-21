@@ -29,17 +29,17 @@ const getSizeStyles = (props: ButtonProps & { theme: Theme }) => {
   switch (props.size) {
     case 'sm':
       return css`
-        font-size: ${props.theme.text.fontSize.xsmall};
+        font-size: ${props.theme.text.fontSize.small};
         padding: 8px 11px;
       `;
     case 'md':
       return css`
-        font-size: ${props.theme.text.fontSize.base};
+        font-size: ${props.theme.text.fontSize.medium};
         padding: 10px 13px;
       `;
     case 'lg':
       return css`
-        font-size: ${props.theme.text.fontSize.medium};
+        font-size: ${props.theme.text.fontSize.large};
         padding: 14px 18px;
       `;
     default:
@@ -147,15 +147,30 @@ const getColorStyles = (props: ButtonProps & { theme: Theme }) => {
 
 const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
   opacity: 1;
+  min-width: 40px;
   width: ${(props) => props.fullWidth ? '100%' : ''};
+
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.3s ease-out;
+
   text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
   ${(props) => getSizeStyles(props)};
   ${(props) => getColorStyles(props)};
+
+  box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
+
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
+    transform: translateY(-1px);
   }
 `;
 
