@@ -152,7 +152,7 @@ const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
 
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  transition: all 0.15s ease-out;
 
   text-decoration: none;
   text-overflow: ellipsis;
@@ -162,7 +162,7 @@ const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
   ${(props) => getSizeStyles(props)};
   ${(props) => getColorStyles(props)};
 
-  box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
+  box-shadow: ${(props) => props.variant === 'empty' ? '' : '0 2px 2px -1px rgba(54, 97, 126, 0.3)'};
 
   &:focus {
     outline: none;
@@ -171,6 +171,10 @@ const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
     transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 `;
 
