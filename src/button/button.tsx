@@ -68,11 +68,27 @@ const getBorderStyles = (props: ButtonProps & { theme: Theme }) => {
 
 const getColorStyles = (props: ButtonProps & { theme: Theme }) => {
   if (props.variant === 'empty') {
+    let color;
+    switch (props.color) {
+      case 'primary':
+        color = props.theme.palette.primary[7];
+        break;
+      case 'secondary':
+        color = props.theme.palette.secondary[7];
+        break;
+      case 'warning':
+        color = props.theme.palette.warning[7];
+        break;
+      case 'danger':
+        color = props.theme.palette.danger[7];
+        break;
+    }
+
     return css`
       border: none;
-      color: ${props.theme.palette.black};
+      color: ${color};
       &:hover {
-        background-color: ${props.theme.palette.grey.light[1]};
+        text-decoration: underline;
       }
     `;
   }
@@ -162,20 +178,21 @@ const ButtonBase = styled.div<ButtonProps & { theme: Theme }>`
   ${(props) => getSizeStyles(props)};
   ${(props) => getColorStyles(props)};
 
-  box-shadow: ${(props) => props.variant === 'empty' ? '' : '0 2px 2px -1px rgba(54, 97, 126, 0.3)'};
-
   &:focus {
     outline: none;
   }
 
-  &:hover {
-    box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
-    transform: translateY(-1px);
-  }
+  ${(props) => props.variant === 'empty' ? '' : `
+    box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
+      transform: translateY(-1px);
+    }
 
-  &:active {
-    transform: translateY(1px);
-  }
+    &:active {
+      transform: translateY(1px);
+    }`
+  };
 `;
 
 export const Button: FC<ButtonProps> = ({

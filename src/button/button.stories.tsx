@@ -16,16 +16,7 @@ storiesOf('Button', module)
         display: 'flex',
         marginBottom: 12,
       }}>
-        <Button size="sm" variant="empty" href="#">
-          Button
-        </Button>
-        <Button size="sm" variant="empty">
-          Button
-        </Button>
-        <Button size="md" variant="empty">
-          Button
-        </Button>
-        <Button size="lg" variant="empty">
+        <Button size="lg" variant="empty" color="primary">
           Button
         </Button>
       </div>
