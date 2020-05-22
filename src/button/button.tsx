@@ -8,7 +8,7 @@ export type ButtonSizeType = 'sm' | 'md' | 'lg';
 
 export type ButtonVariantType = 'filled' | 'outlined' | 'empty';
 
-export type ButtonColorType = 'default' | 'primary' | 'secondary' | 'warning' | 'danger' | 'ghost';
+export type ButtonColorType = 'default' | 'primary' | 'secondary' | 'warning' | 'danger';
 
 interface ButtonProps {
   size?: ButtonSizeType;
