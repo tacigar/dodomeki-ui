@@ -8,7 +8,6 @@ export type ButtonBaseSizeType = 'sm' | 'md' | 'lg';
 export type ButtonBaseVariantType = 'filled' | 'outlined' | 'empty';
 
 export type ButtonBaseColorType =
-  | 'default'
   | 'primary'
   | 'secondary'
   | 'warning'
