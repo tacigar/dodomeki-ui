@@ -3,7 +3,8 @@ import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 
-import { Button } from './button';
+import { Button } from '../button';
+import { AnchorButton } from '../anchor-button';
 
 const ButtonWrapper = styled.div`
   margin: 4px;
@@ -109,6 +110,9 @@ storiesOf('Button', module).add('Button', () => (
         >
           Too Long String
         </Button>
+        <AnchorButton variant="outlined" color="danger" href="#">
+          Link
+        </AnchorButton>
       </ButtonWrapper>
     </div>
   </div>

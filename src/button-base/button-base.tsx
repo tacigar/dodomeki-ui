@@ -91,15 +91,20 @@ export const ButtonBase = styled.button.attrs<ButtonBaseProps>((props) => ({
   variant: props.variant || 'outlined',
   color: props.color || 'primary',
 }))<ButtonBaseProps>`
+  display: inline-block;
   width: ${(props) => (props.isFullWidth ? '100%' : '')};
   min-width: 40px;
   border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
   cursor: pointer;
   transition: all 0.25s ease-out;
   text-decoration: 'none';
   text-overflow: ellipsis;
+  text-align: center;
   overflow: hidden;
   white-space: nowrap;
+  vertical-align: middle;
 
   &:focus {
     outline: none;
