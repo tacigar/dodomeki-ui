@@ -23,7 +23,7 @@ export interface Theme {
       x2large: string;
       x3large: string;
       x4large: string;
-    }
+    };
   };
 }
 
