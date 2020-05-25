@@ -10,6 +10,7 @@ export type ButtonBaseVariantType = 'filled' | 'outlined' | 'empty';
 export type ButtonBaseColorType =
   | 'primary'
   | 'secondary'
+  | 'success'
   | 'warning'
   | 'danger';
 

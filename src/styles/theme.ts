@@ -2,6 +2,7 @@ export interface Theme {
   palette: {
     primary: string[];
     secondary: string[];
+    success: string[];
     danger: string[];
     warning: string[];
     white: string;
@@ -42,8 +43,20 @@ export const defaultTheme: Theme = {
       '#283593',
       '#1a237e',
     ],
-    // Teal
     secondary: [
+      '#fafafa',
+      '#f5f5f5',
+      '#eeeeee',
+      '#e0e0e0',
+      '#bdbdbd',
+      '#9e9e9e',
+      '#757575',
+      '#616161',
+      '#424242',
+      '#212121',
+    ],
+    // Teal
+    success: [
       '#e0f2f1',
       '#b2dfdb',
       '#80cbc4',
