@@ -44,6 +44,7 @@
     "@emotion/core": "^10.0.28",
     "@types/dygraphs": "^1.1.10",
     "@types/styled-components": "^5.1.0",
+    "@types/styled-system": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.0.0",
     "dygraphs": "^2.1.0",
@@ -56,6 +57,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "prettier": "^2.0.5",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5"
   }
 }
