@@ -9,11 +9,14 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'import/prefer-default-export': 'off',
     'import/no-cycle': 'off',
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: ['**/*.stories.tsx'],
+      optionalDependencies: false,
+    }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-
   },
   plugins: [
     '@typescript-eslint',
