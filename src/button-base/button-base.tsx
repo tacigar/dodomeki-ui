@@ -70,6 +70,7 @@ const colorStyles = (props: ButtonBaseProps & { theme: Theme }) => {
       return css`
         color: ${props.theme.palette.black};
         border-color: ${darkColor};
+        background-color: initial;
         box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
         &:hover {
           box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
