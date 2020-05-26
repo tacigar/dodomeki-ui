@@ -100,7 +100,7 @@ export const ButtonBase = styled.button.attrs<ButtonBaseProps>((props) => ({
   border-width: 1px;
   border-style: solid;
   cursor: pointer;
-  transition: all 0.25s ease-out;
+  transition: all 0.15s ease-out;
   text-decoration: 'none';
   text-overflow: ellipsis;
   text-align: center;
