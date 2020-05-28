@@ -52,6 +52,9 @@ storiesOf('Button', module).add('Button', () => (
                 </Button>
               ),
             )}
+            <Button variant={variant} isDisabled>
+              Disabled
+            </Button>
           </div>
         ),
       )}
