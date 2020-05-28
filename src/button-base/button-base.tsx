@@ -81,6 +81,11 @@ const colorStyles = (props: ButtonBaseProps & { theme: Theme }) => {
       return css`
         color: ${mainColor};
         border-color: transparent;
+        background-color: initial;
+        &:hover {
+          color: ${darkColor};
+          text-decoration: underline;
+        }
       `;
     default:
       return '';
