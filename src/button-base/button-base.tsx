@@ -122,6 +122,7 @@ export const ButtonBase = styled.button.attrs<ButtonBaseProps>((props) => ({
   size: props.size || 'md',
   variant: props.variant || 'outlined',
   color: props.color || 'primary',
+  disabled: props.isDisabled,
 }))<ButtonBaseProps>`
   display: inline-block;
   width: ${(props) => (props.isFullWidth ? '100%' : '')};
