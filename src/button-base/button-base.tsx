@@ -51,6 +51,31 @@ const sizeStyles = (props: ButtonBaseProps & { theme: Theme }) => {
 const colorStyles = (props: ButtonBaseProps & { theme: Theme }) => {
   if (!props.color) return '';
 
+  if (props.isDisabled) {
+    switch (props.variant) {
+      case 'filled':
+        return css`
+          color: ${props.theme.palette.grey.light[8]};
+          border-color: ${props.theme.palette.grey.light[7]};
+          background-color: ${props.theme.palette.grey.light[5]};
+        `;
+      case 'outlined':
+        return css`
+          color: ${props.theme.palette.grey.light[6]};
+          border-color: ${props.theme.palette.grey.light[7]};
+          background-color: initial;
+        `;
+      case 'empty':
+        return css`
+          color: ${props.theme.palette.grey.light[6]};
+          border-color: transparent;
+          background-color: initial;
+        `;
+      default:
+        return '';
+    }
+  }
+
   const mainColor = props.theme.palette[props.color][5];
   const darkColor = props.theme.palette[props.color][7];
 
@@ -104,7 +129,7 @@ export const ButtonBase = styled.button.attrs<ButtonBaseProps>((props) => ({
   border-radius: 3px;
   border-width: 1px;
   border-style: solid;
-  cursor: pointer;
+  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   transition: all 0.15s ease-out;
   text-decoration: 'none';
   text-overflow: ellipsis;
@@ -118,7 +143,7 @@ export const ButtonBase = styled.button.attrs<ButtonBaseProps>((props) => ({
   }
 
   ${(props) =>
-    props.variant === 'empty'
+    props.variant === 'empty' || props.isDisabled
       ? ''
       : `
         &:hover { transform: translateY(-1px) }
