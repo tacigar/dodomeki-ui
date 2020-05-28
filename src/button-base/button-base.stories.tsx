@@ -1,119 +1,60 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
-import styled from 'styled-components';
 
 import { Button } from '../button';
-import { AnchorButton } from '../anchor-button';
-
-const ButtonWrapper = styled.div`
-  margin: 4px;
-`;
+import { Panel } from '../panel';
+import {
+  ButtonBaseColorType,
+  ButtonBaseVariantType,
+  ButtonBaseSizeType,
+} from './button-base';
 
 storiesOf('Button', module).add('Button', () => (
-  <div>
-    <div
-      css={{
-        display: 'flex',
-        marginBottom: 12,
-      }}
-    >
-      <Button size="lg" variant="empty" color="primary">
-        Button
-      </Button>
-    </div>
-    <div
-      css={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <ButtonWrapper>
-        <Button size="sm" variant="filled" color="primary">
-          SmallButton
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button size="md" variant="filled" color="primary">
-          MediumButton
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button size="lg" variant="filled" color="primary">
-          LargeButton
-        </Button>
-      </ButtonWrapper>
-    </div>
-    <div
-      css={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <ButtonWrapper>
-        <Button variant="filled" color="primary">
-          Primary
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="filled" color="secondary">
-          Secondary
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="filled" color="warning">
-          Warning
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="filled" color="danger">
-          Danger
-        </Button>
-      </ButtonWrapper>
-    </div>
-
-    <div
-      css={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <ButtonWrapper>
-        <Button variant="outlined" color="primary">
-          Primary
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="outlined" color="secondary">
-          Secondary
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="outlined" color="warning">
-          Warning
-        </Button>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <Button variant="outlined" color="danger">
-          Danger
-        </Button>
-      </ButtonWrapper>
-    </div>
-    <div>
-      <ButtonWrapper>
-        <Button
-          variant="outlined"
-          color="danger"
-          css={{
-            width: 50,
-          }}
-        >
-          Too Long String
-        </Button>
-        <AnchorButton variant="outlined" color="danger" href="#">
-          Link
-        </AnchorButton>
-      </ButtonWrapper>
-    </div>
+  <div
+    css={{
+      '& > div': { padding: 12 },
+      '& > div:not(:last-child)': { marginBottom: 12 },
+      '& button': { marginRight: 4 },
+    }}
+  >
+    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+      {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
+        (variant) => (
+          <div>
+            {([
+              { size: 'sm', text: 'Small' },
+              { size: 'md', text: 'Medium' },
+              { size: 'lg', text: 'Large' },
+            ] as { size: ButtonBaseSizeType; text: string }[]).map((size) => (
+              <Button variant={variant} size={size.size}>
+                {size.text}
+              </Button>
+            ))}
+          </div>
+        ),
+      )}
+    </Panel>
+    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+      {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
+        (variant) => (
+          <div>
+            {([
+              { color: 'primary', text: 'Primary' },
+              { color: 'secondary', text: 'Secondary' },
+              { color: 'success', text: 'Success' },
+              { color: 'warning', text: 'Success' },
+              { color: 'danger', text: 'Danger' },
+            ] as { color: ButtonBaseColorType; text: string }[]).map(
+              (color) => (
+                <Button variant={variant} color={color.color}>
+                  {color.text}
+                </Button>
+              ),
+            )}
+          </div>
+        ),
+      )}
+    </Panel>
   </div>
 ));
