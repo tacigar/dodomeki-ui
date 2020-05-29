@@ -31,17 +31,17 @@ const sizeStyles = (props: ButtonBaseProps & { theme: Theme }) => {
     case 'sm':
       return css`
         font-size: ${props.theme.text.fontSize.small};
-        padding: 8px 11px;
+        padding: 5px 10px;
       `;
     case 'md':
       return css`
         font-size: ${props.theme.text.fontSize.medium};
-        padding: 10px 13px;
+        padding: 7px 12px;
       `;
     case 'lg':
       return css`
         font-size: ${props.theme.text.fontSize.large};
-        padding: 14px 18px;
+        padding: 9px 14px;
       `;
     default:
       return '';
