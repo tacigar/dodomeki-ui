@@ -21,13 +21,13 @@ storiesOf('Button', module).add('Button', () => (
     <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
       {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
         (variant) => (
-          <div>
+          <div key={variant}>
             {([
               { size: 'sm', text: 'Small' },
               { size: 'md', text: 'Medium' },
               { size: 'lg', text: 'Large' },
             ] as { size: ButtonBaseSizeType; text: string }[]).map((size) => (
-              <Button variant={variant} size={size.size}>
+              <Button variant={variant} size={size.size} key={size.size}>
                 {size.text}
               </Button>
             ))}
@@ -38,7 +38,7 @@ storiesOf('Button', module).add('Button', () => (
     <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
       {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
         (variant) => (
-          <div>
+          <div key={variant}>
             {([
               { color: 'primary', text: 'Primary' },
               { color: 'secondary', text: 'Secondary' },
@@ -47,7 +47,7 @@ storiesOf('Button', module).add('Button', () => (
               { color: 'danger', text: 'Danger' },
             ] as { color: ButtonBaseColorType; text: string }[]).map(
               (color) => (
-                <Button variant={variant} color={color.color}>
+                <Button variant={variant} color={color.color} key={color.color}>
                   {color.text}
                 </Button>
               ),
