@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Theme } from '../styles/theme';
+import { Theme } from '../styles';
+import { LoadingSpinner } from '../loading-spinner';
 
 export type ButtonSizeType = 'sm' | 'md' | 'lg';
 
@@ -159,6 +160,26 @@ const ButtonBox = styled.div<ButtonCommonProps>`
   ${(props) => (props.href && props.disabled ? 'pointer-events: none' : '')};
 `;
 
+const ButtonContent = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Spinner = styled(LoadingSpinner)`
+  margin-right: ${(props) => {
+    switch (props.size || 'md') {
+      case 'sm':
+        return '6px';
+      case 'md':
+        return '8px';
+      case 'lg':
+        return '10px';
+      default:
+        return '';
+    }
+  }};
+`;
+
 export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   variant = 'outlined',
@@ -186,7 +207,10 @@ export const Button: React.FC<ButtonProps> = ({
       href={href}
       {...rest}
     >
-      {children}
+      <ButtonContent>
+        {isLoading && <Spinner size={size} color={color} />}
+        {children}
+      </ButtonContent>
     </ButtonBox>
   );
 };
