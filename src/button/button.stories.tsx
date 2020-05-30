@@ -2,13 +2,13 @@
 import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 
-import { Button } from '../button';
 import { Panel } from '../panel';
 import {
-  ButtonBaseColorType,
-  ButtonBaseVariantType,
-  ButtonBaseSizeType,
-} from './button-base';
+  Button,
+  ButtonColorType,
+  ButtonVariantType,
+  ButtonSizeType,
+} from './button';
 
 storiesOf('Button', module).add('Button', () => (
   <div
@@ -19,14 +19,14 @@ storiesOf('Button', module).add('Button', () => (
     }}
   >
     <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
-      {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
+      {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
         (variant) => (
           <div key={variant}>
             {([
               { size: 'sm', text: 'Small' },
               { size: 'md', text: 'Medium' },
               { size: 'lg', text: 'Large' },
-            ] as { size: ButtonBaseSizeType; text: string }[]).map((size) => (
+            ] as { size: ButtonSizeType; text: string }[]).map((size) => (
               <Button variant={variant} size={size.size} key={size.size}>
                 {size.text}
               </Button>
@@ -36,7 +36,7 @@ storiesOf('Button', module).add('Button', () => (
       )}
     </Panel>
     <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
-      {(['filled', 'outlined', 'empty'] as ButtonBaseVariantType[]).map(
+      {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
         (variant) => (
           <div key={variant}>
             {([
@@ -45,14 +45,12 @@ storiesOf('Button', module).add('Button', () => (
               { color: 'success', text: 'Success' },
               { color: 'warning', text: 'Success' },
               { color: 'danger', text: 'Danger' },
-            ] as { color: ButtonBaseColorType; text: string }[]).map(
-              (color) => (
-                <Button variant={variant} color={color.color} key={color.color}>
-                  {color.text}
-                </Button>
-              ),
-            )}
-            <Button variant={variant} isDisabled>
+            ] as { color: ButtonColorType; text: string }[]).map((color) => (
+              <Button variant={variant} color={color.color} key={color.color}>
+                {color.text}
+              </Button>
+            ))}
+            <Button variant={variant} disabled>
               Disabled
             </Button>
           </div>
