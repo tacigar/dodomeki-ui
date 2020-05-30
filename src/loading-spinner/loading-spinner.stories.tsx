@@ -4,38 +4,38 @@ import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { Fragment } from 'react';
 
-import { LoaderSpinner } from './loader-spinner';
+import { LoadingSpinner } from './loading-spinner';
 
-storiesOf('LoaderSpinner', module).add('LoaderSpinner', () => (
+storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
   <Fragment>
     <div
       css={{
         display: 'flex',
         marginBottom: 8,
         alignItems: 'center',
-        '& > div': {
+        '& > span': {
           marginRight: 10,
         },
       }}
     >
-      <LoaderSpinner size="sm" />
-      <LoaderSpinner size="md" />
-      <LoaderSpinner size="lg" />
+      <LoadingSpinner size="sm" />
+      <LoadingSpinner size="md" />
+      <LoadingSpinner size="lg" />
     </div>
     <div
       css={{
         display: 'flex',
         alignItems: 'center',
-        '& > div': {
+        '& > span': {
           marginRight: 10,
         },
       }}
     >
-      <LoaderSpinner color="primary" />
-      <LoaderSpinner color="secondary" />
-      <LoaderSpinner color="success" />
-      <LoaderSpinner color="warning" />
-      <LoaderSpinner color="danger" />
+      <LoadingSpinner color="primary" />
+      <LoadingSpinner color="secondary" />
+      <LoadingSpinner color="success" />
+      <LoadingSpinner color="warning" />
+      <LoadingSpinner color="danger" />
     </div>
   </Fragment>
 ));
