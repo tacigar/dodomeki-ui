@@ -108,7 +108,10 @@ const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
         box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
         &:hover {
           box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
-          background-color: ${props.theme.palette.grey.light[0]};
+          background-color: ${props.theme.palette.grey.light[1]};
+        }
+        &:active {
+          background-color: ${props.theme.palette.grey.light[2]};
         }
       `;
     case 'empty':
@@ -126,7 +129,7 @@ const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
   }
 };
 
-const ButtonBox = styled.div<ButtonCommonProps>`
+export const ButtonBox = styled.div<ButtonCommonProps>`
   display: inline-block;
   width: ${(props) => (props.isFullWidth ? '100%' : '')};
   min-width: 40px;
