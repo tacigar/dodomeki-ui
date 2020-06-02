@@ -7,3 +7,5 @@ interface FormContextType {
 export const FormContext = React.createContext<FormContextType>({
   disabled: false,
 });
+
+export const useFormContext = () => React.useContext(FormContext);
