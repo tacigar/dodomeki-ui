@@ -3,6 +3,7 @@ export * from './box';
 export * from './button';
 export * from './button-group';
 export * from './form-context';
+export * from './form-control';
 export * from './global-styles';
 export * from './loading-spinner';
 export * from './panel';
