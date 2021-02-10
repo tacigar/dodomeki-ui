@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormContext } from '../form-context';
+import { FormContext } from '../FormContext';
 
 export interface FormControlProps {
   disabled?: boolean;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Theme } from '../styles';
-import { LoadingSpinner } from '../loading-spinner';
+import { LoadingSpinner } from '../LoadingSpinner';
 
 export type ButtonSizeType = 'sm' | 'md' | 'lg';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ButtonBox, ButtonColorType, ButtonSizeType } from '../button';
+import { ButtonBox, ButtonColorType, ButtonSizeType } from '../Button';
 
 export type ButtonGroupSizeType = ButtonSizeType;
 export type ButtonGroupColorType = ButtonColorType;

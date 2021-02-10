@@ -1,3 +1,3 @@
-export * from './theme-provider';
+export * from './ThemeProvider';
 export * from './theme';
-export * from './use-theme';
+export * from './useTheme';

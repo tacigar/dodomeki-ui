@@ -4,13 +4,13 @@ import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { Fragment } from 'react';
 
-import { Panel } from '../panel';
+import { Panel } from '../Panel';
 import {
   Button,
   ButtonColorType,
   ButtonVariantType,
   ButtonSizeType,
-} from './button';
+} from './Button';
 
 storiesOf('Button', module).add('Button', () => (
   <div

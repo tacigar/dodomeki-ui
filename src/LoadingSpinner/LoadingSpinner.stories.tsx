@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { Fragment } from 'react';
 
-import { LoadingSpinner } from './loading-spinner';
+import { LoadingSpinner } from './LoadingSpinner';
 
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
   <Fragment>

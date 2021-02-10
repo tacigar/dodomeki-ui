@@ -6,9 +6,9 @@ import {
   ButtonGroup,
   ButtonGroupSizeType,
   ButtonGroupColorType,
-} from './button-group';
-import { Button } from '../button';
-import { Panel } from '../panel';
+} from './ButtonGroup';
+import { Button } from '../Button';
+import { Panel } from '../Panel';
 
 storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
   <div

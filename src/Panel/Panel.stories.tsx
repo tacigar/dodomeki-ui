@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 
-import { Panel } from './panel';
+import { Panel } from './Panel';
 
 storiesOf('Panel', module).add('Panel', () => (
   <div css={{ padding: 3 }}>

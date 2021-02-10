@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
-import { Badge } from './badge';
+import { Badge } from './Badge';
 
 storiesOf('Badge', module).add('Badge', () => (
   <div>
