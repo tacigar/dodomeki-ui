@@ -1,30 +1,19 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import styled from 'styled-components';
 
+import { Button } from '../Button';
 import {
   ButtonGroup,
   ButtonGroupSizeType,
   ButtonGroupColorType,
 } from './ButtonGroup';
-import { Button } from '../Button';
-import { Panel } from '../Panel';
 
 storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
-  <div
-    css={{
-      '& > div': { padding: 12 },
-      '& > div:not(:last-child)': { marginBottom: 12 },
-    }}
-  >
-    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+  <Root>
+    <Rows>
       {(['sm', 'md', 'lg'] as ButtonGroupSizeType[]).map((size) => (
-        <div
-          css={{
-            display: 'flex',
-            '& > div:not(:last-child)': { marginRight: 6 },
-          }}
-        >
+        <Row>
           <ButtonGroup color="primary" variant="outlined" size={size}>
             <Button>Item1</Button>
             <Button>Item2</Button>
@@ -35,10 +24,10 @@ storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
             <Button>Item2</Button>
             <Button>Item3</Button>
           </ButtonGroup>
-        </div>
+        </Row>
       ))}
-    </Panel>
-    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+    </Rows>
+    <Rows>
       {([
         'primary',
         'secondary',
@@ -46,12 +35,7 @@ storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
         'warning',
         'danger',
       ] as ButtonGroupColorType[]).map((color) => (
-        <div
-          css={{
-            display: 'flex',
-            '& > div:not(:last-child)': { marginRight: 6 },
-          }}
-        >
+        <Row>
           <ButtonGroup color={color} variant="outlined">
             <Button>Item1</Button>
             <Button>Item2</Button>
@@ -62,8 +46,21 @@ storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
             <Button>Item2</Button>
             <Button>Item3</Button>
           </ButtonGroup>
-        </div>
+        </Row>
       ))}
-    </Panel>
-  </div>
+    </Rows>
+  </Root>
 ));
+
+const Root = styled.div`
+  & > div:not(:last-child) { margin-bottom: 12px };
+`;
+
+const Rows = styled.div`
+  & > div:not(:last-child) { margin-bottom: 6px };
+`;
+
+const Row = styled.div`
+  display: flex;
+  & > div:not(:last-child) { margin-right: 6px };
+`;
