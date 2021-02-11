@@ -1,10 +1,7 @@
-/* eslint-disable react/jsx-fragments */
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
-import { Panel } from '../Panel';
 import {
   Button,
   ButtonColorType,
@@ -13,14 +10,8 @@ import {
 } from './Button';
 
 storiesOf('Button', module).add('Button', () => (
-  <div
-    css={{
-      '& > div': { padding: 12 },
-      '& > div:not(:last-child)': { marginBottom: 12 },
-      '& button': { marginRight: 4 },
-    }}
-  >
-    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+  <Root>
+    <Rows>
       {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
         (variant) => (
           <div key={variant}>
@@ -36,8 +27,8 @@ storiesOf('Button', module).add('Button', () => (
           </div>
         ),
       )}
-    </Panel>
-    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+    </Rows>
+    <Rows>
       {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
         (variant) => (
           <div key={variant}>
@@ -58,8 +49,8 @@ storiesOf('Button', module).add('Button', () => (
           </div>
         ),
       )}
-    </Panel>
-    <Panel css={{ '& > div:not(:last-child)': { marginBottom: 6 } }}>
+    </Rows>
+    <Rows>
       {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
         (variant) => (
           <div key={variant}>
@@ -85,6 +76,15 @@ storiesOf('Button', module).add('Button', () => (
           </div>
         ),
       )}
-    </Panel>
-  </div>
+    </Rows>
+  </Root>
 ));
+
+const Root = styled.div`
+  & > div:not(:last-child) { margin-bottom: 12px };
+  & button { margin-right: 6px };
+`;
+
+const Rows = styled.div`
+  & > div:not(:last-child) { margin-bottom: 6px }
+`;
