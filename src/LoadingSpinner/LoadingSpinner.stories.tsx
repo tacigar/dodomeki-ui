@@ -1,8 +1,8 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import styled from 'styled-components';
 
 import { LoadingSpinner } from './LoadingSpinner';
-import styled from 'styled-components';
 
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
   <>
@@ -24,6 +24,8 @@ storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
 const Row = styled.div`
   display: flex;
   align-items: center;
-  & > span { margin-right: 10px };
+  & > span {
+    margin-right: 10px;
+  }
   padding: 4px;
 `;

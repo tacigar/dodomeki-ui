@@ -53,14 +53,20 @@ storiesOf('ButtonGroup', module).add('ButtonGroup', () => (
 ));
 
 const Root = styled.div`
-  & > div:not(:last-child) { margin-bottom: 12px };
+  & > div:not(:last-child) {
+    margin-bottom: 12px;
+  }
 `;
 
 const Rows = styled.div`
-  & > div:not(:last-child) { margin-bottom: 6px };
+  & > div:not(:last-child) {
+    margin-bottom: 6px;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
-  & > div:not(:last-child) { margin-right: 6px };
+  & > div:not(:last-child) {
+    margin-right: 6px;
+  }
 `;

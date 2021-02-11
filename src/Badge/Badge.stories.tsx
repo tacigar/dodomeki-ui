@@ -1,8 +1,8 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import styled from 'styled-components';
 
 import { Badge } from './Badge';
-import styled from 'styled-components';
 
 storiesOf('Badge', module).add('Badge', () => (
   <div>
@@ -44,5 +44,7 @@ storiesOf('Badge', module).add('Badge', () => (
 ));
 
 const Row = styled.div`
-  & > div:not(:last-child) { margin-right: 4px };
+  & > div:not(:last-child) {
+    margin-right: 4px;
+  }
 `;

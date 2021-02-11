@@ -81,10 +81,16 @@ storiesOf('Button', module).add('Button', () => (
 ));
 
 const Root = styled.div`
-  & > div:not(:last-child) { margin-bottom: 12px };
-  & button { margin-right: 6px };
+  & > div:not(:last-child) {
+    margin-bottom: 12px;
+  }
+  & button {
+    margin-right: 6px;
+  }
 `;
 
 const Rows = styled.div`
-  & > div:not(:last-child) { margin-bottom: 6px }
+  & > div:not(:last-child) {
+    margin-bottom: 6px;
+  }
 `;
