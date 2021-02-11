@@ -1,11 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { Badge } from './Badge';
+import styled from 'styled-components';
 
 storiesOf('Badge', module).add('Badge', () => (
   <div>
-    <div css={{ '& > div': { marginRight: 3 } }}>
+    <Row>
       <Badge variant="outlined" color="primary">
         Primary
       </Badge>
@@ -21,8 +22,8 @@ storiesOf('Badge', module).add('Badge', () => (
       <Badge variant="outlined" color="danger">
         Danger
       </Badge>
-    </div>
-    <div css={{ '& > div': { marginRight: 3 } }}>
+    </Row>
+    <Row>
       <Badge variant="filled" color="primary">
         Primary
       </Badge>
@@ -38,6 +39,10 @@ storiesOf('Badge', module).add('Badge', () => (
       <Badge variant="filled" color="danger">
         Danger
       </Badge>
-    </div>
+    </Row>
   </div>
 ));
+
+const Row = styled.div`
+  & > div:not(:last-child) { margin-right: 4px };
+`;
