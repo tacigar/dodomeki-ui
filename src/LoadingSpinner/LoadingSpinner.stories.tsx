@@ -1,41 +1,29 @@
-/* eslint-disable react/jsx-fragments */
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Fragment } from 'react';
 
 import { LoadingSpinner } from './LoadingSpinner';
+import styled from 'styled-components';
 
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
-  <Fragment>
-    <div
-      css={{
-        display: 'flex',
-        marginBottom: 8,
-        alignItems: 'center',
-        '& > span': {
-          marginRight: 10,
-        },
-      }}
-    >
+  <>
+    <Row>
       <LoadingSpinner size="sm" />
       <LoadingSpinner size="md" />
       <LoadingSpinner size="lg" />
-    </div>
-    <div
-      css={{
-        display: 'flex',
-        alignItems: 'center',
-        '& > span': {
-          marginRight: 10,
-        },
-      }}
-    >
+    </Row>
+    <Row>
       <LoadingSpinner color="primary" />
       <LoadingSpinner color="secondary" />
       <LoadingSpinner color="success" />
       <LoadingSpinner color="warning" />
       <LoadingSpinner color="danger" />
-    </div>
-  </Fragment>
+    </Row>
+  </>
 ));
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  & > span { margin-right: 10px };
+  padding: 4px;
+`;
