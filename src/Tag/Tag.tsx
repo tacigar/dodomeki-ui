@@ -10,28 +10,31 @@ export type TagColorType =
   | 'warning'
   | 'danger';
 
-export interface TagProps {
-  variant?: TagVariantType;
+export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
+  className?: string;
   color?: TagColorType;
   icon?: React.ReactNode;
+  style?: React.CSSProperties;
+  variant?: TagVariantType;
 }
 
 export const Tag: React.FC<TagProps> = ({
-  variant = 'outlined',
+  children,
+  className,
   color = 'primary',
   icon,
-  children,
+  style,
+  variant = 'outlined',
 }) => {
   return (
-    <Root variant={variant} color={color} icon={icon}>
+    <Root variant={variant} color={color} className={className} style={style}>
       {icon}
       <Text icon={icon}>{children}</Text>
     </Root>
   );
 };
 
-const Root = styled.div<TagProps>`
-  display: inline-block;
+const Root = styled.span<{ variant: TagVariantType; color: TagColorType }>`
   padding: 1px 8px;
   font-size: ${(props) => props.theme.text.fontSize.small};
 
