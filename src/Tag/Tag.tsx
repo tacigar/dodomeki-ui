@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 export type TagVariantType = 'filled' | 'outlined';
@@ -12,9 +13,24 @@ export type TagColorType =
 export interface TagProps {
   variant?: TagVariantType;
   color?: TagColorType;
+  icon?: React.ReactNode;
 }
 
-export const Tag = styled.div<TagProps>`
+export const Tag: React.FC<TagProps> = ({
+  variant = 'outlined',
+  color = 'primary',
+  icon,
+  children,
+}) => {
+  return (
+    <Root variant={variant} color={color} icon={icon}>
+      {icon}
+      <Text icon={icon}>{children}</Text>
+    </Root>
+  );
+};
+
+const Root = styled.div<TagProps>`
   display: inline-block;
   padding: 1px 8px;
   font-size: ${(props) => props.theme.text.fontSize.small};
@@ -40,4 +56,8 @@ export const Tag = styled.div<TagProps>`
         return '';
     }
   }};
+`;
+
+const Text = styled.span<{ icon?: React.ReactNode }>`
+  margin-left: ${({ icon }) => (icon ? '7px' : '0px')};
 `;

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
@@ -38,6 +40,22 @@ storiesOf('Tag', module).add('Tag', () => (
       </Tag>
       <Tag variant="filled" color="danger">
         Danger
+      </Tag>
+    </Row>
+    <Row>
+      <Tag
+        variant="outlined"
+        color="primary"
+        icon={<FontAwesomeIcon icon={faCoffee} />}
+      >
+        Coffee
+      </Tag>
+      <Tag
+        variant="filled"
+        color="primary"
+        icon={<FontAwesomeIcon icon={faCoffee} />}
+      >
+        Coffee
       </Tag>
     </Row>
   </div>
