@@ -62,7 +62,7 @@ storiesOf('Tag', module).add('Tag', () => (
 ));
 
 const Row = styled.div`
-  & > div:not(:last-child) {
-    margin-right: 4px;
+  & > span:not(:last-child) {
+    margin-right: 8px;
   }
 `;

@@ -35,7 +35,7 @@ export const Tag: React.FC<TagProps> = ({
 };
 
 const Root = styled.span<{ variant: TagVariantType; color: TagColorType }>`
-  padding: 1px 8px;
+  padding: 2px 8px;
   font-size: ${(props) => props.theme.text.fontSize.small};
 
   ${(props) => {
