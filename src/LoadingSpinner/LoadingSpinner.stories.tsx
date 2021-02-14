@@ -7,9 +7,13 @@ import { LoadingSpinner } from './LoadingSpinner';
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
   <>
     <Row>
+      <LoadingSpinner size="xxs" />
+      <LoadingSpinner size="xs" />
       <LoadingSpinner size="sm" />
       <LoadingSpinner size="md" />
       <LoadingSpinner size="lg" />
+      <LoadingSpinner size="xl" />
+      <LoadingSpinner size="xxl" />
     </Row>
     <Row>
       <LoadingSpinner color="primary" />

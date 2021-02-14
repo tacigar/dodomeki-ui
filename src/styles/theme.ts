@@ -14,16 +14,13 @@ export interface Theme {
   };
   text: {
     fontSize: {
-      tiny: string;
-      xsmall: string;
-      small: string;
-      base: string;
-      medium: string;
-      large: string;
-      xlarge: string;
-      x2large: string;
-      x3large: string;
-      x4large: string;
+      xxs: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
     };
   };
 }
@@ -113,16 +110,13 @@ export const defaultTheme: Theme = {
   },
   text: {
     fontSize: {
-      tiny: '0.45rem',
-      xsmall: '0.525rem',
-      small: '0.625rem',
-      base: '0.75rem',
-      medium: '0.825rem',
-      large: '1rem',
-      xlarge: '1.15rem',
-      x2large: '1.275rem',
-      x3large: '1.425rem',
-      x4large: '1.6rem',
+      xxs: '8px',
+      xs: '10px',
+      sm: '12px',
+      md: '14px',
+      lg: '16px',
+      xl: '22px',
+      xxl: '28px',
     },
   },
 };

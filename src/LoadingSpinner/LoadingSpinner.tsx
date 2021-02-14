@@ -1,6 +1,15 @@
 import styled, { css, keyframes } from 'styled-components';
 
-export type LoadingSpinnerSizeType = 'sm' | 'md' | 'lg';
+import { Theme } from '../styles';
+
+export type LoadingSpinnerSizeType =
+  | 'xxs'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl';
 
 export type LoadingSpinnerColorType =
   | 'primary'
@@ -14,29 +23,30 @@ export interface LoadingSpinnerProps {
   color?: LoadingSpinnerColorType;
 }
 
-const sizeStyles = (props: LoadingSpinnerProps) => {
-  switch (props.size || 'md') {
+const sizeStyles = (props: LoadingSpinnerProps & { theme: Theme }) => {
+  const fontSize = props.theme.text.fontSize[props.size || 'md'];
+
+  let borderWidth;
+  switch (props.size) {
+    case 'xxs':
+    case 'xs':
     case 'sm':
-      return css`
-        width: 8px;
-        height: 8px;
-        border-width: 1px;
-      `;
+      borderWidth = '1px';
+      break;
     case 'md':
-      return css`
-        width: 12px;
-        height: 12px;
-        border-width: 1px;
-      `;
     case 'lg':
-      return css`
-        width: 14px;
-        height: 14px;
-        border-width: 2px;
-      `;
+      borderWidth = '2px';
+      break;
     default:
-      return '';
+      borderWidth = '3px';
+      break;
   }
+
+  return css`
+    width: ${fontSize};
+    height: ${fontSize};
+    border-width: ${borderWidth};
+  `;
 };
 
 const anim = keyframes`

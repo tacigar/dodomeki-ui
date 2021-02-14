@@ -36,7 +36,7 @@ export const Tag: React.FC<TagProps> = ({
 
 const Root = styled.span<{ variant: TagVariantType; color: TagColorType }>`
   padding: 2px 8px;
-  font-size: ${(props) => props.theme.text.fontSize.small};
+  font-size: ${(props) => props.theme.text.fontSize.xs};
 
   ${(props) => {
     const variant = props.variant || 'outlined';

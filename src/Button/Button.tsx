@@ -37,17 +37,17 @@ const sizeStyles = (props: ButtonCommonProps & { theme: Theme }) => {
   switch (props.size) {
     case 'sm':
       return css`
-        font-size: ${props.theme.text.fontSize.small};
+        font-size: ${props.theme.text.fontSize.sm};
         padding: 5px 10px;
       `;
     case 'md':
       return css`
-        font-size: ${props.theme.text.fontSize.medium};
+        font-size: ${props.theme.text.fontSize.md};
         padding: 7px 12px;
       `;
     case 'lg':
       return css`
-        font-size: ${props.theme.text.fontSize.large};
+        font-size: ${props.theme.text.fontSize.lg};
         padding: 9px 14px;
       `;
     default:
