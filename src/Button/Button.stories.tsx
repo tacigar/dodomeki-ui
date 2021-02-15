@@ -1,3 +1,5 @@
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
@@ -73,6 +75,20 @@ storiesOf('Button', module).add('Button', () => (
                 </Button>
               </Fragment>
             ))}
+          </div>
+        ),
+      )}
+    </Rows>
+    <Rows>
+      {(['filled', 'outlined', 'empty'] as ButtonVariantType[]).map(
+        (variant) => (
+          <div key={variant}>
+            <Button
+              variant={variant}
+              icon={<FontAwesomeIcon icon={faCoffee} />}
+            >
+              Coffee
+            </Button>
           </div>
         ),
       )}

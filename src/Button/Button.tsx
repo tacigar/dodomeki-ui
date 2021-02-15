@@ -16,15 +16,14 @@ export type ButtonColorType =
   | 'danger';
 
 interface ButtonCommonProps {
-  size?: ButtonSizeType;
-  variant?: ButtonVariantType;
   color?: ButtonColorType;
   disabled?: boolean;
+  href?: string | never;
+  icon?: React.ReactNode;
   isFullWidth?: boolean;
   isLoading?: boolean;
-  href?: string | never;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  size?: ButtonSizeType;
+  variant?: ButtonVariantType;
 }
 
 export type ButtonProps = ButtonCommonProps &
@@ -32,6 +31,43 @@ export type ButtonProps = ButtonCommonProps &
     | React.HTMLAttributes<HTMLButtonElement>
     | React.HTMLAttributes<HTMLAnchorElement>
   );
+
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  color = 'primary',
+  disabled = false,
+  href,
+  icon,
+  isFullWidth = false,
+  isLoading = false,
+  size = 'md',
+  variant = 'outlined',
+  ...rest
+}) => {
+  const isDisabled = isLoading ? true : disabled;
+
+  const component = href ? 'a' : 'button';
+
+  return (
+    <ButtonBox
+      as={component}
+      size={size}
+      variant={variant}
+      color={color}
+      disabled={isDisabled}
+      isFullWidth={isFullWidth}
+      isLoading={isLoading}
+      href={href}
+      {...rest}
+    >
+      <ButtonContent>
+        {isLoading && <Spinner size={size} color={color} />}
+        {icon}
+        <Text icon={icon}>{children}</Text>
+      </ButtonContent>
+    </ButtonBox>
+  );
+};
 
 const sizeStyles = (props: ButtonCommonProps & { theme: Theme }) => {
   switch (props.size) {
@@ -183,37 +219,6 @@ const Spinner = styled(LoadingSpinner)`
   }};
 `;
 
-export const Button: React.FC<ButtonProps> = ({
-  size = 'md',
-  variant = 'outlined',
-  color = 'primary',
-  disabled = false,
-  isFullWidth = false,
-  isLoading = false,
-  href,
-  children,
-  ...rest
-}) => {
-  const isDisabled = isLoading ? true : disabled;
-
-  const component = href ? 'a' : 'button';
-
-  return (
-    <ButtonBox
-      as={component}
-      size={size}
-      variant={variant}
-      color={color}
-      disabled={isDisabled}
-      isFullWidth={isFullWidth}
-      isLoading={isLoading}
-      href={href}
-      {...rest}
-    >
-      <ButtonContent>
-        {isLoading && <Spinner size={size} color={color} />}
-        {children}
-      </ButtonContent>
-    </ButtonBox>
-  );
-};
+const Text = styled.span<{ icon?: React.ReactNode }>`
+  margin-left: ${({ icon }) => (icon ? '7px' : '0px')};
+`;
