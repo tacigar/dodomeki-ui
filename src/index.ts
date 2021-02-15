@@ -9,3 +9,4 @@ export * from './LoadingSpinner';
 export * from './Panel';
 export * from './styles';
 export * from './useToggle';
+export * from './useWindowSize';
