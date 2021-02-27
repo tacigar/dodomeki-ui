@@ -9,5 +9,6 @@ export * from './LoadingSpinner';
 export * from './Panel';
 export * from './styles';
 export * from './Tag';
+export * from './useIntersectionObserver';
 export * from './useToggle';
 export * from './useWindowSize';
