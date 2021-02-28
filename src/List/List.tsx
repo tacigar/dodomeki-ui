@@ -19,8 +19,6 @@ export const List: React.FC<ListProps> = ({ children, dense = false }) => {
 
 const Root = styled.ul<{ dense: boolean }>`
   list-style: none;
-  padding-left: 8px;
-  padding-right: 8px;
   ${({ dense }) => {
     const p = dense ? '2px' : '6px';
     return css`
