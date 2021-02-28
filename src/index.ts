@@ -15,3 +15,4 @@ export * from './Tag';
 export * from './useIntersectionObserver';
 export * from './useToggle';
 export * from './useWindowSize';
+export * from './VirtualizedList';

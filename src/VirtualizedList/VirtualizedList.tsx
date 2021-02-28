@@ -24,8 +24,7 @@ export const VirtualizedList = <T extends object | string>({
     Math.floor((scrollTop + height) / itemHeight),
   );
 
-  const handleScroll = useCallback((event: React.UIEvent<HTMLUListElement>) => {
-    console.log(event.currentTarget.scrollTop);
+  const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement>) => {
     setScrollTop(event.currentTarget.scrollTop);
   }, []);
 
