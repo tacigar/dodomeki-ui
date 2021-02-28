@@ -18,6 +18,8 @@ export * from './Panel';
 export * from './styles';
 export * from './Tag';
 export * from './useIntersectionObserver';
+export * from './useMount';
 export * from './useToggle';
+export * from './useUnmount';
 export * from './useWindowSize';
 export * from './VirtualizedList';
