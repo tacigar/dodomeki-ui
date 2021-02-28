@@ -19,4 +19,5 @@ export const Card: React.FC<CardProps> = ({ children, className, style }) => {
 const Root = styled(Panel)`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
