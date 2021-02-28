@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/tacigar/dodomeki-ui#readme",
   "scripts": {
-    "lint": "eslint src/**",
+    "lint": "eslint src",
     "build": "tsc -p tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
