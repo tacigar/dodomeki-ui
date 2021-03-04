@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@types/styled-system": "^5.1.10",
+    "d3": "^6.5.0",
     "styled-system": "^5.1.5"
   },
   "resolutions": {
