@@ -1,0 +1,19 @@
+{
+	"name": "@dodomeki-ui/hooks",
+	"version": "0.0.1",
+	"main": "lib/index.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"files": [
+		"lib"
+	],
+	"peerDependencies": {
+		"react": "^16.13.0 || ^17.0.0",
+		"react-dom": "^16.13.0 || ^17.0.0",
+		"styled-components": "^5.0.1"
+	},
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}
