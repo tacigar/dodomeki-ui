@@ -3,6 +3,7 @@
 ### Set up
 
 ```
+npm install
 npx lerna bootstrap
 ```
 
