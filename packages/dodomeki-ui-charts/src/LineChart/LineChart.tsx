@@ -1,137 +1,119 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import * as d3 from 'd3';
 
-const ratio = (max: number, min: number, value: number) =>
-  (value - min) / (max - min);
+export type LineChartDatum = {
+  x: number;
+  y: number;
+};
+
+export type LineChartData = LineChartDatum[];
+
+const line = () => {
+  let svg: d3.Selection<d3.BaseType, LineChartData, any, any>;
+  let data: LineChartData;
+
+  const margin = {
+    top: 20,
+    bottom: 40,
+    left: 40,
+    right: 20,
+  };
+  const width = 600;
+  const height = 400;
+
+  const buildSvg = (container: d3.BaseType) => {
+    if (!svg) {
+      svg = d3
+        .select<d3.BaseType, LineChartData>(container)
+        .append('svg')
+        .classed('line-chart', true);
+      const containerGroup = svg
+        .append('g')
+        .classed('container-group', true)
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+      containerGroup.append('g').classed('chart-group', true);
+      containerGroup.append('g').classed('x-axis-group axis', true);
+      containerGroup.append('g').classed('y-axis-group axis', true);
+    }
+    svg.attr('width', width).attr('height', height);
+  };
+
+  const drawAxes = (
+    chartHeight: number,
+    xAxis: d3.Axis<d3.NumberValue>,
+    yAxis: d3.Axis<d3.NumberValue>,
+  ) => {
+    svg
+      .select('.x-axis-group.axis')
+      .attr('transform', `translate(0, ${chartHeight})`)
+      .call(xAxis);
+    svg.select('.y-axis-group.axis').call(yAxis);
+  };
+
+  const drawLine = (
+    xScale: d3.ScaleLinear<number, number>,
+    yScale: d3.ScaleLinear<number, number>,
+  ) => {
+    const l = d3
+      .line<LineChartDatum>()
+      .x(({ x }) => xScale(x))
+      .y(({ y }) => yScale(y));
+    const l2 = svg.select('.chart-group').datum(data);
+    l2.append('path')
+      .classed('line', true)
+      .attr('d', l)
+      .attr('fill', 'none')
+      .attr('stroke', 'blue')
+      .attr('stroke-width', 1);
+    l2.exit().remove();
+  };
+
+  const exports = (
+    _selection: d3.Selection<d3.BaseType, LineChartData, any, any>,
+  ) => {
+    _selection.each((_data, index, groups) => {
+      data = _data;
+      const chartWidth = width - margin.left - margin.right;
+      const chartHeight = height - margin.bottom;
+      const xScale = d3
+        .scaleLinear()
+        .rangeRound([0, chartWidth])
+        .domain([
+          d3.min(data, (d) => d.x) || 0,
+          d3.max(data, (d) => d.x) || 100,
+        ]);
+      const yScale = d3
+        .scaleLinear()
+        .rangeRound([chartHeight, 0])
+        .domain([
+          d3.min(data, (d) => d.y) || 0,
+          d3.max(data, (d) => d.y) || 100,
+        ]);
+      const xAxis = d3.axisBottom(xScale);
+      const yAxis = d3.axisLeft(yScale).ticks(5);
+
+      buildSvg(groups[index]);
+      drawAxes(chartHeight, xAxis, yAxis);
+      drawLine(xScale, yScale);
+    });
+  };
+
+  return exports;
+};
 
 export interface LineChartProps {
-  width?: number;
-  height?: number;
-  points: { x: number; y: number }[];
-  margin?: {
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-  };
+  data: LineChartData;
 }
 
-export const LineChart: React.FC<LineChartProps> = ({
-  width = 360,
-  height = 240,
-  points,
-  margin = {
-    top: 5,
-    right: 5,
-    bottom: 30,
-    left: 30,
-  },
-}) => {
-  const canvasEl = useRef<HTMLCanvasElement>(null);
+export const LineChart: React.FC<LineChartProps> = ({ data }) => {
+  const rootEl = useRef<HTMLDivElement>(null);
 
-  const { top, right, bottom, left } = margin;
-
-  const { minX, maxX, minY, maxY } = useMemo(() => {
-    const xs = points.map(({ x }) => x);
-    const ys = points.map(({ y }) => y);
-    return {
-      minX: Math.min(...xs),
-      maxX: Math.max(...xs),
-      minY: Math.min(...ys),
-      maxY: Math.max(...ys),
-    };
-  }, [points]);
-
-  const frameWidth = width - (right + left);
-  const frameHeight = height - (top + bottom);
-
-  const sortedPoints = useMemo(() => {
-    return [...points].sort((a, b) => a.x - b.x);
-  }, [points]);
-
-  useEffect(() => {
-    if (canvasEl.current) {
-      const ctx = canvasEl.current.getContext('2d');
-      if (ctx) {
-        // Draw the outer frame.
-        ctx.beginPath();
-        ctx.moveTo(left, top);
-        ctx.lineTo(left, height - bottom);
-        ctx.lineTo(width - right, height - bottom);
-        ctx.strokeStyle = 'rgba(30, 30, 30, 0.75)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Draw X-axis.
-        ctx.save();
-        ctx.translate(left, top);
-        for (let i = 0; i <= 5; i += 1) {
-          const xv = ((maxX - minX) / 5) * i + minX;
-          const xp = ratio(maxX, minX, xv) * frameWidth;
-          ctx.beginPath();
-          ctx.moveTo(xp, frameHeight);
-          ctx.lineTo(xp, frameHeight + 5);
-          ctx.stroke();
-          ctx.fillText(xv.toString(), xp - 5, frameHeight + 15);
-        }
-        ctx.restore();
-
-        // Draw Y-axis.
-        ctx.save();
-        ctx.translate(left, top);
-        for (let i = 0; i <= 5; i += 1) {
-          const yv = ((maxY - minY) / 5) * i + minY;
-          const yp = (1 - ratio(maxY, minY, yv)) * frameHeight;
-          ctx.beginPath();
-          ctx.moveTo(0, yp);
-          ctx.lineTo(-5, yp);
-          ctx.stroke();
-          ctx.fillText(yv.toString(), -30, yp + 2);
-        }
-        ctx.restore();
-
-        // Draw line.
-        ctx.save();
-        ctx.translate(left, top);
-        ctx.beginPath();
-        sortedPoints.forEach(({ x, y }, index) => {
-          const xp = ratio(maxX, minX, x) * frameWidth;
-          const yp = (1 - ratio(maxY, minY, y)) * frameHeight;
-          if (index === 0) {
-            ctx.moveTo(xp, yp);
-            return;
-          }
-          ctx.lineTo(xp, yp);
-        });
-        ctx.strokeStyle = 'rgba(45, 68, 210, 0.75)';
-        ctx.stroke();
-
-        ctx.beginPath();
-        sortedPoints.forEach(({ x, y }) => {
-          const xp = ratio(maxX, minX, x) * frameWidth;
-          const yp = (1 - ratio(maxY, minY, y)) * frameHeight;
-          ctx.moveTo(xp + 3, yp);
-          ctx.arc(xp, yp, 3, 0, Math.PI * 2, true);
-        });
-        ctx.strokeStyle = 'rgba(45, 45, 45, 0.75)';
-        ctx.stroke();
-        ctx.restore();
-      }
+  useLayoutEffect(() => {
+    if (rootEl.current) {
+      const l = line();
+      d3.select(rootEl.current).datum(data).call(l);
     }
-  }, [
-    bottom,
-    frameHeight,
-    frameWidth,
-    height,
-    left,
-    maxX,
-    maxY,
-    minX,
-    minY,
-    right,
-    sortedPoints,
-    top,
-    width,
-  ]);
+  }, [data]);
 
-  return <canvas width={width} height={height} ref={canvasEl} />;
+  return <div className="line-container" ref={rootEl} />;
 };

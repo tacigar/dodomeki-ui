@@ -5,7 +5,7 @@ import { LineChart } from '../../packages/dodomeki-ui-charts/src/LineChart/LineC
 
 storiesOf('LineChart', module).add('LineChart', () => (
   <LineChart
-    points={[
+    data={[
       { x: 10, y: 32 },
       { x: 20, y: 38 },
       { x: 30, y: 34 },
