@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-
 import styled from 'styled-components';
+
 import { FormInput } from '../../packages/dodomeki-ui/src/FormInput';
 
 storiesOf('FormInput', module).add('FormInput', () => (
