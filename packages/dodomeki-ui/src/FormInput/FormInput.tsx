@@ -1,4 +1,4 @@
-import React, { Ref } from 'react';
+import React, { Ref, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 import { LoadingSpinner } from '../LoadingSpinner';
@@ -18,8 +18,32 @@ export const FormInput: React.FC<FormInputProps> = ({
   inputRef,
   isFullWidth = false,
   isLoading,
+  onBlur,
+  onFocus,
   style,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = useCallback(
+    (event: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(true);
+      if (onFocus) {
+        onFocus(event);
+      }
+    },
+    [onFocus],
+  );
+
+  const handleBlur = useCallback(
+    (event: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(false);
+      if (onBlur) {
+        onBlur(event);
+      }
+    },
+    [onBlur],
+  );
+
   let iconContent: React.ReactNode;
   if (isLoading) {
     iconContent = <LoadingSpinner />;
@@ -29,7 +53,7 @@ export const FormInput: React.FC<FormInputProps> = ({
 
   return (
     <Root isFullWidth={isFullWidth} className={className} style={style}>
-      <Input ref={inputRef} />
+      <Input ref={inputRef} onFocus={handleFocus} onBlur={handleBlur} />
       {iconContent && <IconWrapper>{iconContent}</IconWrapper>}
     </Root>
   );
@@ -47,6 +71,9 @@ const Root = styled.div<{ isFullWidth: boolean }>`
 const Input = styled.input`
   outline: none;
   border: none;
+  &:focus {
+    background-color: #ff0000;
+  }
 `;
 
 const IconWrapper = styled.span`
