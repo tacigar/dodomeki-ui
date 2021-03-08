@@ -5,22 +5,25 @@ import { LoadingSpinner } from '../LoadingSpinner';
 
 export interface FormInputProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
-  icon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   inputRef?: Ref<HTMLInputElement>;
   isFullWidth?: boolean;
   isLoading?: boolean;
+  startIcon?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
 export const FormInput: React.FC<FormInputProps> = ({
   className,
-  icon,
+  endIcon,
   inputRef,
   isFullWidth = false,
   isLoading,
   onBlur,
   onFocus,
+  startIcon,
   style,
+  ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -44,11 +47,11 @@ export const FormInput: React.FC<FormInputProps> = ({
     [onBlur],
   );
 
-  let iconContent: React.ReactNode;
+  let endIconContent: React.ReactNode;
   if (isLoading) {
-    iconContent = <LoadingSpinner />;
-  } else if (icon) {
-    iconContent = icon;
+    endIconContent = <LoadingSpinner size="sm" />;
+  } else if (endIcon) {
+    endIconContent = endIcon;
   }
 
   return (
@@ -58,8 +61,14 @@ export const FormInput: React.FC<FormInputProps> = ({
       isFullWidth={isFullWidth}
       style={style}
     >
-      <Input ref={inputRef} onFocus={handleFocus} onBlur={handleBlur} />
-      {iconContent && <IconWrapper>{iconContent}</IconWrapper>}
+      {startIcon && <StartIconWrapper>{startIcon}</StartIconWrapper>}
+      <Input
+        ref={inputRef}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        {...rest}
+      />
+      {endIconContent && <EndIconWrapper>{endIconContent}</EndIconWrapper>}
     </Root>
   );
 };
@@ -72,7 +81,7 @@ const Root = styled.div<{ isFullWidth: boolean; isFocused: boolean }>`
   border-radius: 4px;
   padding: 4px 8px;
 
-  transition: background-color 0.5s;
+  transition: background-color 0.3s;
   ${(props) =>
     props.isFocused &&
     css`
@@ -83,13 +92,19 @@ const Root = styled.div<{ isFullWidth: boolean; isFocused: boolean }>`
 const Input = styled.input`
   outline: none;
   border: none;
-  transition: background-color 0.5s;
+  transition: background-color 0.3s;
   &:focus {
     background-color: ${(props) => props.theme.palette.primary[0]};
   }
 `;
 
-const IconWrapper = styled.span`
+const StartIconWrapper = styled.span`
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+`;
+
+const EndIconWrapper = styled.span`
   margin-left: 3px;
   display: flex;
   align-items: center;
