@@ -7,6 +7,7 @@ export * from './CardImage';
 export * from './CardText';
 export * from './CardTitle';
 export * from './Field';
+export * from './FieldSet';
 export * from './FormContext';
 export * from './FormControl';
 export * from './FormInput';
