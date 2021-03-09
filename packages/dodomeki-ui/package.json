@@ -17,6 +17,7 @@
 		"build": "tsc -p tsconfig.json"
 	},
 	"dependencies": {
+		"@types/styled-system": "^5.1.10",
 		"styled-system": "^5.1.5"
 	}
 }
