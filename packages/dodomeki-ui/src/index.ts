@@ -11,6 +11,7 @@ export * from './FieldSet';
 export * from './FormContext';
 export * from './FormControl';
 export * from './FormInput';
+export * from './FormSlider';
 export * from './GlobalStyles';
 export * from './List';
 export * from './ListContext';
