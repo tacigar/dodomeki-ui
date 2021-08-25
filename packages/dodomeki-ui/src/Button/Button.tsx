@@ -4,19 +4,11 @@ import styled, { css } from 'styled-components';
 import { Theme } from '../styles';
 import { LoadingSpinner } from '../LoadingSpinner';
 
-export type ButtonSizeType = 'sm' | 'md' | 'lg';
+export type ButtonSizeType = 'md' | 'lg';
 
-export type ButtonVariantType = 'filled' | 'outlined' | 'empty';
-
-export type ButtonColorType =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'danger';
+export type ButtonVariantType = 'filled' | 'empty';
 
 interface ButtonCommonProps {
-  color?: ButtonColorType;
   disabled?: boolean;
   href?: string | never;
   icon?: React.ReactNode;
@@ -34,14 +26,13 @@ export type ButtonProps = ButtonCommonProps &
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  color = 'primary',
   disabled = false,
   href,
   icon,
   isFullWidth = false,
   isLoading = false,
   size = 'md',
-  variant = 'outlined',
+  variant = 'filled',
   ...rest
 }) => {
   const isDisabled = isLoading ? true : disabled;
@@ -49,11 +40,10 @@ export const Button: React.FC<ButtonProps> = ({
   const component = href ? 'a' : 'button';
 
   return (
-    <ButtonBox
+    <ButtonRoot
       as={component}
       size={size}
       variant={variant}
-      color={color}
       disabled={isDisabled}
       isFullWidth={isFullWidth}
       isLoading={isLoading}
@@ -61,21 +51,16 @@ export const Button: React.FC<ButtonProps> = ({
       {...rest}
     >
       <ButtonContent>
-        {isLoading && <Spinner size={size} color={color} />}
+        {isLoading && <Spinner size={size} />}
         {icon}
         <Text icon={icon}>{children}</Text>
       </ButtonContent>
-    </ButtonBox>
+    </ButtonRoot>
   );
 };
 
 const sizeStyles = (props: ButtonCommonProps & { theme: Theme }) => {
   switch (props.size) {
-    case 'sm':
-      return css`
-        font-size: ${props.theme.text.fontSize.sm};
-        padding: 5px 10px;
-      `;
     case 'md':
       return css`
         font-size: ${props.theme.text.fontSize.md};
@@ -92,23 +77,13 @@ const sizeStyles = (props: ButtonCommonProps & { theme: Theme }) => {
 };
 
 const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
-  if (!props.color) {
-    return '';
-  }
-
   if (props.disabled) {
     switch (props.variant) {
       case 'filled':
         return css`
           color: ${props.theme.palette.grey.light[8]};
           border-color: ${props.theme.palette.grey.light[7]};
-          background-color: ${props.theme.palette.grey.light[5]};
-        `;
-      case 'outlined':
-        return css`
-          color: ${props.theme.palette.grey.light[6]};
-          border-color: ${props.theme.palette.grey.light[7]};
-          background-color: initial;
+          background: ${props.theme.palette.metallicGray.disabled};
         `;
       case 'empty':
         return css`
@@ -121,42 +96,24 @@ const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
     }
   }
 
-  const mainColor = props.theme.palette[props.color][5];
-  const darkColor = props.theme.palette[props.color][7];
-
   switch (props.variant) {
     case 'filled':
       return css`
-        color: ${props.theme.palette.white};
-        border-color: ${darkColor};
-        background-color: ${mainColor};
-        box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
+        border-color: ${props.theme.palette.border};
+        background: ${props.theme.palette.metallicGray.main};
         &:hover {
-          box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
-          background-color: ${darkColor};
-        }
-      `;
-    case 'outlined':
-      return css`
-        color: ${props.theme.palette.black};
-        border-color: ${darkColor};
-        background-color: initial;
-        box-shadow: 0 2px 2px -1px rgba(54, 97, 126, 0.3);
-        &:hover {
-          box-shadow: 0 4px 8px 0 rgba(54, 97, 126, 0.3);
-          background-color: ${props.theme.palette.grey.light[1]};
+          background: ${props.theme.palette.metallicGray.hover};
         }
         &:active {
-          background-color: ${props.theme.palette.grey.light[2]};
+          background: ${props.theme.palette.metallicGray.active};
+          box-shadow: ${props.theme.shadows.metallicGrayInset};
         }
       `;
     case 'empty':
       return css`
-        color: ${mainColor};
         border-color: transparent;
         background-color: initial;
         &:hover {
-          color: ${darkColor};
           text-decoration: underline;
         }
       `;
@@ -165,7 +122,7 @@ const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
   }
 };
 
-export const ButtonBox = styled.div<ButtonCommonProps>`
+export const ButtonRoot = styled.div<ButtonCommonProps>`
   display: inline-block;
   width: ${(props) => (props.isFullWidth ? '100%' : '')};
   min-width: 40px;
@@ -173,7 +130,6 @@ export const ButtonBox = styled.div<ButtonCommonProps>`
   border-width: 1px;
   border-style: solid;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  transition: all 0.15s ease-out;
   text-decoration: 'none';
   text-overflow: ellipsis;
   text-align: center;
@@ -185,14 +141,6 @@ export const ButtonBox = styled.div<ButtonCommonProps>`
   &:focus {
     outline: none;
   }
-
-  ${(props) =>
-    props.variant === 'empty' || props.disabled
-      ? ''
-      : `
-        &:hover { transform: translateY(-1px) }
-        &:active { transform: translateY(1px) }
-      `}
 
   ${(props) => sizeStyles(props)}
   ${(props) => colorStyles(props)}

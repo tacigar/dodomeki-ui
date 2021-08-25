@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ButtonBox, ButtonColorType, ButtonSizeType } from '../Button';
+import { ButtonRoot, ButtonSizeType } from '../Button';
 
 export type ButtonGroupSizeType = ButtonSizeType;
-export type ButtonGroupColorType = ButtonColorType;
 export type ButtonGroupVariantType = 'filled' | 'outlined';
 
 export interface ButtonGroupProps {
   size?: ButtonGroupSizeType;
   variant?: ButtonGroupVariantType;
-  color?: ButtonGroupColorType;
   children: React.ReactElement[];
 }
 
@@ -23,7 +21,7 @@ export const ButtonGroup = styled.div.attrs<ButtonGroupProps>((props) => ({
     }),
   ),
 }))<ButtonGroupProps>`
-  & > ${ButtonBox} {
+  & > ${ButtonRoot} {
     position: relative;
     border-radius: 0px;
     box-shadow: none;
