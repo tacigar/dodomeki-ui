@@ -10,7 +10,7 @@ storiesOf('Table', module).add('Table', () => (
   <Table>
     <TableHead>
       <TableRow>
-        <TableCell>Name</TableCell>
+        <TableCell onClick={() => {}}>Name</TableCell>
         <TableCell>Age</TableCell>
         <TableCell>Country</TableCell>
       </TableRow>

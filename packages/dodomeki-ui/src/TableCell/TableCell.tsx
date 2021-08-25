@@ -43,6 +43,21 @@ const Th = styled.th<TableCellProps & { theme: Theme }>`
   :not(:last-child) {
     border-right: 1px solid ${(props) => props.theme.palette.border};
   }
+  ${(props) => {
+    if (props.onClick) {
+      return css`
+        cursor: pointer;
+        :hover {
+          background: ${props.theme.palette.metallicGray.hover};
+        }
+        :active {
+          background: ${props.theme.palette.metallicGray.active};
+          box-shadow: ${props.theme.shadows.metallicGrayInset};
+        }
+      `;
+    }
+    return null;
+  }}
   ${(props) => commonStyles(props)};
 `;
 
