@@ -128,7 +128,7 @@ export const defaultTheme: Theme = {
       main: 'linear-gradient(#fafafa, #e3e5e5)',
       active: '#e2e2e2',
       hover: 'linear-gradient(#f3f5f5, #d4d6d6)',
-      selected: '#e8e9e9',
+      selected: '#d4d6d6',
       disabled: '#e8e9e9',
     },
     border: '#d4d6d6',
