@@ -77,24 +77,24 @@ const Root = styled.div<{ isFullWidth: boolean; isFocused: boolean }>`
   width: ${(props) => props.isFullWidth && '100%'};
   display: inline-flex;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.palette.grey.light[7]};
+  border: 1px solid ${(props) => props.theme.palette.border};
   border-radius: 4px;
   padding: 4px 8px;
 
-  transition: background-color 0.3s;
+  transition: background-color 0.15s;
   ${(props) =>
     props.isFocused &&
     css`
-      background-color: ${props.theme.palette.primary[0]};
+      background-color: ${props.theme.palette.grey.light[2]};
     `}
 `;
 
 const Input = styled.input`
   outline: none;
   border: none;
-  transition: background-color 0.3s;
+  transition: background-color 0.15s;
   &:focus {
-    background-color: ${(props) => props.theme.palette.primary[0]};
+    background-color: ${(props) => props.theme.palette.grey.light[2]};
   }
 `;
 
