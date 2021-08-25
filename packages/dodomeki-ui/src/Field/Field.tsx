@@ -21,7 +21,7 @@ export const Field: React.FC<FieldProps> = ({
         </LabelWrapper>
       )}
       <div>{children}</div>
-      <Description>{description}</Description>
+      {description && <Description>{description}</Description>}
     </Root>
   );
 };
@@ -35,12 +35,12 @@ const LabelWrapper = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: ${({ theme }) => theme.text.fontSize.sm};
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.text.fontSize.md};
+  font-weight: 500;
 `;
 
 const Description = styled.div`
-  margin-top: 4px;
-  font-size: ${({ theme }) => theme.text.fontSize.xs};
-  color: ${({ theme }) => theme.palette.grey.light[8]};
+  margin-top: 6px;
+  font-size: ${({ theme }) => theme.text.fontSize.sm};
+  color: ${({ theme }) => theme.palette.text.hint};
 `;

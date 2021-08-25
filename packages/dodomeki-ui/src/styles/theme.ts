@@ -22,6 +22,7 @@ export interface Theme {
     text: {
       primary: string;
       link: string;
+      hint: string;
     };
   };
   text: {
@@ -134,6 +135,7 @@ export const defaultTheme: Theme = {
     text: {
       primary: '#333333',
       link: '#0366d6',
+      hint: '#b0b0b0',
     },
   },
   text: {
