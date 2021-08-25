@@ -4,11 +4,9 @@ import styled from 'styled-components';
 import { ButtonRoot, ButtonSizeType } from '../Button';
 
 export type ButtonGroupSizeType = ButtonSizeType;
-export type ButtonGroupVariantType = 'filled' | 'outlined';
 
 export interface ButtonGroupProps {
   size?: ButtonGroupSizeType;
-  variant?: ButtonGroupVariantType;
   children: React.ReactElement[];
 }
 
@@ -16,8 +14,6 @@ export const ButtonGroup = styled.div.attrs<ButtonGroupProps>((props) => ({
   children: React.Children.map(props.children, (child) =>
     React.cloneElement(child, {
       size: props.size,
-      variant: props.variant,
-      color: props.color,
     }),
   ),
 }))<ButtonGroupProps>`
