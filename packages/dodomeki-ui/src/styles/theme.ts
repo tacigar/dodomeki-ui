@@ -119,6 +119,7 @@ export const defaultTheme: Theme = {
         '#c5c5c5',
         '#b6b6b6',
         '#b0b0b0',
+        '#aeaeae',
       ],
       dark: [],
     },

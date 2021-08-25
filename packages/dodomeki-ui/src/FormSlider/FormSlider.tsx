@@ -92,21 +92,28 @@ const Rail = styled.div`
   position: absolute;
   height: 2px;
   width: 100%;
-  background-color: ${({ theme }) => theme.palette.grey.light[1]};
+  background-color: ${({ theme }) => theme.palette.grey.light[3]};
 `;
 
 const Track = styled.div`
   position: absolute;
   height: 2px;
-  background-color: ${({ theme }) => theme.palette.primary[3]};
+  background-color: ${({ theme }) => theme.palette.grey.light[9]};
 `;
 
 const Handle = styled.div`
   position: absolute;
-  width: 8px;
-  height: 8px;
-  margin-top: -5px;
-  border: 2px solid ${({ theme }) => theme.palette.primary[3]};
+  width: 10px;
+  height: 10px;
+  margin-top: -6px;
+  border: 1px solid ${({ theme }) => theme.palette.border};
   border-radius: 50%;
+  background: ${({ theme }) => theme.palette.metallicGray.main};
   cursor: pointer;
+  &:hover {
+    background: ${({ theme }) => theme.palette.metallicGray.hover};
+  }
+  &:active {
+    background: ${({ theme }) => theme.palette.metallicGray.active};
+  }
 `;
