@@ -6,8 +6,11 @@ import { Button, ButtonProps } from '../../packages/dodomeki-ui/src/Button';
 storiesOf('Button', module).add('Button', () => {
   return (
     <Root>
-      <div>{renderButton('Default', {})}</div>
-      <div>{renderButton('Disabled', { disabled: true })}</div>
+      {renderButton('Default', {})}
+      {renderButton('Disabled', { disabled: true })}
+      {renderButton('Large', { size: 'lg' })}
+      {renderButton('Empty', { variant: 'empty' })}
+      {renderButton('Large Empty', { variant: 'empty', size: 'lg' })}
     </Root>
   );
 });

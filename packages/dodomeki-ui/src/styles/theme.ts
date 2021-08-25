@@ -19,6 +19,9 @@ export interface Theme {
       disabled: string;
     };
     border: string;
+    text: {
+      link: string;
+    };
   };
   text: {
     fontSize: {
@@ -126,6 +129,9 @@ export const defaultTheme: Theme = {
       disabled: '#e8e9e9',
     },
     border: '#d4d6d6',
+    text: {
+      link: '#0366d6',
+    },
   },
   text: {
     fontSize: {

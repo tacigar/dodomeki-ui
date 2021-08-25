@@ -64,12 +64,12 @@ const sizeStyles = (props: ButtonCommonProps & { theme: Theme }) => {
     case 'md':
       return css`
         font-size: ${props.theme.text.fontSize.md};
-        padding: 7px 12px;
+        padding: 5px 8px;
       `;
     case 'lg':
       return css`
         font-size: ${props.theme.text.fontSize.lg};
-        padding: 9px 14px;
+        padding: 7px 10px;
       `;
     default:
       return '';
@@ -113,6 +113,7 @@ const colorStyles = (props: ButtonCommonProps & { theme: Theme }) => {
       return css`
         border-color: transparent;
         background-color: initial;
+        color: ${props.theme.palette.text.link};
         &:hover {
           text-decoration: underline;
         }
