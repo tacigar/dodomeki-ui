@@ -10,7 +10,8 @@ storiesOf('Button', module).add('Button', () => {
       {renderButton('Disabled', { disabled: true })}
       {renderButton('Large', { size: 'lg' })}
       {renderButton('Empty', { variant: 'empty' })}
-      {renderButton('Large Empty', { variant: 'empty', size: 'lg' })}
+      {renderButton('Empty Disabled', { variant: 'empty', disabled: true })}
+      {renderButton('Empty Large', { variant: 'empty', size: 'lg' })}
     </Root>
   );
 });
