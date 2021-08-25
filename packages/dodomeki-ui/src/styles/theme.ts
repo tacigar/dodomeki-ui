@@ -11,6 +11,14 @@ export interface Theme {
       light: string[];
       dark: string[];
     };
+    metallicGray: {
+      main: string;
+      active: string;
+      hover: string;
+      selected: string;
+      disabled: string;
+    };
+    border: string;
   };
   text: {
     fontSize: {
@@ -22,6 +30,9 @@ export interface Theme {
       xl: string;
       xxl: string;
     };
+  };
+  shadows: {
+    metallicGrayInset: string;
   };
 }
 
@@ -107,16 +118,27 @@ export const defaultTheme: Theme = {
       ],
       dark: [],
     },
+    metallicGray: {
+      main: 'linear-gradient(#fafafa, #e3e5e5)',
+      active: '#e2e2e2',
+      hover: 'linear-gradient(#f3f5f5, #d4d6d6)',
+      selected: '#e8e9e9',
+      disabled: '#e8e9e9',
+    },
+    border: '#d4d6d6',
   },
   text: {
     fontSize: {
-      xxs: '8px',
-      xs: '10px',
-      sm: '12px',
-      md: '14px',
-      lg: '16px',
+      xxs: '6px',
+      xs: '8px',
+      sm: '11px',
+      md: '13px',
+      lg: '15px',
       xl: '22px',
       xxl: '28px',
     },
+  },
+  shadows: {
+    metallicGrayInset: '0px 0px 6px 4px #dbdbdb inset',
   },
 };
