@@ -2,49 +2,33 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { Theme } from '../styles';
 
-export type LoadingSpinnerSizeType =
-  | 'xxs'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl';
-
-export type LoadingSpinnerColorType =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'danger';
+export type LoadingSpinnerSizeType = 'sm' | 'md' | 'lg';
 
 export interface LoadingSpinnerProps {
   size?: LoadingSpinnerSizeType;
-  color?: LoadingSpinnerColorType;
 }
 
 const sizeStyles = (props: LoadingSpinnerProps & { theme: Theme }) => {
-  const fontSize = props.theme.text.fontSize[props.size || 'md'];
-
-  let borderWidth;
+  let size = '';
+  let borderWidth = '';
   switch (props.size) {
-    case 'xxs':
-    case 'xs':
     case 'sm':
+      size = '9px';
       borderWidth = '1px';
       break;
     case 'md':
-    case 'lg':
+      size = '10px';
       borderWidth = '2px';
       break;
     default:
-      borderWidth = '3px';
+      size = '11px';
+      borderWidth = '2px';
       break;
   }
 
   return css`
-    width: ${fontSize};
-    height: ${fontSize};
+    width: ${size};
+    height: ${size};
     border-width: ${borderWidth};
   `;
 };
@@ -60,19 +44,18 @@ const anim = keyframes`
 
 export const LoadingSpinner = styled.span<LoadingSpinnerProps>`
   border-radius: 50%;
-
   position: relative;
   position: relative;
   display: inline-block;
 
   ${(props) => {
-    const greyColor = props.theme.palette.grey.light[6];
-    const mainColor = props.theme.palette[props.color || 'primary'][7];
+    const backColor = props.theme.palette.grey.light[5];
+    const frontColor = props.theme.palette.grey.light[9];
     return css`
-      border-top: solid ${greyColor};
-      border-right: solid ${greyColor};
-      border-bottom: solid ${greyColor};
-      border-left: solid ${mainColor};
+      border-top: solid ${backColor};
+      border-right: solid ${backColor};
+      border-bottom: solid ${backColor};
+      border-left: solid ${frontColor};
     `;
   }}
 

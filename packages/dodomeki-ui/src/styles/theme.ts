@@ -20,6 +20,7 @@ export interface Theme {
     };
     border: string;
     text: {
+      primary: string;
       link: string;
     };
   };
@@ -130,6 +131,7 @@ export const defaultTheme: Theme = {
     },
     border: '#d4d6d6',
     text: {
+      primary: '#333333',
       link: '#0366d6',
     },
   },

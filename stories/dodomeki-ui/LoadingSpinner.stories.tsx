@@ -5,24 +5,11 @@ import styled from 'styled-components';
 import { LoadingSpinner } from '../../packages/dodomeki-ui/src/LoadingSpinner';
 
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
-  <>
-    <Row>
-      <LoadingSpinner size="xxs" />
-      <LoadingSpinner size="xs" />
-      <LoadingSpinner size="sm" />
-      <LoadingSpinner size="md" />
-      <LoadingSpinner size="lg" />
-      <LoadingSpinner size="xl" />
-      <LoadingSpinner size="xxl" />
-    </Row>
-    <Row>
-      <LoadingSpinner color="primary" />
-      <LoadingSpinner color="secondary" />
-      <LoadingSpinner color="success" />
-      <LoadingSpinner color="warning" />
-      <LoadingSpinner color="danger" />
-    </Row>
-  </>
+  <Row>
+    <LoadingSpinner size="sm" />
+    <LoadingSpinner size="md" />
+    <LoadingSpinner size="lg" />
+  </Row>
 ));
 
 const Row = styled.div`

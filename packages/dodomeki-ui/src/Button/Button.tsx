@@ -138,6 +138,7 @@ export const ButtonRoot = styled.div<ButtonCommonProps>`
   white-space: nowrap;
   vertical-align: middle;
   font: 400 13.3333px Arial;
+  color: ${(props) => props.theme.palette.text.primary};
 
   &:focus {
     outline: none;
