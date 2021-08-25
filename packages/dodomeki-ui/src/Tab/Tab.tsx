@@ -41,24 +41,24 @@ const Root = styled(Button).attrs<{ _isSelected: boolean }>((props) => ({
 }))<{ _isSelected: boolean }>`
   min-width: 100px;
   display: flex;
+  position: relative;
   justify-content: center;
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-
-  :not(:last-child) {
-    margin-right: 8px;
-  }
+  margin-left: 12px;
+  bottom: -1px;
 
   ${(props) => {
     if (props._isSelected) {
       return css`
-        background: ${props.theme.palette.metallicGray.selected};
-        :hover {
-          background: ${props.theme.palette.metallicGray.selected};
-        }
+        background: #fff;
+        border-bottom: 1px solid #fff;
+        cursor: unset;
+        :hover,
         :active {
-          background: ${props.theme.palette.metallicGray.selected};
+          background: #fff;
+          box-shadow: none;
         }
       `;
     }

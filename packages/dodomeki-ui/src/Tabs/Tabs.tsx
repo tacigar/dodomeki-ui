@@ -35,5 +35,6 @@ export const Tabs: React.FC<TabsProps> = ({
 
 const Root = styled.div`
   display: flex;
+  position: relative;
   border-bottom: 1px solid ${(props) => props.theme.palette.border};
 `;
