@@ -1,6 +1,6 @@
 {
 	"name": "@dodomeki-ui/virtualized",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "lib/index.js",
 	"directories": {
 		"lib": "lib"
@@ -13,7 +13,7 @@
 		"react-dom": "^16.13.0 || ^17.0.0",
 		"styled-components": "^5.0.1"
 	},
-  "scripts": {
-    "build": "tsc -p tsconfig.json"
-  }
+	"scripts": {
+		"build": "tsc -p tsconfig.json"
+	}
 }
