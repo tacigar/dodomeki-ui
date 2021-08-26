@@ -1,5 +1,5 @@
 {
-  "name": "@dodomeki-ui/charts",
+  "name": "@dodomeki-ui/chart",
   "version": "0.0.4",
   "main": "lib/index.js",
   "directories": {

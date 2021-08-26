@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { BarChart } from '../../packages/dodomeki-ui-charts/src/BarChart';
+import { BarChart } from '../../packages/dodomeki-ui-chart/src/BarChart';
 
 storiesOf('BarChart', module).add('BarChart', () => (
   <BarChart
