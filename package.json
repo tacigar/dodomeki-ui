@@ -15,7 +15,14 @@
   "scripts": {
     "lint": "eslint packages",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "versionup:patch": "lerna version patch --conventional-commits",
+    "versionup:minor": "lerna version minor --conventional-commits",
+    "versionup:major": "lerna version minor --conventional-commits",
+    "release": "lerna publish from-package"
   },
   "peerDependencies": {
     "react": "^16.13.0 || ^17.0.0",
