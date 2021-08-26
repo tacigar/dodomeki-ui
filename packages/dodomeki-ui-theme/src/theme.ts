@@ -1,47 +1,4 @@
-export interface Theme {
-  palette: {
-    primary: string[];
-    secondary: string[];
-    success: string[];
-    danger: string[];
-    warning: string[];
-    white: string;
-    black: string;
-    grey: {
-      light: string[];
-      dark: string[];
-    };
-    metallicGray: {
-      main: string;
-      active: string;
-      hover: string;
-      selected: string;
-      disabled: string;
-    };
-    border: string;
-    text: {
-      primary: string;
-      link: string;
-      hint: string;
-    };
-  };
-  text: {
-    fontSize: {
-      xxs: string;
-      xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-      xxl: string;
-    };
-  };
-  shadows: {
-    metallicGrayInset: string;
-  };
-}
-
-export const defaultTheme: Theme = {
+export const theme = {
   palette: {
     // Indigo
     primary: [
@@ -153,3 +110,5 @@ export const defaultTheme: Theme = {
     metallicGrayInset: '0px 0px 6px 4px #dbdbdb inset',
   },
 };
+
+export type Theme = typeof theme;
