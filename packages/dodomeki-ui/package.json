@@ -1,23 +1,26 @@
 {
-	"name": "@dodomeki-ui/core",
-	"version": "0.0.2",
-	"main": "lib/index.js",
-	"directories": {
-		"lib": "lib"
-	},
-	"files": [
-		"lib"
-	],
-	"peerDependencies": {
-		"react": "^16.13.0 || ^17.0.0",
-		"react-dom": "^16.13.0 || ^17.0.0",
-		"styled-components": "^5.0.1"
-	},
-	"scripts": {
-		"build": "tsc -p tsconfig.json"
-	},
-	"dependencies": {
-		"@types/styled-system": "^5.1.10",
-		"styled-system": "^5.1.5"
-	}
+  "name": "@dodomeki-ui/core",
+  "version": "0.0.2",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "react": "^16.13.0 || ^17.0.0",
+    "react-dom": "^16.13.0 || ^17.0.0",
+    "styled-components": "^5.0.1"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@types/styled-system": "^5.1.10",
+    "styled-system": "^5.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

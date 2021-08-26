@@ -24,9 +24,6 @@
     "versionup:major": "lerna version minor --conventional-commits",
     "release": "lerna publish from-package"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "peerDependencies": {
     "react": "^16.13.0 || ^17.0.0",
     "react-dom": "^16.13.0 || ^17.0.0",
