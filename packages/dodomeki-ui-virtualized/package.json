@@ -14,7 +14,8 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build"
   },
   "publishConfig": {
     "access": "public"
