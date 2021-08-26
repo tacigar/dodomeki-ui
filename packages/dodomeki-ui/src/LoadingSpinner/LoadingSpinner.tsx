@@ -1,6 +1,5 @@
+import { Theme } from '@dodomeki-ui/theme';
 import styled, { css, keyframes } from 'styled-components';
-
-import { Theme } from '../styles';
 
 export type LoadingSpinnerSizeType = 'sm' | 'md' | 'lg';
 

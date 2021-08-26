@@ -1,6 +1,5 @@
+import { Theme } from '@dodomeki-ui/theme';
 import { createGlobalStyle } from 'styled-components';
-
-import { Theme } from '../styles';
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   body: {

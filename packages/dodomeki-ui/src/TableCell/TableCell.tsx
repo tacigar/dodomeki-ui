@@ -1,6 +1,7 @@
+import { Theme } from '@dodomeki-ui/theme';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Theme } from '../styles';
+
 import { useTableGroupContext } from '../TableGroupContext';
 
 export interface TableCellProps

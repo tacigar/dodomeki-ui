@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Theme } from '../styles';
-
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   className?: string;
 }
@@ -19,7 +17,7 @@ export const Table: React.FC<TableProps> = ({
   );
 };
 
-const Root = styled.table<TableProps & { theme: Theme }>`
+const Root = styled.table<TableProps>`
   width: 100%;
   border-spacing: 0;
   border-radius: 4px;

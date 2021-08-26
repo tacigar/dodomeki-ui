@@ -1,7 +1,7 @@
+import { Theme } from '@dodomeki-ui/theme';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Theme } from '../styles';
 import { LoadingSpinner } from '../LoadingSpinner';
 
 export type ButtonSizeType = 'md' | 'lg';
