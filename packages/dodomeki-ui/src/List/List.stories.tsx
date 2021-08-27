@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { List } from '../../packages/dodomeki-ui/src/List';
-import { Box } from '../../packages/dodomeki-ui/src/Box';
-import { ListItem } from '../../packages/dodomeki-ui/src/ListItem';
+import { List } from './List';
+import { Box } from '../Box';
+import { ListItem } from '../ListItem';
 
 storiesOf('List', module).add('List', () => (
   <>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Table } from '../../packages/dodomeki-ui/src/Table';
-import { TableHead } from '../../packages/dodomeki-ui/src/TableHead';
-import { TableRow } from '../../packages/dodomeki-ui/src/TableRow';
-import { TableCell } from '../../packages/dodomeki-ui/src/TableCell';
-import { TableBody } from '../../packages/dodomeki-ui/src/TableBody';
+import { Table } from './Table';
+import { TableHead } from '../TableHead';
+import { TableRow } from '../TableRow';
+import { TableCell } from '../TableCell';
+import { TableBody } from '../TableBody';
 
 storiesOf('Table', module).add('Table', () => (
   <Table>

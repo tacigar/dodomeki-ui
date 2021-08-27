@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { Button, ButtonProps } from '../../packages/dodomeki-ui/src/Button';
+import { Button, ButtonProps } from '.';
 
 storiesOf('Button', module).add('Button', () => {
   return (

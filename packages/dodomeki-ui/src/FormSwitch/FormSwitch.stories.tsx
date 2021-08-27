@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { FormSwitch } from '../../packages/dodomeki-ui/src/FormSwitch';
+import { FormSwitch } from './FormSwitch';
 
 storiesOf('FormSwitch', module).add('FormSwitch', () => {
   const [checked, setChecked] = useState(false);

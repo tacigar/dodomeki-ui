@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { LineChart } from '../../packages/dodomeki-ui-chart/src/LineChart/LineChart';
+import { LineChart } from './LineChart';
 
 storiesOf('LineChart', module).add('LineChart', () => (
   <LineChart

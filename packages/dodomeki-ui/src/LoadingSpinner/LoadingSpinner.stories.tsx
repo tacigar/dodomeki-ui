@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 
-import { LoadingSpinner } from '../../packages/dodomeki-ui/src/LoadingSpinner';
+import { LoadingSpinner } from './LoadingSpinner';
 
 storiesOf('LoadingSpinner', module).add('LoadingSpinner', () => (
   <Row>

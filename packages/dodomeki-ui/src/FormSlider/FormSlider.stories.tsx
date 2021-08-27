@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { FormSlider } from '../../packages/dodomeki-ui/src/FormSlider';
+import { FormSlider } from './FormSlider';
 
 storiesOf('FormSlider', module).add('FormSlider', () => {
   const [value, setValue] = useState(28);

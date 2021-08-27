@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 
-import { FormInput } from '../../packages/dodomeki-ui/src/FormInput';
+import { FormInput } from './FormInput';
 
 storiesOf('FormInput', module).add('FormInput', () => (
   <Root>

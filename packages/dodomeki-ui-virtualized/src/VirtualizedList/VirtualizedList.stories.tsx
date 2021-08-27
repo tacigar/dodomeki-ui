@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { VirtualizedList } from '../../packages/dodomeki-ui-virtualized/src/VirtualizedList/VirtualizedList';
+import { VirtualizedList } from './VirtualizedList';
 
 storiesOf('VirtualizedList', module).add('VirtualizedList', () => {
   const items: string[] = [];

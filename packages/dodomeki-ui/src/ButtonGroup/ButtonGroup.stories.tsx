@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 
-import { Button } from '../../packages/dodomeki-ui/src/Button';
-import { ButtonGroup } from '../../packages/dodomeki-ui/src/ButtonGroup';
+import { Button } from '../Button';
+import { ButtonGroup } from './ButtonGroup';
 
 storiesOf('ButtonGroup', module).add('ButtonGroup', () => {
   return (

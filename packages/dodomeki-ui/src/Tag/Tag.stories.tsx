@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Tag } from '../../packages/dodomeki-ui/src/Tag';
+import { Tag } from './Tag';
 
 storiesOf('Tag', module).add('Tag', () => (
   <div>

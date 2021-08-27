@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Tabs } from '../../packages/dodomeki-ui/src/Tabs';
-import { Tab } from '../../packages/dodomeki-ui/src/Tab';
+import { Tabs } from '../Tabs';
+import { Tab } from './Tab';
 
 storiesOf('Tab', module).add('Tab', () => {
   const [tab, setTab] = useState('tab1');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Box } from '../../packages/dodomeki-ui/src/Box';
+import { Box } from './Box';
 
 storiesOf('Box', module).add('Box', () => (
   <Box display="flex" justifyContent="space-between">
