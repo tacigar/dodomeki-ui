@@ -21,5 +21,12 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "build", "scripts"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }
