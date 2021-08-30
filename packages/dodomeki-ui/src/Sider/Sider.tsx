@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { SiderContent } from '../SiderContent';
 
-const siderWidth = 300;
+const siderWidth = 240;
 
 export interface SiderProps {}
 
@@ -33,6 +33,7 @@ const Root = styled.div`
   position: fixed;
   height: 100vh;
   width: ${siderWidth}px;
+  border-right: 1px solid ${({ theme }) => theme.palette.border};
 `;
 
 const Main = styled.main`

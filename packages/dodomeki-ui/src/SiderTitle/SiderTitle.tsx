@@ -2,18 +2,18 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export interface SiderTitleProps {
-  title: string;
   isSub?: boolean;
 }
 
 export const SiderTitle: React.FC<SiderTitleProps> = ({
-  title,
+  children,
   isSub = false,
 }) => {
-  return <Root isSub={isSub}>{title}</Root>;
+  return <Root isSub={isSub}>{children}</Root>;
 };
 
 const Root = styled.div<{ isSub: boolean }>`
+  padding: 6px 8px;
   ${(props) =>
     props.isSub
       ? css`
@@ -21,6 +21,7 @@ const Root = styled.div<{ isSub: boolean }>`
           color: ${props.theme.palette.grey.light[9]};
         `
       : css`
-          font-size: ${props.theme.text.fontSize.xs};
+          font-size: ${props.theme.text.fontSize.xl};
+          font-weight: 400;
         `}
 `;
