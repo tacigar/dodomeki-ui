@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/react';
 
 import { Plot } from '../Plot';
+import { XAxis } from '../XAxis';
+import { YAxis } from '../YAxis';
 import { LineSeries } from './LineSeries';
 
 storiesOf('LineSeries', module).add('LineSeries', () => (
@@ -16,5 +18,7 @@ storiesOf('LineSeries', module).add('LineSeries', () => (
         { x: 70, y: 100 },
       ]}
     />
+    <XAxis />
+    <YAxis />
   </Plot>
 ));
