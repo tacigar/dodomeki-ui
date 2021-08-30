@@ -1,4 +1,3 @@
-export * from './BarChart';
 export * from './LineSeries';
 export * from './Plot';
 export * from './PlotContext';
