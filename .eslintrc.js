@@ -6,6 +6,7 @@ module.exports = {
     'prettier/react',
   ],
   rules: {
+    'prefer-destructuring': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
     'no-use-before-define': 'off',
@@ -25,9 +26,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import'],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.json',
-  },
   env: {
     browser: true,
     node: true,
