@@ -1,6 +1,11 @@
-export type PlotDatum = {
-  x: number | string | Date;
-  y: number;
-};
+export type PlotData = { x: number; y: number }[] | { x: Date; y: number }[];
 
-export type PlotData = PlotDatum[];
+export const convertPlotDataToNumberPairArray = (
+  data: PlotData,
+): [number, number][] =>
+  data.map((datum) => {
+    if (typeof datum.x === 'number') {
+      return [datum.x, datum.y];
+    }
+    return [datum.x.valueOf(), datum.y];
+  });
