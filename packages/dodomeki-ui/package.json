@@ -1,6 +1,6 @@
 {
   "name": "@dodomeki-ui/core",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib"
@@ -18,7 +18,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@dodomeki-ui/theme": "^0.0.14",
+    "@dodomeki-ui/theme": "^0.0.15",
     "@types/styled-system": "^5.1.10",
     "styled-system": "^5.1.5"
   },
