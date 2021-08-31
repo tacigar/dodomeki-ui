@@ -1,0 +1,22 @@
+import { storiesOf } from '@storybook/react';
+
+import { Sider } from '.';
+import { SiderContent } from '../SiderContent';
+import { SiderMenu } from '../SiderMenu';
+import { SiderMenuItem } from '../SiderMenuItem';
+import { SiderTitle } from '../SiderTitle';
+
+storiesOf('Sider', module).add('Sider', () => (
+  <Sider>
+    <SiderContent>
+      <SiderTitle>DODOMEKI UI</SiderTitle>
+      <SiderMenu>
+        <SiderMenuItem text="Item1" />
+        <SiderMenuItem text="Item2" isSelected />
+        <SiderMenuItem text="Item3" />
+        <SiderMenuItem text="Item4" />
+      </SiderMenu>
+    </SiderContent>
+    <div>main</div>
+  </Sider>
+));
