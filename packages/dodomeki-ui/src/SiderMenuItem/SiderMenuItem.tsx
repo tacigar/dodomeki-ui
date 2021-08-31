@@ -3,16 +3,21 @@ import styled, { css } from 'styled-components';
 
 export interface SiderMenuItemProps {
   text: string;
+  icon?: React.ReactNode;
   isSelected?: boolean;
 }
 
 export const SiderMenuItem: React.FC<SiderMenuItemProps> = ({
   text,
+  icon,
   isSelected = false,
 }) => {
   return (
     <Root isSelected={isSelected}>
-      <Text>{text}</Text>
+      <Label>
+        {icon && <IconWrapper>{icon}</IconWrapper>}
+        <span>{text}</span>
+      </Label>
       {isSelected && (
         <Indicator>
           <svg width="10px" height="10px">
@@ -25,9 +30,9 @@ export const SiderMenuItem: React.FC<SiderMenuItemProps> = ({
 };
 
 const Root = styled.a<{ isSelected: boolean }>`
-  padding-left: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-left: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,7 +50,16 @@ const Root = styled.a<{ isSelected: boolean }>`
         `}
 `;
 
-const Text = styled.span``;
+const Label = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: ${({ theme }) => theme.text.fontSize.lg};
+`;
+
+const IconWrapper = styled.span`
+  margin-right: 6px;
+  width: 24px;
+`;
 
 const Indicator = styled.span`
   border-top-left-radius: 4px;

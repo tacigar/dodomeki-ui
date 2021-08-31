@@ -1,3 +1,5 @@
+import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { storiesOf } from '@storybook/react';
 
 import { Sider } from '.';
@@ -11,8 +13,12 @@ storiesOf('Sider', module).add('Sider', () => (
     <SiderContent>
       <SiderTitle>DODOMEKI UI</SiderTitle>
       <SiderMenu>
-        <SiderMenuItem text="Item1" />
-        <SiderMenuItem text="Item2" isSelected />
+        <SiderMenuItem text="Home" icon={<FontAwesomeIcon icon={faHome} />} />
+        <SiderMenuItem
+          text="Explore"
+          icon={<FontAwesomeIcon icon={faSearch} />}
+          isSelected
+        />
         <SiderMenuItem text="Item3" />
         <SiderMenuItem text="Item4" />
       </SiderMenu>

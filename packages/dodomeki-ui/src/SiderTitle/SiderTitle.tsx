@@ -13,7 +13,7 @@ export const SiderTitle: React.FC<SiderTitleProps> = ({
 };
 
 const Root = styled.div<{ isSub: boolean }>`
-  padding: 6px 8px;
+  padding: 10px 18px;
   ${(props) =>
     props.isSub
       ? css`
