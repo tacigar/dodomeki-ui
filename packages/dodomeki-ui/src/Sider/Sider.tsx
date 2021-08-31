@@ -33,7 +33,8 @@ const Root = styled.div`
   position: fixed;
   height: 100vh;
   width: ${siderWidth}px;
-  border-right: 1px solid ${({ theme }) => theme.palette.border};
+  color: #bdbdbd;
+  background: linear-gradient(to bottom, #342434 0, #231433 100%);
 `;
 
 const Main = styled.main`

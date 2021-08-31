@@ -32,17 +32,15 @@ const Root = styled.a<{ isSelected: boolean }>`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  ${({ isSelected, theme }) =>
+  ${({ isSelected }) =>
     isSelected
       ? css`
+          color: #fff;
           cursor: default;
         `
       : css`
           &:hover {
-            background-color: ${theme.palette.grey.light[2]};
-          }
-          &:active {
-            background-color: ${theme.palette.grey.light[3]};
+            background-color: #231433;
           }
         `}
 `;
@@ -54,7 +52,6 @@ const Indicator = styled.span`
   border-bottom-left-radius: 4px;
   width: 20px;
   height: 20px;
-  margin-right: -1px;
   display: flex;
   align-items: center;
   justify-content: center;
