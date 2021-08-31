@@ -14,6 +14,7 @@ export * from './FormInput';
 export * from './FormSlider';
 export * from './FormSwitch';
 export * from './GlobalStyles';
+export * from './Header';
 export * from './Layout';
 export * from './List';
 export * from './ListContext';
