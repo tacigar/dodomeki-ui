@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { LineSeries } from '../LineSeries';
 import { PlotContextProvider } from '../PlotContext';
 import { convertPlotDataToNumberPairArray, PlotData } from '../PlotData';
+import { ScatterSeries } from '../ScatterSeries';
 
 export interface PlotProps {
   width: number;
@@ -34,7 +35,7 @@ export const Plot: React.FC<PlotProps> = ({
     };
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
-        if (child.type === LineSeries) {
+        if (child.type === LineSeries || child.type === ScatterSeries) {
           const data: PlotData = child.props.data;
           convertPlotDataToNumberPairArray(data).forEach(([x, y]) => {
             ret.minX = Math.min(ret.minX, x);
