@@ -70,4 +70,5 @@ const Main = styled.main<{
   left: ${({ sider }) => (sider ? `${siderWidth}px` : '0')};
   height: ${({ header }) =>
     header ? `calc(100% - ${headerHeight}px)` : '100%'};
+  width: ${({ sider }) => (sider ? `calc(100% - ${siderWidth}px)` : '100%')};
 `;
