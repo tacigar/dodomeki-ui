@@ -1,5 +1,6 @@
 import * as d3Scale from 'd3-scale';
 import React, { useMemo } from 'react';
+import { AreaSeries } from '../AreaSeries';
 import { LineSeries } from '../LineSeries';
 import { PlotContextProvider } from '../PlotContext';
 import { convertPlotDataToNumberPairArray, PlotData } from '../PlotData';
@@ -35,7 +36,11 @@ export const Plot: React.FC<PlotProps> = ({
     };
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
-        if (child.type === LineSeries || child.type === ScatterSeries) {
+        if (
+          child.type === LineSeries ||
+          child.type === ScatterSeries ||
+          child.type === AreaSeries
+        ) {
           const data: PlotData = child.props.data;
           convertPlotDataToNumberPairArray(data).forEach(([x, y]) => {
             ret.minX = Math.min(ret.minX, x);
