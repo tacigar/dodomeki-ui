@@ -1,3 +1,4 @@
+export * from './AreaSeries';
 export * from './LineSeries';
 export * from './Plot';
 export * from './PlotContext';
