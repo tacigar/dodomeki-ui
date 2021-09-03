@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react';
 
+import { CrossHair } from '../CrossHair';
 import { Plot } from '../Plot';
 import { XAxis } from '../XAxis';
 import { YAxis } from '../YAxis';
@@ -20,5 +21,6 @@ storiesOf('ScatterSeries', module).add('ScatterSeries', () => (
     />
     <XAxis />
     <YAxis />
+    <CrossHair />
   </Plot>
 ));
