@@ -20,6 +20,7 @@ export interface PlotContextType {
     linear: d3Scale.ScaleLinear<number, number, never>;
   };
   yScale?: d3Scale.ScaleLinear<number, number, never>;
+  mouseNearestNodePosition: { x: number; y: number } | undefined;
 }
 
 export const PlotContext = React.createContext<PlotContextType | undefined>(
