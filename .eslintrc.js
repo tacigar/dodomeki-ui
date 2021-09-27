@@ -24,11 +24,19 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'jsx-a11y',
+    'import',
+    'jest',
+  ],
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     node: true,
+    'jest/globals': true,
   },
   overrides: [
     {

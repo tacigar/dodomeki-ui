@@ -1,3 +1,4 @@
+export * from './useBoundingClientRect';
 export * from './useIntersectionObserver';
 export * from './useMount';
 export * from './useToggle';
