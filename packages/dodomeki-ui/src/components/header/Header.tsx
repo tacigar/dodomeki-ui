@@ -24,15 +24,15 @@ export type HeaderProps = HTMLAttributes<HTMLDivElement> & {
 export const Header: FC<HeaderProps> = ({
   children,
   position = 'fixed',
-  theme = 'dark',
+  theme: themeProp = 'dark',
   ...rest
 }) => {
-  const context = { theme };
+  const context = { theme: themeProp };
 
   return (
     <HeaderContextProvider value={context}>
       <div
-        css={css`
+        css={(theme) => css`
           position: relative;
           display: flex;
           justify-content: space-between;
@@ -46,6 +46,9 @@ export const Header: FC<HeaderProps> = ({
             : css`
                 position: relative;
               `}
+          background-color: ${themeProp === 'light'
+            ? theme.palette.background.default
+            : '#242a2f'};
         `}
         {...rest}
       >
