@@ -12,6 +12,14 @@
  * the License.
  */
 
-export { defaultTheme } from './defaultTheme';
-export { Theme } from './Theme';
-export { ThemeProvider } from './ThemeProvider';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { FC } from 'react';
+import { Theme } from './Theme';
+
+export type ThemeProviderProps = {
+  theme: Theme;
+};
+
+export const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => (
+  <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
+);
