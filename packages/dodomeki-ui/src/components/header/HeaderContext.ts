@@ -18,10 +18,7 @@ export type HeaderContextType = {
   theme: 'light' | 'dark';
 };
 
-const [
-  useHeaderContext,
-  HeaderContext,
-  HeaderContextProvider,
-] = createCtx<HeaderContextType>();
+const [useHeaderContext, HeaderContext, HeaderContextProvider] =
+  createCtx<HeaderContextType>();
 
 export { useHeaderContext, HeaderContext, HeaderContextProvider };
