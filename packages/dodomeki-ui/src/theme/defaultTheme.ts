@@ -20,6 +20,10 @@ export const defaultTheme: Theme = {
     background: {
       default: '#fff',
     },
+    text: {
+      default: '#343741',
+      inverseDefault: '#fff',
+    },
   },
   zIndex: {
     header: 1100,

@@ -17,6 +17,10 @@ export interface Theme {
     background: {
       default: string;
     };
+    text: {
+      default: string;
+      inverseDefault: string;
+    };
   };
   zIndex: {
     header: number;
