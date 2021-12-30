@@ -13,8 +13,13 @@
  */
 
 import { storiesOf } from '@storybook/react';
-import { Header } from '.';
+import { DodomekiUiIcon } from '../../icons/DodomekiUiIcon';
+import { Header, HeaderTitle } from '.';
 
 storiesOf('Header', module).add('Header', () => {
-  return <Header theme="dark">Hello</Header>;
+  return (
+    <Header theme="dark">
+      <HeaderTitle icon={<DodomekiUiIcon />} title="Dodomeki UI" />
+    </Header>
+  );
 });

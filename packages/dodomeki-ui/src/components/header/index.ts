@@ -18,3 +18,4 @@ export {
   useHeaderContext,
   HeaderContext,
 } from './HeaderContext';
+export { HeaderTitleProps, HeaderTitle } from './HeaderTitle';
