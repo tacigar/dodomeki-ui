@@ -80,4 +80,10 @@ export const defaultTheme: Theme = {
     header: 1100,
   },
   spacing: defaultSpacing,
+  text: {
+    fontSize: {
+      sm: '12px',
+      md: '14px',
+    },
+  },
 };

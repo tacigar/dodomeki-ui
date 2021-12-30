@@ -45,4 +45,10 @@ export interface Theme {
     header: number;
   };
   spacing: (...args: number[]) => string;
+  text: {
+    fontSize: {
+      sm: string;
+      md: string;
+    };
+  };
 }
