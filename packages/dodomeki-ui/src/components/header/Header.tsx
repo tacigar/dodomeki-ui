@@ -36,6 +36,9 @@ export const Header: FC<HeaderProps> = ({
           position: relative;
           display: flex;
           justify-content: space-between;
+          height: 48px;
+          padding-left: ${theme.spacing(1)};
+          padding-right: ${theme.spacing(1)};
           ${position === 'fixed'
             ? css`
                 position: fixed;
