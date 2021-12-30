@@ -17,6 +17,57 @@ import { Theme } from './Theme';
 
 export const defaultTheme: Theme = {
   palette: {
+    success: {
+      ...[
+        '#e0f2f1',
+        '#b2dfdb',
+        '#80cbc4',
+        '#4db6ac',
+        '#26a69a',
+        '#009688',
+        '#00897b',
+        '#00796b',
+        '#00695c',
+        '#004d40',
+      ],
+      light: '#80cbc4',
+      main: '#009688',
+      dark: '#004d40',
+    },
+    warning: {
+      ...[
+        '#fff8e1',
+        '#ffecb3',
+        '#ffe082',
+        '#ffd54f',
+        '#ffca28',
+        '#ffc107',
+        '#ffb300',
+        '#ffa000',
+        '#ff8f00',
+        '#ff6f00',
+      ],
+      light: '#ffe082',
+      main: '#ffc107',
+      dark: '#ff6f00',
+    },
+    danger: {
+      ...[
+        '#ffebee',
+        '#ffcdd2',
+        '#ef9a9a',
+        '#e57373',
+        '#ef5350',
+        '#f44336',
+        '#e53935',
+        '#d32f2f',
+        '#c62828',
+        '#b71c1c',
+      ],
+      light: '#ef9a9a',
+      main: '#f44336',
+      dark: '#b71c1c',
+    },
     background: {
       default: '#fff',
     },
