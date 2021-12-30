@@ -28,6 +28,7 @@ export const HeaderTitle: FC<HeaderTitleProps> = ({ icon, title, ...rest }) => {
       css={css`
         display: flex;
         align-items: center;
+        cursor: ${rest.href ? 'pointer' : 'default'};
       `}
       {...rest}
     >
