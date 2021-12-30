@@ -12,17 +12,5 @@
  * the License.
  */
 
-import { defaultSpacing } from './defaultSpacing';
-import { Theme } from './Theme';
-
-export const defaultTheme: Theme = {
-  palette: {
-    background: {
-      default: '#fff',
-    },
-  },
-  zIndex: {
-    header: 1100,
-  },
-  spacing: defaultSpacing,
-};
+export const defaultSpacing = (...args: number[]) =>
+  args.map((arg) => `${arg * 8}px`).join(' ');

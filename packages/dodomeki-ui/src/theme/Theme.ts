@@ -21,4 +21,5 @@ export interface Theme {
   zIndex: {
     header: number;
   };
+  spacing: (...args: number[]) => string;
 }

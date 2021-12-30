@@ -12,6 +12,7 @@
  * the License.
  */
 
+export { defaultSpacing } from './defaultSpacing';
 export { defaultTheme } from './defaultTheme';
 export { Theme } from './Theme';
-export { ThemeProvider } from './ThemeProvider';
+export { ThemeProvider, ThemeProviderProps } from './ThemeProvider';
