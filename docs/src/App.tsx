@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+
+import {
+  ThemeProvider,
+  defaultTheme,
+  Header,
+  HeaderTitle,
+  DodomekiUiIcon,
+  Tag,
+} from '@dodomeki-ui/core';
+import { css } from '@emotion/react/macro';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={defaultTheme}>
+      <Header theme="dark">
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <HeaderTitle icon={<DodomekiUiIcon />} title="Dodomeki UI" />
+          <Tag
+            color="success"
+            css={(theme) => css`
+              margin-left: ${theme.spacing(1)};
+            `}
+          >
+            v0.0.18
+          </Tag>
+        </div>
+      </Header>
+    </ThemeProvider>
   );
 }
 
