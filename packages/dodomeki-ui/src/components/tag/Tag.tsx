@@ -21,7 +21,7 @@ export type TagProps = HTMLAttributes<HTMLDivElement> & {
   color?: TagColorType;
 };
 
-export const Tag: FC<TagProps> = ({ children, color = 'success' }) => {
+export const Tag: FC<TagProps> = ({ children, color = 'success', ...rest }) => {
   return (
     <span
       css={(theme) => css`
@@ -34,6 +34,7 @@ export const Tag: FC<TagProps> = ({ children, color = 'success' }) => {
         background-color: ${theme.palette[color].main};
         font-size: ${theme.text.fontSize.sm};
       `}
+      {...rest}
     >
       {children}
     </span>

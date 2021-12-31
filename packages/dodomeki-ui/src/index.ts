@@ -14,7 +14,6 @@ export * from './FormInput';
 export * from './FormSlider';
 export * from './FormSwitch';
 export * from './GlobalStyles';
-export * from './Header';
 export * from './Layout';
 export * from './List';
 export * from './ListContext';
@@ -33,5 +32,8 @@ export * from './TableGroupContext';
 export * from './TableHead';
 export * from './TableRow';
 export * from './Tabs';
-export * from './Tag';
-export * from './ThemeProvider';
+
+export * from './common';
+export * from './components';
+export * from './icons';
+export * from './theme';
