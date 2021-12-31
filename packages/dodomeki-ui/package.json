@@ -20,6 +20,7 @@
   "dependencies": {
     "@dodomeki-ui/theme": "^0.0.18",
     "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@types/styled-system": "^5.1.10",
     "styled-system": "^5.1.5"
   },
