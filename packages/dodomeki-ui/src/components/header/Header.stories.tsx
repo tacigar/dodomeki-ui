@@ -14,7 +14,8 @@
 
 import { storiesOf } from '@storybook/react';
 import { DodomekiUiIcon } from '../../icons/DodomekiUiIcon';
-import { Header, HeaderTitle } from '.';
+import { Header } from './Header';
+import { HeaderTitle } from './HeaderTitle';
 
 storiesOf('Header', module).add('Header', () => {
   return (

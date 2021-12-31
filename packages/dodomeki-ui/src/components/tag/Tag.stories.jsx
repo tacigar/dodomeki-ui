@@ -13,7 +13,7 @@
  */
 
 import React from 'react';
-import { Tag } from '.';
+import { Tag } from './Tag';
 
 export default {
   title: 'Display/Tag',
