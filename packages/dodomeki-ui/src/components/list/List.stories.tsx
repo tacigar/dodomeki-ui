@@ -36,7 +36,7 @@ export const SimpleList: ComponentStory<typeof List> = (args) => (
     <ListItem>Item 6</ListItem>
     <ListItem>Item 7</ListItem>
     <List>
-      <ListItem>Item 8</ListItem>
+      <ListItem href="#hello">Item 8</ListItem>
       <ListItem>Item 9</ListItem>
       <List>
         <ListItem>Item 10</ListItem>

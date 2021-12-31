@@ -13,31 +13,79 @@
  */
 
 import { css } from '@emotion/react';
-import React, { FC, HTMLAttributes } from 'react';
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  HTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+} from 'react';
+import { Theme } from '../../theme';
 
-export type ListItemProps = HTMLAttributes<HTMLDivElement> & {
-  icon?: React.ReactNode;
+export type ListItemProps = (
+  | (ButtonHTMLAttributes<HTMLButtonElement> & {
+      href?: never;
+      onClick: MouseEventHandler;
+    })
+  | (AnchorHTMLAttributes<HTMLAnchorElement> & {
+      href: string;
+      onClick?: never;
+    })
+  | (HTMLAttributes<HTMLDivElement> & {
+      href?: never;
+      onClick?: never;
+    })
+) & {
+  icon?: ReactNode;
 };
 
-export const ListItem: FC<ListItemProps> = ({ children, icon, ...rest }) => {
-  return (
-    <div
-      css={(theme) =>
-        css`
-          padding-top: ${theme.spacing(0.25)};
-          padding-bottom: ${theme.spacing(0.25)};
-        `
-      }
-      {...rest}
+const rootStyles = (theme: Theme) => css`
+  padding: ${theme.spacing(0.25, 2)};
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+`;
+
+export const ListItem: FC<ListItemProps> = (props) => {
+  const children = [
+    props.icon,
+    <span
+      css={(theme) => css`
+        margin-left: ${props.icon ? theme.spacing(1) : 0};
+      `}
     >
-      {icon}
-      <span
-        css={(theme) => css`
-          margin-left: ${icon ? theme.spacing(1) : 0};
-        `}
-      >
+      {props.children}
+    </span>,
+  ];
+
+  if (props.href != null) {
+    return (
+      <a css={rootStyles} {...props}>
         {children}
-      </span>
+      </a>
+    );
+  }
+  if (props.onClick != null) {
+    return (
+      <button css={rootStyles} {...props}>
+        {children}
+      </button>
+    );
+  }
+  return (
+    <div css={rootStyles} {...props}>
+      {children}
     </div>
   );
 };

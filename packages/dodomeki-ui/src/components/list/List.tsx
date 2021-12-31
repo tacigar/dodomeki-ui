@@ -53,7 +53,8 @@ export const List: FC<ListPropsInternal> = ({
   return (
     <div
       css={(theme) => css`
-        padding-left: ${theme.spacing(2)};
+        margin-left: ${theme.spacing(2)};
+        padding-left: ${theme.spacing(1)};
         border-left: 1px solid #dadada;
       `}
       {...rest}
