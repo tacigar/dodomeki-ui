@@ -12,15 +12,16 @@
  * the License.
  */
 
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { Tag } from './Tag';
 
 export default {
   title: 'Display/Tag',
   component: Tag,
-};
+} as ComponentMeta<typeof Tag>;
 
-const Template = (args) => <Tag {...args} />;
+const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
 export const Success = Template.bind({});
 Success.args = {
