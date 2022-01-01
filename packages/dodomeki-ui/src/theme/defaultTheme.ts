@@ -107,6 +107,7 @@ export const defaultTheme: Theme = {
     },
     text: {
       default: '#343741',
+      subdued: '#69707d',
       primary: '#3f51b5',
       inverseDefault: '#fff',
     },

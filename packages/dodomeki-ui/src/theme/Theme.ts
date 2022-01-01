@@ -40,6 +40,7 @@ export interface Theme {
     };
     text: {
       default: string;
+      subdued: string;
       primary: string;
       inverseDefault: string;
     };
