@@ -27,7 +27,7 @@ export default {
 export const SimpleList: ComponentStory<typeof List> = (args) => (
   <List {...args}>
     <ListItem>Item 1</ListItem>
-    <ListItem>Item 2</ListItem>
+    <ListItem selected>Item 2</ListItem>
     <ListItem>Item 3</ListItem>
     <List>
       <ListItem>Item 4</ListItem>

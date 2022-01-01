@@ -38,26 +38,27 @@ export type ListItemProps = (
     })
 ) & {
   icon?: ReactNode;
+  selected?: boolean;
 };
 
-const rootStyles = (theme: Theme) => css`
-  padding: ${theme.spacing(0.25, 2)};
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-  }
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
-
 export const ListItem: FC<ListItemProps> = (props) => {
+  const rootStyles = (theme: Theme) => css`
+    padding: ${theme.spacing(0.25, 2)};
+    display: block;
+    cursor: pointer;
+    color: ${props.selected ? theme.palette.text.primary : 'inherit'};
+    text-decoration: ${props.selected ? 'underline' : 'none'};
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      text-decoration: underline;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: inherit;
+    }
+  `;
+
   const children = [
     props.icon,
     <span
