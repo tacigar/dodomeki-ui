@@ -18,6 +18,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { List } from './List';
 import { ListItem } from './ListItem';
+import { ListSubheader } from './ListSubheader';
 
 export default {
   title: 'Display/List',
@@ -25,7 +26,7 @@ export default {
 } as ComponentMeta<typeof List>;
 
 export const SimpleList: ComponentStory<typeof List> = (args) => (
-  <List {...args}>
+  <List subheader={<ListSubheader title="Subheader" />} {...args}>
     <ListItem>Item 1</ListItem>
     <ListItem selected>Item 2</ListItem>
     <ListItem>Item 3</ListItem>

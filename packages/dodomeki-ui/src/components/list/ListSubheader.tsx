@@ -12,6 +12,26 @@
  * the License.
  */
 
-export { List, ListProps } from './List';
-export { ListItem, ListItemProps } from './ListItem';
-export { ListSubheader, ListSubheaderProps } from './ListSubheader';
+import { css } from '@emotion/react';
+import { VFC } from 'react';
+
+export type ListSubheaderProps = {
+  title: string;
+};
+
+export const ListSubheader: VFC<ListSubheaderProps> = ({ title }) => {
+  return (
+    <div
+      css={(theme) =>
+        css`
+          padding: ${theme.spacing(0.5, 2)};
+          font-weight: bold;
+          font-size: ${theme.text.fontSize.sm};
+          color: ${theme.palette.text.subdued};
+        `
+      }
+    >
+      {title}
+    </div>
+  );
+};

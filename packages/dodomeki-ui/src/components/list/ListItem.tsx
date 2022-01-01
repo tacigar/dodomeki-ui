@@ -43,11 +43,12 @@ export type ListItemProps = (
 
 export const ListItem: FC<ListItemProps> = (props) => {
   const rootStyles = (theme: Theme) => css`
-    padding: ${theme.spacing(0.25, 2)};
+    padding: ${theme.spacing(0.75, 2)};
     display: block;
     cursor: pointer;
     color: ${props.selected ? theme.palette.text.primary : 'inherit'};
     text-decoration: ${props.selected ? 'underline' : 'none'};
+    font-size: ${theme.text.fontSize.sm};
     &:hover {
       background-color: rgba(0, 0, 0, 0.04);
       text-decoration: underline;

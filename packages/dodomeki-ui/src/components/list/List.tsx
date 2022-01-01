@@ -13,9 +13,10 @@
  */
 
 import { css } from '@emotion/react';
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes, ReactNode } from 'react';
 
 type ListPropsInternal = HTMLAttributes<HTMLDivElement> & {
+  subheader?: ReactNode;
   _depth?: number;
 };
 
@@ -23,6 +24,7 @@ export type ListProps = Omit<ListPropsInternal, '_depth'>;
 
 export const List: FC<ListPropsInternal> = ({
   children: childrenProp,
+  subheader,
   _depth = 0,
   ...rest
 }) => {
@@ -45,9 +47,14 @@ export const List: FC<ListPropsInternal> = ({
         `}
         {...rest}
       >
+        {subheader}
         {children}
       </div>
     );
+  }
+
+  if (subheader && process.env.NODE_ENV !== 'production') {
+    console.warn('The subheader prop can only be used in the root List.');
   }
 
   return (
