@@ -30,6 +30,8 @@ type ColorsType = {
 
 export interface Theme {
   palette: {
+    primary: ColorsType;
+    secondary: ColorsType;
     success: ColorsType;
     warning: ColorsType;
     danger: ColorsType;
