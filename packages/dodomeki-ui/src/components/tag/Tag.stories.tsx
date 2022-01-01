@@ -23,6 +23,18 @@ export default {
 
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'primary',
+  color: 'primary',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: 'secondary',
+  color: 'secondary',
+};
+
 export const Success = Template.bind({});
 Success.args = {
   children: 'success',

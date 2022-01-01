@@ -15,7 +15,12 @@
 import { css } from '@emotion/react';
 import { FC, HTMLAttributes } from 'react';
 
-export type TagColorType = 'success' | 'warning' | 'danger';
+export type TagColorType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'danger';
 
 export type TagProps = HTMLAttributes<HTMLDivElement> & {
   color?: TagColorType;
