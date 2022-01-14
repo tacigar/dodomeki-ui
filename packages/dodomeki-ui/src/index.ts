@@ -14,7 +14,6 @@ export * from './FormInput';
 export * from './FormSlider';
 export * from './FormSwitch';
 export * from './GlobalStyles';
-export * from './Layout';
 export * from './LoadingSpinner';
 export * from './Panel';
 export * from './Sider';
