@@ -35,6 +35,7 @@ export interface Theme {
     success: ColorsType;
     warning: ColorsType;
     danger: ColorsType;
+    divider: string;
     background: {
       default: string;
     };
@@ -53,6 +54,7 @@ export interface Theme {
     fontSize: {
       sm: string;
       md: string;
+      lg: string;
     };
   };
 }

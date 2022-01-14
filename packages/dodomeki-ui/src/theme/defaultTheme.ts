@@ -102,6 +102,7 @@ export const defaultTheme: Theme = {
       main: '#f44336',
       dark: '#b71c1c',
     },
+    divider: 'rgba(0, 0, 0, 0.125)',
     background: {
       default: '#fff',
     },
@@ -120,6 +121,7 @@ export const defaultTheme: Theme = {
     fontSize: {
       sm: '12px',
       md: '14px',
+      lg: '16px',
     },
   },
 };
