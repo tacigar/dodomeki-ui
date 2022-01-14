@@ -46,3 +46,5 @@ export const HeaderTitle: FC<HeaderTitleProps> = ({ icon, title, ...rest }) => {
     </a>
   );
 };
+
+HeaderTitle.displayName = 'HeaderTitle';

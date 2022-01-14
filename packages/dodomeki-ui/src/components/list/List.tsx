@@ -70,3 +70,5 @@ export const List: FC<ListPropsInternal> = ({
     </div>
   );
 };
+
+List.displayName = 'List';

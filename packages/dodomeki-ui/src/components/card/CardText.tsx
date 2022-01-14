@@ -31,3 +31,5 @@ export const CardText: FC<CardTextProps> = ({ children, ...rest }) => (
     {children}
   </p>
 );
+
+CardText.displayName = 'CardText';

@@ -60,3 +60,5 @@ export const Header: FC<HeaderProps> = ({
     </HeaderContextProvider>
   );
 };
+
+Header.displayName = 'Header';

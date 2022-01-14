@@ -55,3 +55,5 @@ export const CardTitle: VFC<CardTitleProps> = ({
     )}
   </div>
 );
+
+CardTitle.displayName = 'CardTitle';

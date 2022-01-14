@@ -27,3 +27,5 @@ export const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => (
     {children}
   </div>
 );
+
+CardBody.displayName = 'CardBody';

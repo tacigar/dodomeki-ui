@@ -91,3 +91,5 @@ export const ListItem: FC<ListItemProps> = (props) => {
     </div>
   );
 };
+
+ListItem.displayName = 'ListItem';

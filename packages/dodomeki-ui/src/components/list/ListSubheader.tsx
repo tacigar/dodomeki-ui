@@ -35,3 +35,5 @@ export const ListSubheader: VFC<ListSubheaderProps> = ({ title }) => {
     </div>
   );
 };
+
+ListSubheader.displayName = 'ListSubheader';

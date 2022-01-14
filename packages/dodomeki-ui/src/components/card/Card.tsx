@@ -31,3 +31,5 @@ export const Card: FC<CardProps> = ({ children, ...rest }) => (
     {children}
   </div>
 );
+
+Card.displayName = 'Card';

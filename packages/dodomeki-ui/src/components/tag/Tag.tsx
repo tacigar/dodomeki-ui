@@ -45,3 +45,5 @@ export const Tag: FC<TagProps> = ({ children, color = 'success', ...rest }) => {
     </span>
   );
 };
+
+Tag.displayName = 'Tag';
