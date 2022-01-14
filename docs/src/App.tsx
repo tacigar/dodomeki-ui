@@ -10,6 +10,10 @@ import {
   List,
   ListItem,
   ListSubheader,
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
 } from '@dodomeki-ui/core';
 import { css } from '@emotion/react/macro';
 
@@ -63,6 +67,30 @@ function App() {
             <ListItem>Snackbar</ListItem>
           </List>
         </nav>
+        <div
+          css={(theme) =>
+            css`
+              width: calc(100vw - 240px);
+              padding: ${theme.spacing(2)};
+            `
+          }
+        >
+          <div
+            css={css`
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+            `}
+          >
+            <Card>
+              <CardBody>
+                <CardTitle title="Simple Design" />
+                <CardText>
+                  The components are designed to be general and simple.
+                </CardText>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
       </div>
     </ThemeProvider>
   );
