@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Tacigar
+ * Copyright 2022 Tacigar
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -12,9 +12,19 @@
  * the License.
  */
 
-export * from './button';
-export * from './card';
-export * from './header';
-export * from './list';
-export * from './tag';
-export * from './text';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+import { Button } from './Button';
+
+export default {
+  title: 'Navigation/Button',
+  component: Button,
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'primary',
+  color: 'primary',
+};
