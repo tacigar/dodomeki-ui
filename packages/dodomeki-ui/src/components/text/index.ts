@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Tacigar
+ * Copyright 2022 Tacigar
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -12,8 +12,4 @@
  * the License.
  */
 
-export * from './card';
-export * from './header';
-export * from './list';
-export * from './tag';
-export * from './text';
+export { Heading, HeadingProps } from './Heading';
