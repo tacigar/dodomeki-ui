@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Tacigar
+ * Copyright 2021-2022 Tacigar
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -122,6 +122,36 @@ export const defaultTheme: Theme = {
       sm: '12px',
       md: '14px',
       lg: '16px',
+    },
+    h1: {
+      fontWeight: 600,
+      fontSize: '36px',
+      lineHeight: 1.25,
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: '32px',
+      lineHeight: 1.3,
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '28px',
+      lineHeight: 1.35,
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: '24px',
+      lineHeight: 1.4,
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: '20px',
+      lineHeight: 1.45,
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: '16px',
+      lineHeight: 1.5,
     },
   },
 };

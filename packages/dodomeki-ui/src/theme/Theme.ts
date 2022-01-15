@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Tacigar
+ * Copyright 2021-2022 Tacigar
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -26,6 +26,12 @@ type ColorsType = {
   light: string;
   main: string;
   dark: string;
+};
+
+type TypographyType = {
+  fontWeight: number | string;
+  fontSize: string;
+  lineHeight: number;
 };
 
 export interface Theme {
@@ -56,5 +62,11 @@ export interface Theme {
       md: string;
       lg: string;
     };
+    h1: TypographyType;
+    h2: TypographyType;
+    h3: TypographyType;
+    h4: TypographyType;
+    h5: TypographyType;
+    h6: TypographyType;
   };
 }
