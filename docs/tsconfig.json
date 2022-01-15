@@ -9,7 +9,8 @@
     "isolatedModules": true,
     "incremental": true,
     "allowJs": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": ["@emotion/react/types/css-prop"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
