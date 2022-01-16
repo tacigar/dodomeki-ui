@@ -23,8 +23,15 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Simple = Template.bind({});
+Simple.args = {
   children: 'primary',
   color: 'primary',
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  children: 'link',
+  color: 'primary',
+  href: 'https://github.com/tacigar/dodomeki-ui',
 };
