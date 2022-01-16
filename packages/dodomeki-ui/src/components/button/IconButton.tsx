@@ -12,43 +12,21 @@
  * the License.
  */
 
-import { css, Theme } from '@emotion/react';
-import { FC, ReactNode } from 'react';
+import { css } from '@emotion/react';
+import { FC } from 'react';
+import { Theme } from '../../theme';
 import { CommonButtonProps, makeCommonButtonStyles } from './common';
 
-export type ButtonProps = CommonButtonProps & {
-  icon?: ReactNode;
-};
+export type IconButtonProps = CommonButtonProps & {};
 
-export const Button: FC<ButtonProps> = (props) => {
+export const IconButton: FC<IconButtonProps> = (props) => {
   const {
     children,
-    icon,
     disabled = false,
     size = 'md',
     variant = 'filled',
     color = 'primary',
   } = props;
-
-  const content = (
-    <div
-      css={css`
-        display: flex;
-        align-items: center;
-      `}
-    >
-      {icon}
-      <span
-        css={(theme) =>
-          css`
-            margin-left: ${icon ? theme.spacing(0.5) : 0};
-          `
-        }
-      >
-        {children}
-      </span>
-    </div>
-  );
 
   const commonStyles = makeCommonButtonStyles({
     disabled,
@@ -58,36 +36,29 @@ export const Button: FC<ButtonProps> = (props) => {
   });
 
   const styles = (theme: Theme) => css`
-    ${variant !== 'filled'
-      ? css`
-          &:hover {
-            text-decoration: underline;
-          }
-        `
-      : null}
     ${size === 'sm'
       ? css`
-          padding: ${theme.spacing(0.5, 1.0)};
+          padding: ${theme.spacing(0.5)};
         `
       : size === 'md'
       ? css`
-          padding: ${theme.spacing(0.75, 1.5)};
+          padding: ${theme.spacing(0.75)};
         `
       : css`
-          padding: ${theme.spacing(1.0, 1.75)};
+          padding: ${theme.spacing(1.0)};
         `}
   `;
 
   if (props.href != null) {
     return (
       <a css={[commonStyles, styles]} {...props}>
-        {content}
+        {children}
       </a>
     );
   }
   return (
     <button css={[commonStyles, styles]} {...props}>
-      {content}
+      {children}
     </button>
   );
 };

@@ -13,3 +13,4 @@
  */
 
 export { Button, ButtonProps } from './Button';
+export { IconButton, IconButtonProps } from './IconButton';

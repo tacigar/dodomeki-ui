@@ -12,8 +12,8 @@
  * the License.
  */
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { List } from './List';
