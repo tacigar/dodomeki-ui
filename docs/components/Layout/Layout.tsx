@@ -61,16 +61,24 @@ export const Layout: FC = ({ children }) => (
           }
         `}
       >
-        <List subheader={<ListSubheader title="Data Display" />}>
+        <List subheader={<ListSubheader title="Display" />}>
           <ListItem>List</ListItem>
           <ListItem>Table</ListItem>
           <ListItem>Tag</ListItem>
+          <ListItem>Text</ListItem>
+          <List>
+            <ListItem>Heading</ListItem>
+            <ListItem>Text</ListItem>
+          </List>
           <ListItem>Tooltip</ListItem>
         </List>
         <List subheader={<ListSubheader title="Feedback" />}>
           <ListItem>Alert</ListItem>
           <ListItem>Dialog</ListItem>
           <ListItem>Snackbar</ListItem>
+        </List>
+        <List subheader={<ListSubheader title="Navigation" />}>
+          <ListItem href="/components/button">Button</ListItem>
         </List>
       </nav>
       <div
