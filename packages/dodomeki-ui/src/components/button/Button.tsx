@@ -78,6 +78,9 @@ export const Button: FC<ButtonProps> = (props) => {
   const rootStyles = (theme: Theme) => css`
     display: inline-block;
     border: none;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+    text-decoration: none;
     cursor: ${disabled ? 'not-allowed' : 'pointer'};
 
     &:hover,
@@ -88,15 +91,14 @@ export const Button: FC<ButtonProps> = (props) => {
 
     ${variant === 'filled'
       ? css`
-          border-radius: 3px;
-          transition: all 0.5s ease;
           color: ${theme.palette.text.inverseDefault};
           background-color: ${theme.palette[color].main};
-          &:hover {
-            background-color: ${theme.palette[color].light};
-          }
           &:active {
             background-color: ${theme.palette[color].dark};
+          }
+          &:hover,
+          &:focus {
+            background-color: ${theme.palette[color].light};
           }
           &:hover,
           &:active,
@@ -109,6 +111,10 @@ export const Button: FC<ButtonProps> = (props) => {
           background-color: inherit;
           &:hover {
             text-decoration: underline;
+          }
+          &:active,
+          &:focus {
+            background-color: ${theme.palette[color][0]};
           }
           &:hover,
           &:active,
