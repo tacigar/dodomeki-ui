@@ -1,11 +1,5 @@
 module.exports = {
-  extends: [
-    'airbnb-base',
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react',
-    'next/core-web-vitals',
-  ],
+  extends: ["airbnb-base", "plugin:prettier/recommended", "prettier/@typescript-eslint", "prettier/react", "next/core-web-vitals", "plugin:storybook/recommended"],
   rules: {
     'prefer-destructuring': 'off',
     'no-unused-vars': 'off',
@@ -17,41 +11,31 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-cycle': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.tsx'] },
-    ],
+    'react/jsx-filename-extension': [1, {
+      extensions: ['.js', '.jsx', '.tsx']
+    }],
     'react/jsx-props-no-spreading': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'warn'
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-hooks',
-    'jsx-a11y',
-    'import',
-    'jest',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import', 'jest'],
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     node: true,
-    'jest/globals': true,
+    'jest/globals': true
   },
-  overrides: [
-    {
-      files: ['**/*.tsx'],
-      rules: {
-        'react/prop-types': 'off',
-      },
-    },
-  ],
+  overrides: [{
+    files: ['**/*.tsx'],
+    rules: {
+      'react/prop-types': 'off'
+    }
+  }],
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  }
 };
