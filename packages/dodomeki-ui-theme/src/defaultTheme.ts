@@ -1,3 +1,5 @@
+import { Theme } from './types';
+
 const primaryColorPalette = {
   '50': '#e9f3fc',
   '100': '#d2e7fa',
@@ -123,3 +125,23 @@ const typography = {
     letterSpacing: 'normal',
   },
 } as const;
+
+export const defaultTheme: Theme = {
+  palette: {
+    primary: lightModePrimaryColors,
+    secondary: lightModeSecondaryColors,
+    background: lightModeBackgroundColors,
+    text: lightModeTextColors,
+  },
+  typography,
+};
+
+export const defaultDarkTheme: Theme = {
+  palette: {
+    primary: darkModePrimaryColors,
+    secondary: darkModeSecondaryColors,
+    background: darkModeBackgroundColors,
+    text: darkModeTextColors,
+  },
+  typography,
+};
