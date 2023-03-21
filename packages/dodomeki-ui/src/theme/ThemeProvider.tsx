@@ -13,13 +13,14 @@
  */
 
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
-import { FC } from 'react';
-import { Theme } from './Theme';
+import { ReactNode } from 'react';
+import { Theme } from '@dodomeki-ui/theme';
 
 export type ThemeProviderProps = {
+  children: ReactNode;
   theme: Theme;
 };
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => (
+export const ThemeProvider = ({ theme, children }: ThemeProviderProps) => (
   <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
 );

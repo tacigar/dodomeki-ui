@@ -13,8 +13,8 @@
  */
 
 import '@emotion/react';
-import { Theme as DodomekiTheme } from './theme';
+import { Theme as DodomekiUiTheme } from '@dodomeki-ui/theme';
 
 declare module '@emotion/react' {
-  export interface Theme extends DodomekiTheme {}
+  export interface Theme extends DodomekiUiTheme {}
 }

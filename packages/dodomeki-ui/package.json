@@ -18,7 +18,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@dodomeki-ui/theme": "^0.0.18",
+    "@dodomeki-ui/theme": "0.0.19",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@types/styled-system": "^5.1.10",

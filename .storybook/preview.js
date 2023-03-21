@@ -1,9 +1,8 @@
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 
-import { ThemeProvider as OldThemeProvider } from '../packages/dodomeki-ui/src/ThemeProvider';
 import { ThemeProvider } from '../packages/dodomeki-ui/src/theme/ThemeProvider';
-import { defaultTheme } from '../packages/dodomeki-ui/src/theme/defaultTheme';
+import { defaultTheme } from '../packages/dodomeki-ui-theme/src/defaultTheme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,8 +10,6 @@ export const parameters = {
 
 addDecorator((Story) => (
   <ThemeProvider theme={defaultTheme}>
-    <OldThemeProvider>
-      <Story />
-    </OldThemeProvider>
+    <Story />
   </ThemeProvider>
 ));

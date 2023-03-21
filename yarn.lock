@@ -1312,6 +1312,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@dodomeki-ui/theme@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@dodomeki-ui/theme/-/theme-0.0.18.tgz#db31c753bac5d3884a13e7db7da4204ccb4e9cab"
+  integrity sha512-gOFYMDoBQEB5hqTFatxusTcWdFTIL3JOxFgWXendHZMSSaBJ/O9Xf1IcG6bwzTp8uzQyIXBhuLtYVI8iycowdw==
+
 "@emotion/babel-plugin@^11.3.0", "@emotion/babel-plugin@^11.7.2":
   version "11.7.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.7.2.tgz#fec75f38a6ab5b304b0601c74e2a5e77c95e5fa0"
