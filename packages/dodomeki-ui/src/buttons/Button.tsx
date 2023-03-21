@@ -1,4 +1,4 @@
-import React, { Ref, createRef, forwardRef } from 'react';
+import React, { ReactNode, Ref, createRef, forwardRef } from 'react';
 
 type ButtonAnchorProps = {
   href: string;
@@ -9,7 +9,7 @@ type ButtonButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonProps = {
-  label: string;
+  children: ReactNode;
 } & (ButtonAnchorProps | ButtonButtonProps);
 
 export const Button = forwardRef<
@@ -19,10 +19,10 @@ export const Button = forwardRef<
   const buttonRef = ref || createRef<HTMLButtonElement | HTMLAnchorElement>();
 
   if (props.href) {
-    const { href, label, ...otherProps } = props;
+    const { href, children, ...otherProps } = props;
     return (
       <a href={href} ref={buttonRef as Ref<HTMLAnchorElement>} {...otherProps}>
-        {label}
+        {children}
       </a>
     );
   }
@@ -31,14 +31,14 @@ export const Button = forwardRef<
     return null;
   }
 
-  const { label, ...otherProps } = props;
+  const { children, ...otherProps } = props;
   return (
     <button
       type="button"
       ref={buttonRef as Ref<HTMLButtonElement>}
       {...otherProps}
     >
-      {label}
+      {children}
     </button>
   );
 });
