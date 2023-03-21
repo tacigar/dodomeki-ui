@@ -14,7 +14,7 @@ type ButtonButtonProps = {
 
 const buttonSizeCss = {
   small: css`
-    padding: 0.15rem 0.3rem;
+    padding: 0.23rem 0.46rem;
     font-size: 0.846rem;
   `,
   default: css`
