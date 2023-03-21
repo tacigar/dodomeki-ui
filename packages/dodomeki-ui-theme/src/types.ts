@@ -7,6 +7,7 @@ type Typography = {
 
 export type Theme = {
   palette: {
+    mode: 'light' | 'dark';
     primary: {
       light: string;
       main: string;

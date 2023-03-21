@@ -128,6 +128,7 @@ const typography = {
 
 export const defaultTheme: Theme = {
   palette: {
+    mode: 'light',
     primary: lightModePrimaryColors,
     secondary: lightModeSecondaryColors,
     background: lightModeBackgroundColors,
@@ -138,6 +139,7 @@ export const defaultTheme: Theme = {
 
 export const defaultDarkTheme: Theme = {
   palette: {
+    mode: 'dark',
     primary: darkModePrimaryColors,
     secondary: darkModeSecondaryColors,
     background: darkModeBackgroundColors,
