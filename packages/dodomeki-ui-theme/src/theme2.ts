@@ -42,6 +42,12 @@ const lightModeBackgroundColors = {
   tertiary: '#ffffff',
 } as const;
 
+const lightModeTextColors = {
+  primary: '#1f1f1f',
+  secondary: '#6e6e6e',
+  disabled: '#b2b2b2',
+} as const;
+
 const darkModePrimaryColors = {
   light: primaryColorPalette[100],
   main: primaryColorPalette[300],
@@ -58,6 +64,12 @@ const darkModeBackgroundColors = {
   primary: '#121212',
   secondary: '#1E1E1E',
   tertiary: '#2A2A2A',
+} as const;
+
+const darkModeTextColors = {
+  primary: '#ececec',
+  secondary: '#a3a3a3',
+  disabled: '#4a4a4a',
 } as const;
 
 const typography = {
