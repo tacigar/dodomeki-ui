@@ -2,6 +2,7 @@ import { css, CSSObject } from '@emotion/react';
 import React, { ReactNode, Ref, createRef, forwardRef } from 'react';
 
 export type ButtonSize = 'small' | 'default' | 'large';
+export type ButtonVariant = 'contained' | 'default' | 'text' | 'link';
 
 type ButtonAnchorProps = {
   href: string;
@@ -15,6 +16,7 @@ export type ButtonProps = {
   children: ReactNode;
   css?: CSSObject;
   size?: ButtonSize;
+  variant?: ButtonVariant;
 } & (ButtonAnchorProps | ButtonButtonProps);
 
 export const Button = forwardRef<
@@ -24,7 +26,15 @@ export const Button = forwardRef<
   const buttonRef = ref || createRef<HTMLButtonElement | HTMLAnchorElement>();
 
   if (props.href) {
-    const { children, css: cssProp, href, size, ...otherProps } = props;
+    const {
+      children,
+      css: cssProp,
+      href,
+      size = 'default',
+      variant = 'default',
+      ...otherProps
+    } = props;
+
     return (
       <a
         css={css`
@@ -43,7 +53,14 @@ export const Button = forwardRef<
     return null;
   }
 
-  const { children, css: cssProp, size, ...otherProps } = props;
+  const {
+    children,
+    css: cssProp,
+    size = 'default',
+    variant = 'default',
+    ...otherProps
+  } = props;
+
   return (
     <button
       css={css`
