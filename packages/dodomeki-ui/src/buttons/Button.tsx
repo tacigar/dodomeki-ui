@@ -4,6 +4,7 @@ import React, { ReactNode, Ref, createRef, forwardRef } from 'react';
 
 export type ButtonSize = 'small' | 'default' | 'large';
 export type ButtonVariant = 'contained' | 'default' | 'text' | 'link';
+export type ButtonColor = 'primary' | 'secondary';
 
 type ButtonAnchorProps = {
   href: string;
@@ -37,60 +38,69 @@ const buttonSizeCss = {
   `,
 } as const;
 
-const buttonVariantCss = (theme: Theme) => {
-  return {
-    contained: css`
-      color: #fff;
-      border: 1px solid ${theme.palette.primary.dark};
-      background-color: ${theme.palette.primary.main};
-      &:hover {
-        background-color: ${theme.palette.primary.light};
-      }
-      &:active {
-        background-color: ${theme.palette.primary.dark};
-      }
-    `,
-    default: css`
-      color: ${theme.palette.primary.main};
-      border: 1px solid ${theme.palette.primary.main};
-      background-color: transparent;
-      &:hover {
-        color: ${theme.palette.primary.light};
-        border: 1px solid ${theme.palette.primary.light};
-      }
-      &:active {
-        color: ${theme.palette.primary.dark};
-        border: 1px solid ${theme.palette.primary.dark};
-      }
-    `,
-    text: css`
-      color: ${theme.palette.primary.main};
-      border: none;
-      background-color: transparent;
-      &:hover {
-        background-color: rgba(0, 123, 255, 0.1);
-      }
-      &:active {
-        background-color: rgba(0, 123, 255, 0.2);
-      }
-    `,
-    link: css`
-      color: ${theme.palette.primary.main};
-      border: none;
-      background-color: transparent;
-      text-decoration: underline;
-      &:hover {
-        text-decoration: none;
-      }
-      &:active {
-        text-decoration: none;
-      }
-    `,
-  } as const;
+const buttonVariantCss = (
+  theme: Theme,
+  variant: ButtonVariant,
+  color: ButtonColor,
+) => {
+  switch (variant) {
+    case 'contained':
+      return css`
+        color: #fff;
+        border: 1px solid ${theme.palette[color].dark};
+        background-color: ${theme.palette[color].main};
+        &:hover {
+          background-color: ${theme.palette[color].light};
+        }
+        &:active {
+          background-color: ${theme.palette[color].dark};
+        }
+      `;
+    case 'default':
+      return css`
+        color: ${theme.palette[color].main};
+        border: 1px solid ${theme.palette[color].main};
+        background-color: transparent;
+        &:hover {
+          color: ${theme.palette[color].light};
+          border: 1px solid ${theme.palette[color].light};
+        }
+        &:active {
+          color: ${theme.palette[color].dark};
+          border: 1px solid ${theme.palette[color].dark};
+        }
+      `;
+    case 'text':
+      return css`
+        color: ${theme.palette[color].main};
+        border: none;
+        background-color: transparent;
+        &:hover {
+          background-color: rgba(0, 123, 255, 0.1);
+        }
+        &:active {
+          background-color: rgba(0, 123, 255, 0.2);
+        }
+      `;
+    case 'link':
+      return css`
+        color: ${theme.palette[color].main};
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+        &:active {
+          text-decoration: none;
+        }
+      `;
+  }
 };
 
 export type ButtonProps = {
   children: ReactNode;
+  color?: ButtonColor;
   css?: CSSObject;
   size?: ButtonSize;
   variant?: ButtonVariant;
@@ -105,6 +115,7 @@ export const Button = forwardRef<
   if (props.href) {
     const {
       children,
+      color = 'primary',
       css: cssProp,
       href,
       size = 'default',
@@ -118,7 +129,7 @@ export const Button = forwardRef<
           ${cssProp}
           ${buttonBaseCss}
           ${buttonSizeCss[size]}
-          ${buttonVariantCss(theme)[variant]}
+          ${buttonVariantCss(theme, variant, color)}
         `}
         href={href}
         ref={buttonRef as Ref<HTMLAnchorElement>}
@@ -135,6 +146,7 @@ export const Button = forwardRef<
 
   const {
     children,
+    color = 'primary',
     css: cssProp,
     size = 'default',
     variant = 'default',
@@ -147,7 +159,7 @@ export const Button = forwardRef<
         ${cssProp}
         ${buttonBaseCss}
         ${buttonSizeCss[size]}
-        ${buttonVariantCss(theme)[variant]}
+        ${buttonVariantCss(theme, variant, color)}
       `}
       ref={buttonRef as Ref<HTMLButtonElement>}
       type="button"
