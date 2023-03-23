@@ -23,20 +23,25 @@ const buttonBaseCss = css({
   transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
 });
 
-const buttonSizeCss = {
-  small: css`
-    padding: 0.23rem 0.46rem;
-    font-size: 0.846rem;
-  `,
-  default: css`
-    padding: 0.3rem 0.6rem;
-    font-size: 1rem;
-  `,
-  large: css`
-    padding: 0.46rem 0.92rem;
-    font-size: 1.154rem;
-  `,
-} as const;
+const buttonSizeCss = (theme: Theme, size: ButtonSize) => {
+  switch (size) {
+    case 'small':
+      return css`
+        padding: 0.23rem 0.46rem;
+        font-size: ${theme.typography.small.fontSize};
+      `;
+    case 'default':
+      return css`
+        padding: 0.3rem 0.6rem;
+        font-size: ${theme.typography.body.fontSize};
+      `;
+    case 'large':
+      return css`
+        padding: 0.46rem 0.92rem;
+        font-size: 1.154rem;
+      `;
+  }
+};
 
 const buttonVariantCss = (
   theme: Theme,
@@ -128,7 +133,7 @@ export const Button = forwardRef<
         css={(theme) => css`
           ${cssProp}
           ${buttonBaseCss}
-          ${buttonSizeCss[size]}
+          ${buttonSizeCss(theme, size)}
           ${buttonVariantCss(theme, variant, color)}
         `}
         href={href}
@@ -158,7 +163,7 @@ export const Button = forwardRef<
       css={(theme) => css`
         ${cssProp}
         ${buttonBaseCss}
-        ${buttonSizeCss[size]}
+        ${buttonSizeCss(theme, size)}
         ${buttonVariantCss(theme, variant, color)}
       `}
       ref={buttonRef as Ref<HTMLButtonElement>}
