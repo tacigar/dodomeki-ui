@@ -27,17 +27,17 @@ const buttonSizeCss = (theme: Theme, size: ButtonSize) => {
   switch (size) {
     case 'small':
       return css`
-        padding: 0.23rem 0.46rem;
+        padding: 0.25rem 0.5rem;
         font-size: ${theme.typography.small.fontSize};
       `;
     case 'default':
       return css`
-        padding: 0.3rem 0.6rem;
+        padding: 0.35rem 0.7rem;
         font-size: ${theme.typography.body.fontSize};
       `;
     case 'large':
       return css`
-        padding: 0.46rem 0.92rem;
+        padding: 0.45rem 0.9rem;
         font-size: 1.154rem;
       `;
   }
