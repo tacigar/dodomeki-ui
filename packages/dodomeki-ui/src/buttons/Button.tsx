@@ -103,11 +103,44 @@ const buttonVariantCss = (
   }
 };
 
+type ButtonContentProps = {
+  children: ReactNode;
+  endIcon?: ReactNode;
+  startIcon?: ReactNode;
+};
+
+const ButtonContent = ({
+  children,
+  endIcon,
+  startIcon,
+}: ButtonContentProps) => {
+  if (!endIcon && !startIcon) {
+    return <>{children}</>;
+  }
+  return (
+    <span
+      css={css`
+        display: flex;
+        align-items: center;
+        & > :not(:last-child) {
+          margin-right: 6px;
+        }
+      `}
+    >
+      {startIcon}
+      <span>{children}</span>
+      {endIcon}
+    </span>
+  );
+};
+
 export type ButtonProps = {
   children: ReactNode;
   color?: ButtonColor;
   css?: CSSObject;
+  endIcon?: ReactNode;
   size?: ButtonSize;
+  startIcon?: ReactNode;
   variant?: ButtonVariant;
 } & (ButtonAnchorProps | ButtonButtonProps);
 
@@ -122,8 +155,10 @@ export const Button = forwardRef<
       children,
       color = 'primary',
       css: cssProp,
+      endIcon,
       href,
       size = 'default',
+      startIcon,
       variant = 'default',
       ...otherProps
     } = props;
@@ -140,7 +175,9 @@ export const Button = forwardRef<
         ref={buttonRef as Ref<HTMLAnchorElement>}
         {...otherProps}
       >
-        {children}
+        <ButtonContent endIcon={endIcon} startIcon={startIcon}>
+          {children}
+        </ButtonContent>
       </a>
     );
   }
@@ -153,7 +190,9 @@ export const Button = forwardRef<
     children,
     color = 'primary',
     css: cssProp,
+    endIcon,
     size = 'default',
+    startIcon,
     variant = 'default',
     ...otherProps
   } = props;
@@ -170,7 +209,9 @@ export const Button = forwardRef<
       type="button"
       {...otherProps}
     >
-      {children}
+      <ButtonContent endIcon={endIcon} startIcon={startIcon}>
+        {children}
+      </ButtonContent>
     </button>
   );
 });
