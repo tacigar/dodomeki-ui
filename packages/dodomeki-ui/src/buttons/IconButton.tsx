@@ -21,17 +21,17 @@ const buttonSizeCss = (theme: Theme, size: ButtonSize) => {
   switch (size) {
     case 'small':
       return css`
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem 0.25rem;
         font-size: ${theme.typography.small.fontSize};
       `;
     case 'default':
       return css`
-        padding: 0.35rem 0.7rem;
+        padding: 0.35rem 0.35rem;
         font-size: ${theme.typography.body.fontSize};
       `;
     case 'large':
       return css`
-        padding: 0.45rem 0.9rem;
+        padding: 0.45rem 0.45rem;
         font-size: 1.154rem;
       `;
   }
@@ -97,45 +97,14 @@ const buttonVariantCss = (
   }
 };
 
-type ButtonContentProps = {
-  children: ReactNode;
-  endIcon?: ReactNode;
-  startIcon?: ReactNode;
-};
-
-const ButtonContent = ({
-  children,
-  endIcon,
-  startIcon,
-}: ButtonContentProps) => {
-  if (!endIcon && !startIcon) {
-    return <>{children}</>;
-  }
-  return (
-    <span
-      css={css`
-        display: flex;
-        align-items: center;
-        & > :not(:last-child) {
-          margin-right: 6px;
-        }
-      `}
-    >
-      {startIcon}
-      <span>{children}</span>
-      {endIcon}
-    </span>
-  );
-};
-
-export type ButtonProps = {
+export type IconButtonProps = {
   endIcon?: ReactNode;
   startIcon?: ReactNode;
 } & ButtonCommonProps;
 
-export const Button = forwardRef<
+export const IconButton = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
-  ButtonProps
+  IconButtonProps
 >((props, ref) => {
   const buttonRef = ref || createRef<HTMLButtonElement | HTMLAnchorElement>();
 
@@ -164,9 +133,7 @@ export const Button = forwardRef<
         ref={buttonRef as Ref<HTMLAnchorElement>}
         {...otherProps}
       >
-        <ButtonContent endIcon={endIcon} startIcon={startIcon}>
-          {children}
-        </ButtonContent>
+        {children}
       </a>
     );
   }
@@ -198,9 +165,7 @@ export const Button = forwardRef<
       type="button"
       {...otherProps}
     >
-      <ButtonContent endIcon={endIcon} startIcon={startIcon}>
-        {children}
-      </ButtonContent>
+      {children}
     </button>
   );
 });

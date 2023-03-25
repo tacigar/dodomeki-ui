@@ -1,6 +1,7 @@
 import { CSSObject } from '@emotion/react';
 import React, { ReactElement, cloneElement } from 'react';
-import { ButtonColor, ButtonProps, ButtonSize, ButtonVariant } from './Button';
+import { ButtonProps } from './Button';
+import { ButtonColor, ButtonSize, ButtonVariant } from './types';
 
 export type ButtonGroupProps = {
   children: ReactElement<ButtonProps>[];
