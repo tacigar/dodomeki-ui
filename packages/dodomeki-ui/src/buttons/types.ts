@@ -3,7 +3,12 @@ import { ReactNode } from 'react';
 
 export type ButtonSize = 'small' | 'default' | 'large';
 export type ButtonVariant = 'contained' | 'default' | 'text' | 'link';
-export type ButtonColor = 'primary' | 'secondary';
+export type ButtonColor =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'danger';
 
 type ButtonAnchorProps = {
   href: string;

@@ -1,42 +1,58 @@
-type Typography = {
-  fontSize: string;
-  lineHeight: number;
-  fontWeight: number;
-  letterSpacing: string;
+type ColorsType = {
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+  6: string;
+  7: string;
+  8: string;
+  9: string;
+  light: string;
+  main: string;
+  dark: string;
 };
 
-export type Theme = {
+type TypographyType = {
+  fontWeight: number | string;
+  fontSize: string;
+  lineHeight: number;
+};
+
+export interface Theme {
   palette: {
-    mode: 'light' | 'dark';
-    primary: {
-      light: string;
-      main: string;
-      dark: string;
-    };
-    secondary: {
-      light: string;
-      main: string;
-      dark: string;
-    };
+    primary: ColorsType;
+    secondary: ColorsType;
+    success: ColorsType;
+    warning: ColorsType;
+    danger: ColorsType;
+    divider: string;
     background: {
-      primary: string;
-      secondary: string;
-      tertiary: string;
+      default: string;
     };
     text: {
+      default: string;
+      subdued: string;
       primary: string;
-      secondary: string;
-      disabled: string;
+      inverseDefault: string;
     };
   };
-  typography: {
-    h1: Typography;
-    h2: Typography;
-    h3: Typography;
-    h4: Typography;
-    h5: Typography;
-    h6: Typography;
-    body: Typography;
-    small: Typography;
+  zIndex: {
+    header: number;
   };
-};
+  spacing: (...args: number[]) => string;
+  text: {
+    fontSize: {
+      sm: string;
+      md: string;
+      lg: string;
+    };
+    h1: TypographyType;
+    h2: TypographyType;
+    h3: TypographyType;
+    h4: TypographyType;
+    h5: TypographyType;
+    h6: TypographyType;
+  };
+}

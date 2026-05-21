@@ -1,18 +1,4 @@
-/*
- * Copyright 2021 Tacigar
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- */
-
-export { defaultSpacing } from './defaultSpacing';
-export { defaultTheme } from './defaultTheme';
-export { Theme } from './Theme';
-export { ThemeProvider, ThemeProviderProps } from './ThemeProvider';
+export { defaultSpacing, defaultTheme } from '@dodomeki-ui/theme';
+export type { Theme } from '@dodomeki-ui/theme';
+export { ThemeProvider } from './ThemeProvider';
+export type { ThemeProviderProps } from './ThemeProvider';

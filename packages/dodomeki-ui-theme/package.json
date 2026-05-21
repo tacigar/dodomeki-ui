@@ -1,16 +1,30 @@
 {
   "name": "@dodomeki-ui/theme",
-  "version": "0.0.19",
+  "version": "0.1.0",
+  "description": "Dodomeki UI theme definitions",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib"
   ],
+  "sideEffects": false,
+  "license": "Apache-2.0",
+  "author": "tacigar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tacigar/dodomeki-ui.git",
+    "directory": "packages/dodomeki-ui-theme"
+  },
+  "homepage": "https://github.com/tacigar/dodomeki-ui#readme",
+  "bugs": {
+    "url": "https://github.com/tacigar/dodomeki-ui/issues"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepare": "npm run build"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "publishConfig": {
     "access": "public"

@@ -116,3 +116,12 @@ dist
 .pnp.*
 
 lib/
+
+# Turborepo
+.turbo/
+
+# Storybook
+storybook-static/
+
+# Claude Code
+.claude/

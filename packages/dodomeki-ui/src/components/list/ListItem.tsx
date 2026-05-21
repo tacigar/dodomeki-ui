@@ -63,6 +63,7 @@ export const ListItem: FC<ListItemProps> = (props) => {
   const children = [
     props.icon,
     <span
+      key="label"
       css={(theme) => css`
         margin-left: ${props.icon ? theme.spacing(1) : 0};
       `}

@@ -1,149 +1,143 @@
+import { defaultSpacing } from './defaultSpacing';
 import { Theme } from './types';
-
-const primaryColorPalette = {
-  '50': '#e9f3fc',
-  '100': '#d2e7fa',
-  '200': '#a5cff5',
-  '300': '#78b8ef',
-  '400': '#4ba0ea',
-  '500': '#1e88e5',
-  '600': '#1b7ace',
-  '700': '#186db7',
-  '800': '#155fa0',
-  '900': '#125289',
-} as const;
-
-const secondaryColorPalette = {
-  '50': '#fce9e8',
-  '100': '#fad2d1',
-  '200': '#f4a5a3',
-  '300': '#ef7876',
-  '400': '#e94b48',
-  '500': '#e41e1a',
-  '600': '#cd1b17',
-  '700': '#b61815',
-  '800': '#a01512',
-  '900': '#891210',
-};
-
-const lightModePrimaryColors = {
-  light: primaryColorPalette[300],
-  main: primaryColorPalette[500],
-  dark: primaryColorPalette[700],
-} as const;
-
-const lightModeSecondaryColors = {
-  light: secondaryColorPalette[300],
-  main: secondaryColorPalette[500],
-  dark: secondaryColorPalette[700],
-} as const;
-
-const lightModeBackgroundColors = {
-  primary: '#ffffff',
-  secondary: '#f5f5f5',
-  tertiary: '#ffffff',
-} as const;
-
-const lightModeTextColors = {
-  primary: '#1f1f1f',
-  secondary: '#6e6e6e',
-  disabled: '#b2b2b2',
-} as const;
-
-const darkModePrimaryColors = {
-  light: primaryColorPalette[100],
-  main: primaryColorPalette[300],
-  dark: primaryColorPalette[500],
-} as const;
-
-const darkModeSecondaryColors = {
-  light: secondaryColorPalette[100],
-  main: secondaryColorPalette[300],
-  dark: secondaryColorPalette[500],
-} as const;
-
-const darkModeBackgroundColors = {
-  primary: '#121212',
-  secondary: '#1E1E1E',
-  tertiary: '#2A2A2A',
-} as const;
-
-const darkModeTextColors = {
-  primary: '#ececec',
-  secondary: '#a3a3a3',
-  disabled: '#4a4a4a',
-} as const;
-
-const typography = {
-  fontSize: '14px',
-  h1: {
-    fontSize: '2.462rem', // 32px
-    lineHeight: 1.25,
-    fontWeight: 700,
-    letterSpacing: '-0.02em',
-  },
-  h2: {
-    fontSize: '1.846rem', // 24px
-    lineHeight: 1.33,
-    fontWeight: 600,
-    letterSpacing: '-0.015em',
-  },
-  h3: {
-    fontSize: '1.538rem', // 20px
-    lineHeight: 1.4,
-    fontWeight: 600,
-    letterSpacing: '-0.01em',
-  },
-  h4: {
-    fontSize: '1.385rem', // 18px
-    lineHeight: 1.44,
-    fontWeight: 600,
-    letterSpacing: '-0.008em',
-  },
-  h5: {
-    fontSize: '1.231rem', // 16px
-    lineHeight: 1.5,
-    fontWeight: 600,
-    letterSpacing: '-0.006em',
-  },
-  h6: {
-    fontSize: '1rem', // 13px
-    lineHeight: 1.43,
-    fontWeight: 600,
-    letterSpacing: '-0.003em',
-  },
-  body: {
-    fontSize: '1rem', // 13px
-    lineHeight: 1.5,
-    fontWeight: 400,
-    letterSpacing: 'normal',
-  },
-  small: {
-    fontSize: '0.846rem', // 11px
-    lineHeight: 1.33,
-    fontWeight: 400,
-    letterSpacing: 'normal',
-  },
-} as const;
 
 export const defaultTheme: Theme = {
   palette: {
-    mode: 'light',
-    primary: lightModePrimaryColors,
-    secondary: lightModeSecondaryColors,
-    background: lightModeBackgroundColors,
-    text: lightModeTextColors,
+    primary: {
+      ...[
+        '#e8eaf6',
+        '#c5cae9',
+        '#9fa8da',
+        '#7986cb',
+        '#5c6bc0',
+        '#3f51b5',
+        '#3949ab',
+        '#303f9f',
+        '#283593',
+        '#1a237e',
+      ],
+      light: '#7986cb',
+      main: '#3f51b5',
+      dark: '#1a237e',
+    },
+    secondary: {
+      ...[
+        '#fce4ec',
+        '#f8bbd0',
+        '#f48fb1',
+        '#f06292',
+        '#ec407a',
+        '#e91e63',
+        '#d81b60',
+        '#c2185b',
+        '#ad1457',
+        '#880e4f',
+      ],
+      light: '#f06292',
+      main: '#e91e63',
+      dark: '#880e4f',
+    },
+    success: {
+      ...[
+        '#e0f2f1',
+        '#b2dfdb',
+        '#80cbc4',
+        '#4db6ac',
+        '#26a69a',
+        '#009688',
+        '#00897b',
+        '#00796b',
+        '#00695c',
+        '#004d40',
+      ],
+      light: '#4db6ac',
+      main: '#009688',
+      dark: '#004d40',
+    },
+    warning: {
+      ...[
+        '#fff8e1',
+        '#ffecb3',
+        '#ffe082',
+        '#ffd54f',
+        '#ffca28',
+        '#ffc107',
+        '#ffb300',
+        '#ffa000',
+        '#ff8f00',
+        '#ff6f00',
+      ],
+      light: '#ffd54f',
+      main: '#ffc107',
+      dark: '#ff6f00',
+    },
+    danger: {
+      ...[
+        '#ffebee',
+        '#ffcdd2',
+        '#ef9a9a',
+        '#e57373',
+        '#ef5350',
+        '#f44336',
+        '#e53935',
+        '#d32f2f',
+        '#c62828',
+        '#b71c1c',
+      ],
+      light: '#e57373',
+      main: '#f44336',
+      dark: '#b71c1c',
+    },
+    divider: 'rgba(0, 0, 0, 0.125)',
+    background: {
+      default: '#fff',
+    },
+    text: {
+      default: '#343741',
+      subdued: '#69707d',
+      primary: '#3f51b5',
+      inverseDefault: '#fff',
+    },
   },
-  typography,
-};
-
-export const defaultDarkTheme: Theme = {
-  palette: {
-    mode: 'dark',
-    primary: darkModePrimaryColors,
-    secondary: darkModeSecondaryColors,
-    background: darkModeBackgroundColors,
-    text: darkModeTextColors,
+  zIndex: {
+    header: 1100,
   },
-  typography,
+  spacing: defaultSpacing,
+  text: {
+    fontSize: {
+      sm: '12px',
+      md: '14px',
+      lg: '16px',
+    },
+    h1: {
+      fontWeight: 600,
+      fontSize: '36px',
+      lineHeight: 1.25,
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: '32px',
+      lineHeight: 1.3,
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '28px',
+      lineHeight: 1.35,
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: '24px',
+      lineHeight: 1.4,
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: '20px',
+      lineHeight: 1.45,
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: '16px',
+      lineHeight: 1.5,
+    },
+  },
 };

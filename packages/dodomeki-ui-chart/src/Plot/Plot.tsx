@@ -18,6 +18,7 @@ export interface PlotProps {
     right: number;
     left: number;
   };
+  children?: React.ReactNode;
 }
 
 export const Plot: React.FC<PlotProps> = ({
@@ -39,7 +40,7 @@ export const Plot: React.FC<PlotProps> = ({
       maxY: Number.MIN_VALUE,
     };
     React.Children.forEach(children, (child) => {
-      if (React.isValidElement(child)) {
+      if (React.isValidElement<{ data: PlotData }>(child)) {
         if (
           child.type === LineSeries ||
           child.type === ScatterSeries ||

@@ -22,9 +22,11 @@ import {
   Tag,
 } from '@dodomeki-ui/core';
 import { css } from '@emotion/react';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-export const Layout: FC = ({ children }) => (
+type LayoutProps = { children?: ReactNode };
+
+export const Layout: FC<LayoutProps> = ({ children }) => (
   <div>
     <Header theme="dark">
       <div

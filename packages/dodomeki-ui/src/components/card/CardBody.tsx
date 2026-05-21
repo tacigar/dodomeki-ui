@@ -15,7 +15,7 @@
 import { css } from '@emotion/react';
 import { FC, HTMLAttributes } from 'react';
 
-export type CardBodyProps = HTMLAttributes<HTMLDivElement> & {};
+export type CardBodyProps = HTMLAttributes<HTMLDivElement>;
 
 export const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => (
   <div
@@ -23,6 +23,7 @@ export const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => (
       flex: 1 1;
       padding: ${theme.spacing(2)};
     `}
+    {...rest}
   >
     {children}
   </div>

@@ -1,19 +1,18 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { Meta, StoryObj } from '@storybook/react';
 import { IconButton } from './IconButton';
 
-export default {
+const meta: Meta<typeof IconButton> = {
   title: 'buttons/IconButton',
   component: IconButton,
-} as ComponentMeta<typeof IconButton>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof IconButton> = (args) => (
-  <IconButton {...args} />
-);
+type Story = StoryObj<typeof IconButton>;
 
-export const Simple = Template.bind({});
-Simple.args = {
-  children: <FontAwesomeIcon icon={faHome} />,
+export const Simple: Story = {
+  args: {
+    children: <FontAwesomeIcon icon={faHome} />,
+  },
 };

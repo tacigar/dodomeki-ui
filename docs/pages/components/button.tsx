@@ -56,19 +56,19 @@ const ButtonPage: React.FC = () => {
             }
           `}
         >
-          <Button color="primary" variant="empty" onClick={() => {}}>
+          <Button color="primary" variant="default" onClick={() => {}}>
             Primary
           </Button>
-          <Button color="secondary" variant="empty" onClick={() => {}}>
+          <Button color="secondary" variant="default" onClick={() => {}}>
             Secondary
           </Button>
-          <Button color="danger" variant="empty" onClick={() => {}}>
+          <Button color="danger" variant="default" onClick={() => {}}>
             Danger
           </Button>
-          <Button color="warning" variant="empty" onClick={() => {}}>
+          <Button color="warning" variant="default" onClick={() => {}}>
             Warning
           </Button>
-          <Button color="success" variant="empty" onClick={() => {}}>
+          <Button color="success" variant="default" onClick={() => {}}>
             Success
           </Button>
         </div>

@@ -29,7 +29,7 @@ export const List: FC<ListPropsInternal> = ({
   ...rest
 }) => {
   const children = React.Children.map(childrenProp, (child) => {
-    if (React.isValidElement(child)) {
+    if (React.isValidElement<{ _depth?: number }>(child)) {
       return React.cloneElement(child, {
         _depth: _depth + 1,
       });

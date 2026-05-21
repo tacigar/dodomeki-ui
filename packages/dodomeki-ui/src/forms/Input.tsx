@@ -1,13 +1,12 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, Ref } from 'react';
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   type: 'text' | 'password' | 'url' | 'email';
+  ref?: Ref<HTMLInputElement>;
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  return (
-    <div>
-      <input ref={ref} {...props} />
-    </div>
-  );
-});
+export const Input = ({ ref, ...props }: InputProps) => (
+  <div>
+    <input ref={ref} {...props} />
+  </div>
+);

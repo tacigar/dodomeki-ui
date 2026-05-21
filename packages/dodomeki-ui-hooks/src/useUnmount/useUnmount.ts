@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useUnmount = (func: () => any) => {
+export const useUnmount = (func: () => void) => {
   useEffect(
     () => func,
     // eslint-disable-next-line react-hooks/exhaustive-deps

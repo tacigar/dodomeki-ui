@@ -1,26 +1,35 @@
-import { storiesOf } from '@storybook/react';
-
+import type { Meta, StoryObj } from '@storybook/react';
 import { CrossHair } from '../CrossHair';
 import { Plot } from '../Plot';
 import { XAxis } from '../XAxis';
 import { YAxis } from '../YAxis';
 import { ScatterSeries } from '.';
 
-storiesOf('ScatterSeries', module).add('ScatterSeries', () => (
-  <Plot width={400} height={300}>
-    <ScatterSeries
-      data={[
-        { x: 10, y: 20 },
-        { x: 20, y: 30 },
-        { x: 30, y: 50 },
-        { x: 40, y: 80 },
-        { x: 50, y: 70 },
-        { x: 60, y: 90 },
-        { x: 70, y: 100 },
-      ]}
-    />
-    <XAxis />
-    <YAxis />
-    <CrossHair />
-  </Plot>
-));
+const meta: Meta<typeof ScatterSeries> = {
+  title: 'ScatterSeries',
+  component: ScatterSeries,
+};
+export default meta;
+
+type Story = StoryObj<typeof ScatterSeries>;
+
+export const Default: Story = {
+  render: () => (
+    <Plot width={400} height={300}>
+      <ScatterSeries
+        data={[
+          { x: 10, y: 20 },
+          { x: 20, y: 30 },
+          { x: 30, y: 50 },
+          { x: 40, y: 80 },
+          { x: 50, y: 70 },
+          { x: 60, y: 90 },
+          { x: 70, y: 100 },
+        ]}
+      />
+      <XAxis />
+      <YAxis />
+      <CrossHair />
+    </Plot>
+  ),
+};

@@ -1,6 +1,6 @@
 import { Theme } from '@dodomeki-ui/theme';
 import { css } from '@emotion/react';
-import { ReactNode, Ref, createRef, forwardRef } from 'react';
+import { Ref, ReactNode } from 'react';
 import {
   ButtonColor,
   ButtonCommonProps,
@@ -22,12 +22,12 @@ const buttonSizeCss = (theme: Theme, size: ButtonSize) => {
     case 'small':
       return css`
         padding: 0.25rem 0.5rem;
-        font-size: ${theme.typography.small.fontSize};
+        font-size: ${theme.text.fontSize.sm};
       `;
     case 'default':
       return css`
         padding: 0.35rem 0.7rem;
-        font-size: ${theme.typography.body.fontSize};
+        font-size: ${theme.text.fontSize.md};
       `;
     case 'large':
       return css`
@@ -131,14 +131,10 @@ const ButtonContent = ({
 export type ButtonProps = {
   endIcon?: ReactNode;
   startIcon?: ReactNode;
+  ref?: Ref<HTMLButtonElement | HTMLAnchorElement>;
 } & ButtonCommonProps;
 
-export const Button = forwardRef<
-  HTMLButtonElement | HTMLAnchorElement,
-  ButtonProps
->((props, ref) => {
-  const buttonRef = ref || createRef<HTMLButtonElement | HTMLAnchorElement>();
-
+export const Button = (props: ButtonProps) => {
   if (props.href) {
     const {
       children,
@@ -146,6 +142,7 @@ export const Button = forwardRef<
       css: cssProp,
       endIcon,
       href,
+      ref,
       size = 'default',
       startIcon,
       variant = 'default',
@@ -161,7 +158,7 @@ export const Button = forwardRef<
           ${buttonVariantCss(theme, variant, color)}
         `}
         href={href}
-        ref={buttonRef as Ref<HTMLAnchorElement>}
+        ref={ref as Ref<HTMLAnchorElement>}
         {...otherProps}
       >
         <ButtonContent endIcon={endIcon} startIcon={startIcon}>
@@ -180,6 +177,7 @@ export const Button = forwardRef<
     color = 'primary',
     css: cssProp,
     endIcon,
+    ref,
     size = 'default',
     startIcon,
     variant = 'default',
@@ -194,7 +192,7 @@ export const Button = forwardRef<
         ${buttonSizeCss(theme, size)}
         ${buttonVariantCss(theme, variant, color)}
       `}
-      ref={buttonRef as Ref<HTMLButtonElement>}
+      ref={ref as Ref<HTMLButtonElement>}
       type="button"
       {...otherProps}
     >
@@ -203,4 +201,4 @@ export const Button = forwardRef<
       </ButtonContent>
     </button>
   );
-});
+};

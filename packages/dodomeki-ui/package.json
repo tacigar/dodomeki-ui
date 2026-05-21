@@ -1,28 +1,39 @@
 {
   "name": "@dodomeki-ui/core",
-  "version": "0.0.18",
+  "version": "0.1.0",
+  "description": "Dodomeki UI core component library",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib"
   ],
+  "sideEffects": false,
+  "license": "Apache-2.0",
+  "author": "tacigar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tacigar/dodomeki-ui.git",
+    "directory": "packages/dodomeki-ui"
+  },
+  "homepage": "https://github.com/tacigar/dodomeki-ui#readme",
+  "bugs": {
+    "url": "https://github.com/tacigar/dodomeki-ui/issues"
+  },
   "peerDependencies": {
-    "react": "^16.13.0 || ^17.0.0",
-    "react-dom": "^16.13.0 || ^17.0.0",
-    "styled-components": "^5.0.1"
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepare": "npm run build"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@dodomeki-ui/theme": "0.0.19",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@types/styled-system": "^5.1.10",
-    "styled-system": "^5.1.5"
+    "@dodomeki-ui/theme": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

@@ -13,14 +13,14 @@
  */
 
 import { css } from '@emotion/react';
-import { HTMLAttributes, ReactNode, VFC } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
 export type CardTitleProps = HTMLAttributes<HTMLDivElement> & {
   title: ReactNode;
   subtitle?: ReactNode;
 };
 
-export const CardTitle: VFC<CardTitleProps> = ({
+export const CardTitle: FC<CardTitleProps> = ({
   title,
   subtitle,
   ...rest

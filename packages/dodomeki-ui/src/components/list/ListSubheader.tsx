@@ -13,13 +13,13 @@
  */
 
 import { css } from '@emotion/react';
-import { VFC } from 'react';
+import { FC } from 'react';
 
 export type ListSubheaderProps = {
   title: string;
 };
 
-export const ListSubheader: VFC<ListSubheaderProps> = ({ title }) => {
+export const ListSubheader: FC<ListSubheaderProps> = ({ title }) => {
   return (
     <div
       css={(theme) =>
